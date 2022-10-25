@@ -1,21 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import 'react-toastify/dist/ReactToastify.css';
 import NumberPicker from 'react-widgets/NumberPicker';
 
-import Button from '../../Button/Link';
-import { getDetails } from '../../../services/details.service';
+import Button from '../Button/Link';
+import { getDetails } from '../../services/details.service';
 import { useParams } from 'react-router-dom';
-import {
-  DetailsItemProps,
-  DetailsInitalStateProps,
-} from '../../../types/details';
+import { DetailsItemProps, DetailsInitalStateProps } from '../../types/details';
 import { NumericFormat } from 'react-number-format';
-import { REACT_APP_BASE_URL } from '../../../../global/constants';
-import ButtonAddToCart from '../../Button/AddToCart';
-import { useCart } from '../../../hooks/useCart';
-import { useCartProps } from '../../../types/context';
-import { ProductInCart } from '../../../types/productInCart';
-import { toast, ToastContainer } from 'react-toastify';
+import { REACT_APP_BASE_URL } from '../../../global/constants';
+import ButtonAddToCart from '../Button/AddToCart';
+import { ToastContainer } from 'react-toastify';
 
 const Details: React.FC = () => {
   const [details, setDetails] = useState<DetailsInitalStateProps>({
@@ -38,9 +31,6 @@ const Details: React.FC = () => {
   const [quantity, setQuantity] = useState(1);
 
   const { slug } = useParams();
-  const getCart = useCart((state: useCartProps) => state.cartContent);
-  const addToCart = useCart((state: useCartProps) => state.addTocart);
-  const updateCart = useCart((state: useCartProps) => state.updateCart);
 
   const getProductDetails = async () => {
     try {
@@ -53,58 +43,6 @@ const Details: React.FC = () => {
       });
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleCartProducts = ({
-    slug,
-    image,
-    price,
-    quantity,
-    stripe,
-    title,
-    description,
-  }: ProductInCart) => {
-    const findProductEqual = getCart.findIndex(
-      (item: { slug: string }) => item.slug === slug
-    );
-
-    if (findProductEqual !== -1) {
-      getCart[findProductEqual].quantity = quantity;
-      updateCart(
-        { slug, image, price, quantity, stripe, title, description },
-        getCart
-      );
-      toast('🦄 Item already addeds!', {
-        position: 'top-right',
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light',
-      });
-    } else {
-      toast('🦄 Item included in cart!', {
-        position: 'top-right',
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light',
-      });
-      addToCart({
-        slug,
-        image,
-        price,
-        quantity,
-        stripe,
-        title,
-        description,
-      });
     }
   };
 
@@ -149,9 +87,9 @@ const Details: React.FC = () => {
           />
 
           <div className="c-details__buttons">
-            <div
-              onClick={() =>
-                handleCartProducts({
+            <div>
+              <ButtonAddToCart
+                product={{
                   slug: details.slug,
                   image: details.image.data.attributes.url,
                   price: details.price,
@@ -159,10 +97,8 @@ const Details: React.FC = () => {
                   stripe: details.stripe,
                   title: details.title,
                   description: details.description,
-                })
-              }
-            >
-              <ButtonAddToCart />
+                }}
+              />
             </div>
 
             <Button title={'Go to Cart'} href={'/baskets'} color={'white'} />

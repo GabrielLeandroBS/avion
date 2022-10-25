@@ -2,7 +2,7 @@ import React from 'react';
 
 import ProductsPopular from '../../components/Home/Products/Popular';
 import Panel from '../../components/Panel';
-import Details from '../../components/Product/Details';
+import Details from '../../components/Details';
 import SignUp from '../../components/Input/SignUp';
 import Subscribe from '../../components/Subscribe';
 import { Layout } from '../../layout';

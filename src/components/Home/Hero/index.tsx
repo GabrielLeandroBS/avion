@@ -13,8 +13,8 @@ const Hero: React.FC = () => {
     description:
       'A new era in eco friendly furniture with Avelon, the French luxury retail brand with nice fonts, tasteful colors and a beautiful way to display things digitally using modern web technologies.',
     link: {
-      reference: 'Anything',
-      title: 'Anything',
+      reference: '/',
+      title: 'View Collection',
     },
     image: {
       data: {
