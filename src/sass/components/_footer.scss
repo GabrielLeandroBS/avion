@@ -1,0 +1,103 @@
+@use "../abstracts/functions" as functions;
+@use "../abstracts/mixins" as mixins;
+
+.c-footer {
+  @include mixins.flex(flex-start, space-between);
+
+  background-color: functions.color("primary");
+  padding-block: functions.rem(40px);
+  padding-inline: functions.rem(25px);
+  width: 100%;
+  flex-direction: column;
+
+  @include mixins.breakpoint("md") {
+    padding-block: functions.rem(40px);
+    padding-inline: functions.rem(82px);
+  }
+
+  &__container {
+    @include mixins.flex(flex-start, space-between);
+
+    flex-direction: column;
+    gap: functions.rem(48px);
+    margin-inline: auto;
+    max-width: functions.rem(1280px);
+    width: 100%;
+
+    @include mixins.breakpoint("lg") {
+      flex-direction: row;
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    gap: functions.rem(40px) functions.rem(55px);
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: flex-start;
+
+    @include mixins.breakpoint("smx") {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mixins.breakpoint("md") {
+      @include mixins.flex(flex-start, center);
+
+      gap: functions.rem(130px);
+    }
+  }
+
+  &__logo {
+    margin-bottom: functions.rem(16px);
+  }
+
+  &__title {
+    color: functions.color("white");
+    font-size: functions.rem(16px);
+    font-weight: functions.weight("thin");
+    line-height: functions.rem(20px);
+    margin-bottom: functions.rem(14px);
+  }
+
+  &__unlist {
+    list-style: none;
+  }
+
+  &__content {
+    p {
+      margin-bottom: functions.rem(12px);
+    }
+  }
+
+  &__item,
+  &__content {
+    margin-bottom: functions.rem(12px);
+
+    a,
+    p {
+      color: functions.color("white");
+      font-size: functions.rem(14px);
+      line-height: functions.rem(19px);
+      text-decoration: none;
+      font-family: Satoshi, sans-serif;
+    }
+  }
+
+  &__credits {
+    border-top: functions.rem(1px) solid functions.color("quinquenary");
+    color: functions.color("white");
+    font-family: Satoshi, sans-serif;
+    font-size: functions.rem(14px);
+    font-weight: functions.weight("thin");
+    line-height: functions.rem(19px);
+    margin-inline: auto;
+    margin-top: functions.rem(36px);
+    max-width: functions.rem(1280px);
+    padding-top: functions.rem(16px);
+    text-align: center;
+    width: 100%;
+
+    @include mixins.breakpoint("md") {
+      text-align: start;
+    }
+  }
+}

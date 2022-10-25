@@ -1,0 +1,34 @@
+@use "../../abstracts/functions" as functions;
+@use "../../abstracts/mixins" as mixins;
+
+.p-products {
+  margin-inline: auto;
+  max-width: functions.rem(1280px);
+  padding-bottom: functions.rem(40px);
+
+  &__title {
+    color: functions.color("primary");
+    font-size: functions(32px);
+    font-weight: functions.weight("thin");
+    line-height: 140%;
+    padding-block: functions.rem(40px);
+    text-align: center;
+
+    @include mixins.breakpoint("md") {
+      font-size: functions.color(36px);
+      padding-block: functions.rem(80px) functions.rem(40px);
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: functions.rem(64px);
+
+    @include mixins.breakpoint("md") {
+      gap: functions.rem(20px);
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: functions.rem(48px);
+    }
+  }
+}

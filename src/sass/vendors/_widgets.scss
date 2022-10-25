@@ -1,0 +1,7 @@
+@use "../abstracts/functions" as functions;
+
+.rw-widget {
+  &-picker {
+    max-width: functions.rem(122px);
+  }
+}

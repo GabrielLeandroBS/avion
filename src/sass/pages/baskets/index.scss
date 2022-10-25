@@ -1,0 +1,207 @@
+@use "../../abstracts/functions" as functions;
+@use "../../abstracts/mixins" as mixins;
+
+.baskets {
+  background-color: functions.color("tertiary");
+  min-height: 30vh;
+  padding-block: functions.rem(36px);
+  padding-inline: functions.rem(24px);
+
+  @include mixins.breakpoint("lg") {
+    padding: functions.rem(85px);
+  }
+
+  &__container {
+    margin-inline: auto;
+    max-width: functions.rem(1280px);
+
+    @include mixins.breakpoint("lg") {
+      background-color: functions.color("white");
+      padding-block: functions.rem(72px);
+      padding-inline: functions.rem(62px);
+    }
+  }
+
+  &__wrapper {
+    margin-bottom: functions.rem(20px);
+
+    @include mixins.breakpoint("lg") {
+      display: grid;
+      flex-direction: column;
+      grid-template-columns: repeat(5, 1fr);
+      margin-bottom: functions.rem(32px);
+
+      > div:first-of-type {
+        grid-area: 1 / 1 / 2 / 4;
+      }
+    }
+  }
+
+  &__header {
+    border-bottom: functions.rem(1px) solid functions.color("quartenary");
+    display: none;
+    margin-bottom: functions.rem(32px);
+    padding-bottom: functions.rem(16px);
+
+    @include mixins.breakpoint("lg") {
+      display: grid;
+    }
+  }
+
+  &__product,
+  &__price {
+    @include mixins.flex(flex-start, flex-start);
+
+    gap: functions.rem(24px);
+  }
+
+  &__price {
+    display: none;
+
+    @include mixins.breakpoint("lg") {
+      @include mixins.flex(flex-start, flex-end);
+
+      span {
+        padding-top: functions.rem(10px);
+      }
+    }
+  }
+
+  &__actions {
+    &--desktop {
+      display: none;
+    }
+
+    @include mixins.breakpoint("lg") {
+      display: none;
+
+      &--desktop {
+        @include mixins.flex(flex-start, flex-end);
+      }
+    }
+  }
+
+  &__figure {
+    height: functions.rem(155.16px);
+    max-width: functions.rem(109px);
+    overflow: hidden;
+    width: 100%;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      width: 100%;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__title {
+    color: functions.color("primary");
+    font-size: functions.rem(16px);
+    font-weight: functions.weight("thin");
+    line-height: 140%;
+    margin-bottom: functions.rem(8px);
+
+    @include mixins.breakpoint("lg") {
+      font-size: functions.rem(20px);
+    }
+  }
+
+  &__description,
+  &__rating {
+    color: functions.color("primary");
+    font-size: functions.rem(14px);
+    font-weight: functions.weight("thin");
+    line-height: 140%;
+    margin-bottom: functions.rem(8px);
+    max-width: functions.rem(232px);
+  }
+
+  &__footer {
+    border-top: functions.rem(1px) solid functions.color("quartenary");
+    padding-top: functions.rem(25px);
+    text-align: end;
+
+    @include mixins.breakpoint("lg") {
+      @include mixins.flex(flex-start, space-between);
+
+      flex-direction: row;
+    }
+
+    .c-button {
+      @include mixins.breakpoint("md") {
+        width: 100%;
+      }
+
+      @include mixins.breakpoint("lg") {
+        width: max-content;
+      }
+    }
+  }
+
+  &__span {
+    color: functions.color("quinquenary");
+    font-size: functions.rem(14px);
+    font-weight: functions.weight("thin");
+    line-height: 140%;
+    font-family: Satoshi, sans-serif;
+  }
+
+  &__content {
+    @include mixins.flex(flex-end, flex-end);
+
+    color: functions.color("quinquenary");
+    flex-direction: column;
+    font-size: functions.rem(20px);
+    font-weight: functions.weight("regular");
+    gap: functions.rem(16px);
+    line-height: 140%;
+
+    p {
+      font-size: functions.rem(24px);
+      line-height: 140%;
+      color: functions.color("primary");
+    }
+  }
+
+  &__buttons {
+    @include mixins.flex(center, flex-end);
+
+    width: 100%;
+  }
+
+  &__remove {
+    color: functions.color("red");
+    cursor: pointer;
+  }
+
+  &__empty {
+    margin-bottom: functions.rem(20px);
+
+    span {
+      color: functions.color("primary");
+      font-weight: functions.weight("thin");
+    }
+  }
+
+  &__subtotal {
+    span {
+      color: functions.color("primary");
+      font-size: functions.rem(20px);
+    }
+
+    span:first-of-type {
+      color: functions.color("quinquenary");
+      font-size: functions.rem(20px);
+      font-weight: functions.weight("thin");
+      line-height: 140%;
+      margin-right: functions.rem(16px);
+    }
+  }
+}

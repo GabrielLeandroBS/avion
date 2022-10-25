@@ -1,0 +1,19 @@
+@use "../abstracts/functions" as functions;
+@use "../abstracts/typography";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Clash Display", sans-serif;
+}
+
+body {
+  margin: 0 auto;
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}

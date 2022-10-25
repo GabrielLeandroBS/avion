@@ -1,0 +1,24 @@
+@use "../abstracts/functions" as functions;
+@use "../abstracts/mixins" as mixins;
+
+.c-signup {
+  &__wrapper {
+    @include mixins.flex(center, center);
+
+    gap: 0;
+  }
+
+  &__input {
+    background: functions.color("tertiary");
+    border: none;
+    height: functions.rem(56px);
+    max-width: functions.rem(354px);
+    outline: none;
+    padding-inline: functions.rem(32px);
+    width: 100%;
+
+    &::placeholder {
+      opacity: 0.2;
+    }
+  }
+}

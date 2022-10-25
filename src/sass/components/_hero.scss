@@ -1,0 +1,112 @@
+@use "../abstracts/functions" as functions;
+@use "../abstracts/mixins" as mixins;
+
+.c-hero {
+  @include mixins.flex(center, center);
+
+  background-color: functions.color("primary");
+  margin-inline: auto;
+  max-width: functions.rem(1280px);
+  width: 100%;
+
+  @include mixins.breakpoint("md") {
+    height: functions.rem(584px);
+    margin-block: functions.rem(60px);
+  }
+
+  .c-button {
+    background: rgb(249 249 249 / 15%);
+
+    a {
+      color: functions.color("white");
+    }
+  }
+
+  &__content {
+    flex-direction: column;
+    height: 100%;
+    padding: functions.rem(40px) functions.rem(24px);
+
+    @include mixins.breakpoint("md") {
+      padding: functions.rem(60px);
+
+      @include mixins.flex(center, space-between);
+    }
+
+    @include mixins.breakpoint("lg") {
+      min-width: functions.rem(760px);
+    }
+  }
+
+  &__title {
+    color: functions.color("white");
+    font-size: functions.rem(32px);
+    font-weight: functions.weight("thin");
+    line-height: 140%;
+    margin-bottom: functions.rem(80px);
+
+    @include mixins.breakpoint("md") {
+      margin-bottom: functions.rem(41px);
+    }
+  }
+
+  &__button {
+    display: none;
+    width: 100%;
+
+    @include mixins.breakpoint("md") {
+      display: block;
+    }
+
+    &--desktop {
+      display: block;
+      width: 100%;
+
+      @include mixins.breakpoint("md") {
+        display: none;
+      }
+    }
+  }
+
+  &__description {
+    color: functions.color("white");
+    font-size: functions.rem(18px);
+    font-weight: functions.weight("thin");
+    line-height: 150%;
+    margin-bottom: functions.rem(32px);
+
+    @include mixins.breakpoint("md") {
+      margin-bottom: 0;
+    }
+  }
+
+  &__figure {
+    display: none;
+    height: 100%;
+    max-width: functions.rem(520px);
+    width: 100%;
+    overflow: hidden;
+
+    @include mixins.breakpoint("md") {
+      display: block;
+    }
+
+    @include mixins.breakpoint("lg") {
+      display: block;
+      min-width: functions.rem(520px);
+    }
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      width: 100%;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

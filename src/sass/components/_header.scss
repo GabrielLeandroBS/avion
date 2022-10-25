@@ -1,0 +1,15 @@
+@use "../abstracts/functions" as functions;
+@use "../abstracts/mixins" as mixins;
+
+.c-header {
+  @include mixins.flex(center, space-between);
+
+  max-width: functions.rem(1353px);
+  margin-inline: auto;
+  margin-block: functions.rem(25px);
+  padding-inline: functions.rem(24px);
+
+  @include mixins.breakpoint("md") {
+    padding-inline: 0;
+  }
+}
