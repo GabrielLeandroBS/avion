@@ -2,7 +2,7 @@ import React from 'react';
 import { featureProps } from '../../types/feature';
 import CardFeature from '../Card/Feature';
 
-const Feature: React.FC<featureProps> = ({ feature, title }: featureProps) => {
+const Features: React.FC<featureProps> = ({ feature, title }: featureProps) => {
   return (
     <section className="c-feature">
       <h2 className="c-feature__title">{title}</h2>
@@ -20,4 +20,4 @@ const Feature: React.FC<featureProps> = ({ feature, title }: featureProps) => {
   );
 };
 
-export default Feature;
+export default Features;

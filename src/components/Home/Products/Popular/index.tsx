@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getProducts } from '../../../../services/products.service';
 import { ProductsProps } from '../../../../types/products';
 import Button from '../../../Button/Link';
-import CardProducts from '../../../Card/Products';
+import CardProduct from '../../../Card/Product';
 
 const ProductsPopular: React.FC = () => {
   const [principalsProduct, setPrincipalsProduct] = useState([]);
@@ -31,7 +31,7 @@ const ProductsPopular: React.FC = () => {
       <h2 className="c-products__title">Our popular products</h2>
       <div className="c-products__wrapper c-products__wrapper--grid">
         {necessaryItems.map(({ attributes }: ProductsProps) => (
-          <CardProducts
+          <CardProduct
             key={attributes.title}
             image={attributes.image.data.attributes.url}
             title={attributes.title}

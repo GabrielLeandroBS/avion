@@ -9,12 +9,11 @@ import ButtonLink from '../../Button/Link';
 const Hero: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [home, setHome] = useState<HomeHeroProps>({
-    title: 'The furniture brand for the future, with timeless designs',
-    description:
-      'A new era in eco friendly furniture with Avelon, the French luxury retail brand with nice fonts, tasteful colors and a beautiful way to display things digitally using modern web technologies.',
+    title: '',
+    description: '',
     link: {
-      reference: '/',
-      title: 'View Collection',
+      reference: '',
+      title: '',
     },
     image: {
       data: {

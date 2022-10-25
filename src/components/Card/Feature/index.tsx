@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardFeatureProps } from '../../../types/cards/feature';
+import { CardFeatureProps } from '../../../types/card/feature';
 
 const CardFeature: React.FC<CardFeatureProps> = ({
   image,

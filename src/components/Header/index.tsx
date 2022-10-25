@@ -1,9 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import logo from '../../assets/logo.svg';
-import search from '../../assets/search.svg';
 import cart from '../../assets/cart.svg';
-import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
   return (

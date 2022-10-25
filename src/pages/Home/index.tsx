@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Button from '../../components/Button/Link';
-import Feature from '../../components/Feature';
 import Hero from '../../components/Home/Hero';
 import ProductsHighlighted from '../../components/Home/Products/Highlighted';
 import ProductsPopular from '../../components/Home/Products/Popular';
@@ -13,7 +12,6 @@ const Home: React.FC = () => {
   return (
     <Layout>
       <Hero />
-      {/* <Feature feature={features} title="What makes our brand different" /> */}
       <ProductsHighlighted />
       <ProductsPopular />
       <Subscribe />

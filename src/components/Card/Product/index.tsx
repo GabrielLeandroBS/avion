@@ -2,15 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { NumericFormat } from 'react-number-format';
 
-import { CardProductsProps } from '../../../types/cards/products';
+import { CardProductProps } from '../../../types/card/product';
 import { REACT_APP_BASE_URL } from '../../../../global/constants';
 
-const CardProducts: React.FC<CardProductsProps> = ({
+const CardProduct: React.FC<CardProductProps> = ({
   title,
   price,
   image,
   slug,
-}: CardProductsProps) => {
+}: CardProductProps) => {
   return (
     <article className="c-card c-card__product">
       <Link to={`/details/${slug}`} className="card__wrapper">
@@ -33,4 +33,4 @@ const CardProducts: React.FC<CardProductsProps> = ({
   );
 };
 
-export default CardProducts;
+export default CardProduct;
