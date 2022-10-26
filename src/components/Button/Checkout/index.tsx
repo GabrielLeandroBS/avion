@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
 import { loadStripe, Stripe } from '@stripe/stripe-js';
+import { toast } from 'react-toastify';
+import React, { useState } from 'react';
 
 import { CheckoutButtonItemsProps } from '../../../types/button/checkout';
 import { checkoutOptionsProps } from '../../../types/checkout';
@@ -43,8 +44,29 @@ const Checkout: React.FC<CheckoutButtonItemsProps> = (
       setLoading(true);
       const stripe: useStripeProps = await getStripe();
       await stripe.redirectToCheckout(checkoutOptions);
-    } finally {
-      setLoading(true);
+      toast.info(`Product Added list, you will be redirected.`, {
+        position: 'top-right',
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
+      setLoading(false);
+    } catch (error) {
+      toast.error(`Product not registered.`, {
+        position: 'top-right',
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
+      setLoading(false);
     }
   };
 

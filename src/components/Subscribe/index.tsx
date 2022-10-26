@@ -1,4 +1,5 @@
 import React from 'react';
+
 import SignUp from '../Input/SignUp';
 
 const Subscribe: React.FC = () => {

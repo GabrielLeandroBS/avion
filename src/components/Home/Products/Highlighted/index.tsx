@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getProducts } from '../../../../services/products.service';
 import { ProductsProps } from '../../../../types/products';
-import Button from '../../../Button/Link';
+import ButtonLink from '../../../Button/Link';
 import CardProduct from '../../../Card/Product';
 
 const ProductsHighlighted: React.FC = () => {
@@ -42,7 +42,7 @@ const ProductsHighlighted: React.FC = () => {
         ))}
       </div>
 
-      <Button title="View collection" href="/products" />
+      <ButtonLink title="View collection" href="/products" />
     </section>
   );
 };

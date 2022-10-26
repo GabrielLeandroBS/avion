@@ -1,5 +1,3 @@
-import { ReactElement } from 'react';
-
 export type AddToCartProps = {
   product: {
     slug: string;
@@ -8,6 +6,6 @@ export type AddToCartProps = {
     quantity: number;
     stripe: string;
     title: string;
-    description: string | ReactElement;
+    description: string;
   };
 };

@@ -8,7 +8,6 @@ import { DetailsItemProps, DetailsInitalStateProps } from '../../types/details';
 import { NumericFormat } from 'react-number-format';
 import { REACT_APP_BASE_URL } from '../../../global/constants';
 import ButtonAddToCart from '../Button/AddToCart';
-import { ToastContainer } from 'react-toastify';
 import Skeleton from 'react-loading-skeleton';
 
 const Details: React.FC = () => {
@@ -52,7 +51,6 @@ const Details: React.FC = () => {
 
   return (
     <section className="c-details">
-      <ToastContainer />
       <div className="c-details__container">
         <figure className="c-details__figure">
           {loading ? (

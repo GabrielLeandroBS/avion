@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
+
 import { getProducts } from '../../../../services/products.service';
 import { ProductsProps } from '../../../../types/products';
-import Button from '../../../Button/Link';
+import ButtonLink from '../../../Button/Link';
 import CardProduct from '../../../Card/Product';
 
 const ProductsPopular: React.FC = () => {
@@ -45,7 +46,7 @@ const ProductsPopular: React.FC = () => {
         ))}
       </div>
 
-      <Button title="View collection" href="/products" />
+      <ButtonLink title="View collection" href="/products" />
     </section>
   );
 };

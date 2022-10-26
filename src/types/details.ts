@@ -1,5 +1,3 @@
-import { ReactElement } from 'react';
-
 export type DetailsProps = string | undefined;
 
 export type DetailsItemProps = {
@@ -27,7 +25,7 @@ export type DetailsItemProps = {
 };
 
 export type DetailsInitalStateProps = {
-  description: string | ReactElement;
+  description: string;
   price: number;
   publishedAt: string;
   slug: string;

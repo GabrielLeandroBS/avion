@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { PanelProps } from '../../types/panel';
 
 const Panel: React.FC<PanelProps> = ({

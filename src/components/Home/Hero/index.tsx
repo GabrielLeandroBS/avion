@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
 
 import { getPage } from '../../../services/page.service';
 import { HomeHeroProps } from '../../../types/page/home/hero';
 import { REACT_APP_BASE_URL } from '../../../../global/constants';
 import ButtonLink from '../../Button/Link';
-import Skeleton from 'react-loading-skeleton';
 
 const Hero: React.FC = () => {
   const [loading, setLoading] = useState(true);

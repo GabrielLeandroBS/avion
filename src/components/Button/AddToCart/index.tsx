@@ -32,7 +32,7 @@ const ButtonAddToCart: React.FC<AddToCartProps> = ({
         { slug, image, price, quantity, stripe, title, description },
         getCart
       );
-      toast('🦄 Item already addeds!', {
+      toast.info('Item already addeds!', {
         position: 'top-right',
         autoClose: 2000,
         hideProgressBar: false,
@@ -43,7 +43,7 @@ const ButtonAddToCart: React.FC<AddToCartProps> = ({
         theme: 'light',
       });
     } else {
-      toast('🦄 Item included in cart!', {
+      toast.info('🦄 Item included in cart!', {
         position: 'top-right',
         autoClose: 2000,
         hideProgressBar: false,
