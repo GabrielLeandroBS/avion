@@ -34,9 +34,7 @@ const Details: React.FC = () => {
 
   const getProductDetails = async () => {
     try {
-      setLoading(true);
       const { data } = await getDetails(slug);
-
       data.data.find((element: DetailsItemProps) => {
         const { attributes } = element;
         setDetails(attributes);
@@ -58,7 +56,7 @@ const Details: React.FC = () => {
       <div className="c-details__container">
         <figure className="c-details__figure">
           {loading ? (
-            <Skeleton height={'100%'} />
+            <Skeleton height={'100%'} width={'100%'} />
           ) : (
             <img
               src={`${REACT_APP_BASE_URL}${details.image.data.attributes.url}`}
@@ -106,7 +104,7 @@ const Details: React.FC = () => {
           <div className="c-details__buttons">
             <div>
               {loading ? (
-                <Skeleton height={56} width={170} />
+                <Skeleton height={56} />
               ) : (
                 <ButtonAddToCart
                   product={{
@@ -122,7 +120,7 @@ const Details: React.FC = () => {
               )}
             </div>
             {loading ? (
-              <Skeleton height={56} width={170} />
+              <Skeleton height={56} />
             ) : (
               <Button title={'Go to Cart'} href={'/baskets'} color={'white'} />
             )}

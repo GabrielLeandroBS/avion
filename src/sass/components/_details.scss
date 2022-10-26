@@ -25,10 +25,10 @@
 
   &__figure {
     height: functions.rem(307px);
+    width: 100%;
 
     @include mixins.breakpoint('smx') {
       max-height: functions.rem(661px);
-      width: 100%;
     }
 
     @include mixins.breakpoint('md') {
@@ -142,12 +142,22 @@
   &__buttons {
     @include mixins.flex(center, flex-start);
 
+    div,
+    span {
+      width: 100%;
+    }
+
     flex-direction: column-reverse;
     gap: functions.rem(16px);
     margin-top: functions.rem(48px);
 
     @include mixins.breakpoint('md') {
       flex-direction: row;
+
+      div,
+      span {
+        max-width: functions.rem(170px);
+      }
     }
   }
 }

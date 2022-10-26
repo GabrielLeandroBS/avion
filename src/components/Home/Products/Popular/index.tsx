@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
 import { getProducts } from '../../../../services/products.service';
 import { ProductsProps } from '../../../../types/products';
 import Button from '../../../Button/Link';
@@ -28,7 +29,9 @@ const ProductsPopular: React.FC = () => {
 
   return (
     <section className="c-products">
-      <h2 className="c-products__title">Our popular products</h2>
+      <h2 className="c-products__title">
+        {loading ? <Skeleton height={50} /> : 'Our popular products'}
+      </h2>
       <div className="c-products__wrapper c-products__wrapper--grid">
         {getPopularProducts.map(({ attributes }: ProductsProps) => (
           <CardProduct
