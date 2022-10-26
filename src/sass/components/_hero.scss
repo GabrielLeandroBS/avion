@@ -1,15 +1,15 @@
-@use "../abstracts/functions" as functions;
-@use "../abstracts/mixins" as mixins;
+@use '../abstracts/functions' as functions;
+@use '../abstracts/mixins' as mixins;
 
 .c-hero {
   @include mixins.flex(center, center);
 
-  background-color: functions.color("primary");
+  background-color: functions.color('primary');
   margin-inline: auto;
   max-width: functions.rem(1280px);
   width: 100%;
 
-  @include mixins.breakpoint("md") {
+  @include mixins.breakpoint('md') {
     height: functions.rem(584px);
     margin-block: functions.rem(60px);
   }
@@ -18,7 +18,7 @@
     background: rgb(249 249 249 / 15%);
 
     a {
-      color: functions.color("white");
+      color: functions.color('white');
     }
   }
 
@@ -26,26 +26,32 @@
     flex-direction: column;
     height: 100%;
     padding: functions.rem(40px) functions.rem(24px);
+    width: 100%;
 
-    @include mixins.breakpoint("md") {
+    > div {
+      width: 100%;
+    }
+
+    @include mixins.breakpoint('md') {
       padding: functions.rem(60px);
+      width: auto;
 
       @include mixins.flex(center, space-between);
     }
 
-    @include mixins.breakpoint("lg") {
+    @include mixins.breakpoint('lg') {
       min-width: functions.rem(760px);
     }
   }
 
   &__title {
-    color: functions.color("white");
+    color: functions.color('white');
     font-size: functions.rem(32px);
-    font-weight: functions.weight("thin");
+    font-weight: functions.weight('thin');
     line-height: 140%;
     margin-bottom: functions.rem(80px);
 
-    @include mixins.breakpoint("md") {
+    @include mixins.breakpoint('md') {
       margin-bottom: functions.rem(41px);
     }
   }
@@ -54,7 +60,7 @@
     display: none;
     width: 100%;
 
-    @include mixins.breakpoint("md") {
+    @include mixins.breakpoint('md') {
       display: block;
     }
 
@@ -62,20 +68,21 @@
       display: block;
       width: 100%;
 
-      @include mixins.breakpoint("md") {
+      @include mixins.breakpoint('md') {
         display: none;
       }
     }
   }
 
   &__description {
-    color: functions.color("white");
+    color: functions.color('white');
     font-size: functions.rem(18px);
-    font-weight: functions.weight("thin");
+    font-weight: functions.weight('thin');
     line-height: 150%;
     margin-bottom: functions.rem(32px);
+    width: 100%;
 
-    @include mixins.breakpoint("md") {
+    @include mixins.breakpoint('md') {
       margin-bottom: 0;
     }
   }
@@ -87,11 +94,11 @@
     width: 100%;
     overflow: hidden;
 
-    @include mixins.breakpoint("md") {
+    @include mixins.breakpoint('md') {
       display: block;
     }
 
-    @include mixins.breakpoint("lg") {
+    @include mixins.breakpoint('lg') {
       display: block;
       min-width: functions.rem(520px);
     }

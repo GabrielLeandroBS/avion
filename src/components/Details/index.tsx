@@ -9,6 +9,7 @@ import { NumericFormat } from 'react-number-format';
 import { REACT_APP_BASE_URL } from '../../../global/constants';
 import ButtonAddToCart from '../Button/AddToCart';
 import { ToastContainer } from 'react-toastify';
+import Skeleton from 'react-loading-skeleton';
 
 const Details: React.FC = () => {
   const [details, setDetails] = useState<DetailsInitalStateProps>({
@@ -27,9 +28,8 @@ const Details: React.FC = () => {
     },
     stripe: '',
   });
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
-
   const { slug } = useParams();
 
   const getProductDetails = async () => {
@@ -57,51 +57,75 @@ const Details: React.FC = () => {
       <ToastContainer />
       <div className="c-details__container">
         <figure className="c-details__figure">
-          <img
-            src={`${REACT_APP_BASE_URL}${details.image.data.attributes.url}`}
-            alt="product image"
-          />
+          {loading ? (
+            <Skeleton height={'100%'} />
+          ) : (
+            <img
+              src={`${REACT_APP_BASE_URL}${details.image.data.attributes.url}`}
+              alt="product image"
+            />
+          )}
         </figure>
 
         <section className="c-details__content">
-          <h1 className="c-details__title">{details.title}</h1>
+          <h1 className="c-details__title">
+            {loading ? <Skeleton height={80} /> : details.title}
+          </h1>
           <p className="c-details__price">
-            <NumericFormat
-              value={details.price.toFixed(2)}
-              displayType={'text'}
-              thousandSeparator={true}
-              prefix={'US$ '}
-            />
+            {loading ? (
+              <Skeleton height={40} width={100} />
+            ) : (
+              <NumericFormat
+                value={details.price.toFixed(2)}
+                displayType={'text'}
+                thousandSeparator={true}
+                prefix={'US$ '}
+              />
+            )}
           </p>
-
           <div>
-            <h2 className="c-details__subtitle">Product description</h2>
-            <p className="c-details__description">{details.description}</p>
+            <h2 className="c-details__subtitle">
+              {loading ? <Skeleton height={40} /> : details.title}
+            </h2>
+            <p className="c-details__description">
+              {loading ? <Skeleton height={80} /> : details.description}
+            </p>
           </div>
 
-          <NumberPicker
-            defaultValue={1}
-            onChange={(value) => {
-              setQuantity(Number(value));
-            }}
-          />
+          {loading ? (
+            <Skeleton height={40} width={100} />
+          ) : (
+            <NumberPicker
+              defaultValue={1}
+              onChange={(value) => {
+                setQuantity(Number(value));
+              }}
+            />
+          )}
 
           <div className="c-details__buttons">
             <div>
-              <ButtonAddToCart
-                product={{
-                  slug: details.slug,
-                  image: details.image.data.attributes.url,
-                  price: details.price,
-                  quantity: quantity,
-                  stripe: details.stripe,
-                  title: details.title,
-                  description: details.description,
-                }}
-              />
+              {loading ? (
+                <Skeleton height={56} width={170} />
+              ) : (
+                <ButtonAddToCart
+                  product={{
+                    slug: details.slug,
+                    image: details.image.data.attributes.url,
+                    price: details.price,
+                    quantity: quantity,
+                    stripe: details.stripe,
+                    title: details.title,
+                    description: details.description,
+                  }}
+                />
+              )}
             </div>
-
-            <Button title={'Go to Cart'} href={'/baskets'} color={'white'} />
+            {loading ? (
+              <Skeleton height={56} width={170} />
+            ) : (
+              <Button title={'Go to Cart'} href={'/baskets'} color={'white'} />
+            )}
           </div>
         </section>
       </div>

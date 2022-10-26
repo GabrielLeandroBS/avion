@@ -1,39 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import Skeleton from 'react-loading-skeleton';
 
-import { REACT_APP_BASE_URL } from '../../../../global/constants';
 import { getPage } from '../../../services/page.service';
 import { HomeHeroProps } from '../../../types/page/home/hero';
+import { REACT_APP_BASE_URL } from '../../../../global/constants';
 import ButtonLink from '../../Button/Link';
+import HeroBackground from '../../../assets/background.jpeg';
 
 const Hero: React.FC = () => {
-  const [loading, setLoading] = useState<boolean>(false);
   const [home, setHome] = useState<HomeHeroProps>({
-    title: '',
-    description: '',
+    title: 'The furniture brand for the future, with timeless designs',
+    description: `A new era in eco friendly furniture with Avelon, the French luxury retail brand
+     with nice fonts, tasteful colors and a beautiful way to display things digitally using modern web technologies.`,
     link: {
-      reference: '',
-      title: '',
+      reference: '/',
+      title: 'View Collection',
     },
     image: {
       data: {
         attributes: {
-          url: '',
+          url: HeroBackground,
         },
       },
     },
   });
   const getComponentHero = async () => {
-    try {
-      setLoading(true);
-      const { data } = await getPage({
-        page: 'Home',
-        component: 'Hero',
-      });
-      setHome(data.attributes.Hero);
-    } finally {
-      setLoading(true);
-    }
+    const { data } = await getPage({
+      page: 'Home',
+      component: 'Hero',
+    });
+    setHome(data.attributes.Hero);
   };
 
   useEffect(() => {
@@ -62,6 +57,7 @@ const Hero: React.FC = () => {
         <img
           src={`${REACT_APP_BASE_URL}${image.data.attributes.url}`}
           alt="Image hero"
+          loading="lazy"
         />
       </figure>
     </section>

@@ -10,7 +10,7 @@ import { REACT_APP_BASE_URL } from '../../../global/constants';
 import { useCart } from '../../hooks/useCart';
 import { useCartProps } from '../../types/context';
 import Checkout from '../../components/Button/Checkout';
-import Dots from '../../assets/dots.svg';
+import Dots from '../../assets/sprite-svg/dots.svg';
 
 const Baskets: React.FC = () => {
   const [totalQuantity, setTotalQuantity] = useState<number>(1);

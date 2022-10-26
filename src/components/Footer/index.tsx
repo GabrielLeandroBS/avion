@@ -1,6 +1,6 @@
 import React from 'react';
 
-import logo from '../../assets/avion.svg';
+import logo from '../../assets/sprite-svg/avion.svg';
 
 const footers = [
   {

@@ -3,4 +3,5 @@ export type CardProductProps = {
   title: string;
   price: string;
   slug: string;
+  isLoading: boolean
 };
