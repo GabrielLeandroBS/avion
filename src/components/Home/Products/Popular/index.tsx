@@ -58,6 +58,11 @@ const ProductsPopular: React.FC = () => {
         {loading ? <Skeleton height={50} /> : title}
       </h2>
       <div className="c-products__wrapper c-products__wrapper--grid">
+        {loading
+          ? Array.from({ length: 2 }, () => (
+              <CardProduct key={length} isLoading={true} />
+            ))
+          : ''}
         {products.data.map(({ attributes }) => (
           <CardProduct
             key={attributes.title}
