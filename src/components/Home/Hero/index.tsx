@@ -8,7 +8,7 @@ import ButtonLink from '../../Button/Link';
 
 const Hero: React.FC = () => {
   const [loading, setLoading] = useState(true);
-  const [home, setHome] = useState<HomeHeroProps>({
+  const [hero, setHero] = useState<HomeHeroProps>({
     title: '',
     description: '',
     link: {
@@ -27,9 +27,8 @@ const Hero: React.FC = () => {
     try {
       const { data } = await getPage({
         page: 'Home',
-        component: 'Hero',
       });
-      setHome(data.attributes.Hero);
+      setHero(data.attributes.Hero);
     } finally {
       setLoading(false);
     }
@@ -41,7 +40,7 @@ const Hero: React.FC = () => {
     })();
   }, []);
 
-  const { title, description, link, image } = home;
+  const { title, description, link, image } = hero;
 
   return (
     <section className="c-hero">

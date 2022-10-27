@@ -1,18 +1,47 @@
 import React, { useEffect, useState } from 'react';
-import { getProducts } from '../../../../services/products.service';
-import { ProductsProps } from '../../../../types/products';
+import Skeleton from 'react-loading-skeleton';
+
+import { getPage } from '../../../../services/page.service';
+import { highlightedProps } from '../../../../types/highlighted';
 import ButtonLink from '../../../Button/Link';
 import CardProduct from '../../../Card/Product';
 
 const ProductsHighlighted: React.FC = () => {
-  const [highlightedProduct, setHighlightedProduct] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [highlightedProduct, setHighlightedProduct] =
+    useState<highlightedProps>({
+      title: '',
+      products: {
+        data: [
+          {
+            attributes: {
+              price: '',
+              slug: '',
+              stripe: '',
+              title: '',
+              description: '',
+              image: {
+                data: {
+                  attributes: {
+                    url: '/',
+                  },
+                },
+              },
+            },
+          },
+        ],
+      },
+      button: '',
+      location: '',
+    });
 
   const getHighlightedProduct = async () => {
     try {
       setLoading(true);
-      const { data } = await getProducts();
-      setHighlightedProduct(data);
+      const { data } = await getPage({
+        page: 'Home',
+      });
+      setHighlightedProduct(data.attributes.Highlighted);
     } finally {
       setLoading(false);
     }
@@ -24,13 +53,14 @@ const ProductsHighlighted: React.FC = () => {
     })();
   }, []);
 
-  const highlightedProducts = highlightedProduct.slice(0, 4);
-
+  const { title, products, button, location } = highlightedProduct;
   return (
     <section className="c-products">
-      <h2 className="c-products__title">New products</h2>
+      <h2 className="c-products__title">
+        {loading ? <Skeleton height={50} /> : title}
+      </h2>
       <div className="c-products__wrapper">
-        {highlightedProducts.map(({ attributes }: ProductsProps) => (
+        {products.data.map(({ attributes }) => (
           <CardProduct
             key={attributes.title}
             image={attributes.image.data.attributes.url}
@@ -42,7 +72,7 @@ const ProductsHighlighted: React.FC = () => {
         ))}
       </div>
 
-      <ButtonLink title="View collection" href="/products" />
+      <ButtonLink title={button} href={location} isLoading={loading} />
     </section>
   );
 };

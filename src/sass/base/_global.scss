@@ -13,7 +13,8 @@ body {
 }
 
 a {
-  &:hover {
+  &:hover,
+  &:visited {
     text-decoration: none;
   }
 }

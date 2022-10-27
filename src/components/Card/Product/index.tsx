@@ -27,10 +27,12 @@ const CardProduct: React.FC<CardProductProps> = ({
           )}
         </figure>
         <section>
-          <h2 className="c-card__title">{isLoading ? <Skeleton /> : title}</h2>
+          <h2 className="c-card__title">
+            {isLoading ? <Skeleton height={40} /> : title}
+          </h2>
           <p className="c-card__price">
             {isLoading ? (
-              <Skeleton />
+              <Skeleton height={30} />
             ) : (
               <NumericFormat
                 value={price}

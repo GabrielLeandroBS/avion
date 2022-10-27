@@ -1,20 +1,44 @@
 import React, { useEffect, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 
-import { getProducts } from '../../../../services/products.service';
-import { ProductsProps } from '../../../../types/products';
+import { getPage } from '../../../../services/page.service';
+import { popularProps } from '../../../../types/popular';
 import ButtonLink from '../../../Button/Link';
 import CardProduct from '../../../Card/Product';
 
 const ProductsPopular: React.FC = () => {
-  const [popularProducts, setPopularProduct] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  const getPrincipalsProduct = async () => {
+  const [loading, setLoading] = useState(true);
+  const [popularProduct, setPopularProduct] = useState<popularProps>({
+    title: '',
+    products: {
+      data: [
+        {
+          attributes: {
+            price: '',
+            slug: '',
+            stripe: '',
+            title: '',
+            description: '',
+            image: {
+              data: {
+                attributes: {
+                  url: '/',
+                },
+              },
+            },
+          },
+        },
+      ],
+    },
+    button: '',
+    location: '',
+  });
+  const getHighlightedProduct = async () => {
     try {
-      setLoading(true);
-      const { data } = await getProducts();
-      setPopularProduct(data);
+      const { data } = await getPage({
+        page: 'Home',
+      });
+      setPopularProduct(data.attributes.Popular);
     } finally {
       setLoading(false);
     }
@@ -22,19 +46,19 @@ const ProductsPopular: React.FC = () => {
 
   useEffect(() => {
     (async () => {
-      await getPrincipalsProduct();
+      await getHighlightedProduct();
     })();
   }, []);
 
-  const getPopularProducts = popularProducts.slice(0, 3).reverse();
+  const { title, products, button, location } = popularProduct;
 
   return (
     <section className="c-products">
       <h2 className="c-products__title">
-        {loading ? <Skeleton height={50} /> : 'Our popular products'}
+        {loading ? <Skeleton height={50} /> : title}
       </h2>
       <div className="c-products__wrapper c-products__wrapper--grid">
-        {getPopularProducts.map(({ attributes }: ProductsProps) => (
+        {products.data.map(({ attributes }) => (
           <CardProduct
             key={attributes.title}
             image={attributes.image.data.attributes.url}
@@ -46,7 +70,7 @@ const ProductsPopular: React.FC = () => {
         ))}
       </div>
 
-      <ButtonLink title="View collection" href="/products" />
+      <ButtonLink title={button} href={location} isLoading={loading} />
     </section>
   );
 };

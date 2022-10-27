@@ -23,7 +23,7 @@ const Home: React.FC = () => {
         description="
         When we started Avion, the idea was simple. Make high quality furniture affordable and available for the mass market. <br> <br> Handmade, and lovingly crafted furniture and homeware is what we live, breathe and design so our Chelsea boutique become the hotbed for the London interior design community.
         "
-        actions={<Button title={'Get in touch'} href={'#'} />}
+        actions={<Button title={'Get in touch'} href={'#'} isLoading={false} />}
       />
     </Layout>
   );

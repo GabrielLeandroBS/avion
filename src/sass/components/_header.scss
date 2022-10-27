@@ -9,7 +9,7 @@
   margin-block: functions.rem(25px);
   padding-inline: functions.rem(24px);
 
-  @include mixins.breakpoint("md") {
+  @include mixins.breakpoint("lg") {
     padding-inline: 0;
   }
 }

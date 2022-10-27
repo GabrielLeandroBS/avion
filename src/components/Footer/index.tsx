@@ -1,39 +1,7 @@
 import React from 'react';
 
 import logo from '../../assets/sprite-svg/avion.svg';
-
-const footers = [
-  {
-    title: 'New arrivals',
-  },
-  {
-    title: 'Best sellers',
-  },
-  {
-    title: 'Recently viewed',
-  },
-  {
-    title: 'Popular this week',
-  },
-  {
-    title: 'All products',
-  },
-];
-
-const socials = [
-  {
-    icons: 'footers',
-  },
-  {
-    icons: 'footers',
-  },
-  {
-    icons: 'footers',
-  },
-  {
-    icons: 'footers',
-  },
-];
+import { linksFooter } from '../../utils/linksFooter';
 
 const Footer: React.FC = () => {
   return (
@@ -60,7 +28,7 @@ const Footer: React.FC = () => {
               Menu
             </h2>
             <ul className="c-footer__unlist" id="menu">
-              {footers.map(({ title }) => (
+              {linksFooter.map(({ title }) => (
                 <li key={title} className="c-footer__item">
                   <a href="">{title}</a>
                 </li>
@@ -73,7 +41,7 @@ const Footer: React.FC = () => {
               Categories
             </h2>
             <ul className="c-footer__unlist" id="categories">
-              {footers.map(({ title }) => (
+              {linksFooter.map(({ title }) => (
                 <li key={title} className="c-footer__item">
                   <a href="">{title}</a>
                 </li>
@@ -86,7 +54,7 @@ const Footer: React.FC = () => {
               Our company
             </h2>
             <ul className="c-footer__unlist" id="ourCompany">
-              {footers.map(({ title }) => (
+              {linksFooter.map(({ title }) => (
                 <li key={title} className="c-footer__item">
                   <a href="">{title}</a>
                 </li>

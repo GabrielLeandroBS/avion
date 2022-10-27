@@ -32,7 +32,7 @@ const Checkout: React.FC<CheckoutButtonItemsProps> = (
     lineItems: checkout,
     mode: 'payment',
     successUrl: `${window.location.origin}/`,
-    cancelUrl: `${window.location.origin}/`,
+    cancelUrl: `${window.location.origin}/baskets`,
     shippingAddressCollection: {
       allowedCountries: ['US', 'BR'],
     },
