@@ -1,0 +1,11 @@
+:root {
+  --toastify-color-info: #2a254b;
+
+  --toastify-icon-color-info: var(--toastify-color-info);
+
+  //Used only for colored theme
+  --toastify-text-color-info: #fff;
+
+  // Used when no type is provided
+  --toastify-color-progress-info: var(--toastify-color-info);
+}

@@ -73,7 +73,10 @@ const Baskets: React.FC = () => {
                 <div key={price} className="baskets__wrapper">
                   <div key={title} className="baskets__product">
                     <figure className="baskets__figure">
-                      <img src={`${REACT_APP_BASE_URL}${image}`} alt="" />
+                      <img
+                        src={`${REACT_APP_BASE_URL}${image}`}
+                        alt="Image baskets"
+                      />
                     </figure>
 
                     <div>

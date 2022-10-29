@@ -61,20 +61,21 @@ const ProductsHighlighted: React.FC = () => {
       </h2>
       <div className="c-products__wrapper">
         {loading
-          ? Array.from({ length: 3 }, () => (
+          ? Array.from({ length: 4 }, () => (
               <CardProduct key={length} isLoading={true} />
             ))
           : ''}
-        {products.data.map(({ attributes }) => (
-          <CardProduct
-            key={attributes.title}
-            image={attributes.image.data.attributes.url}
-            title={attributes.title}
-            price={attributes.price}
-            slug={attributes.slug}
-            isLoading={loading}
-          />
-        ))}
+        {!loading &&
+          products.data.map(({ attributes }) => (
+            <CardProduct
+              key={attributes.title}
+              image={attributes.image.data.attributes.url}
+              title={attributes.title}
+              price={attributes.price}
+              slug={attributes.slug}
+              isLoading={loading}
+            />
+          ))}
       </div>
 
       <ButtonLink title={button} href={location} isLoading={loading} />

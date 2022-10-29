@@ -13,7 +13,6 @@ const Subscribe: React.FC = () => {
           Sign up for our newsletter and receive exclusive offers on new ranges,
           sales, pop up stores and more
         </p>
-
         <div className="c-subscribe__button">
           <SignUp />
         </div>

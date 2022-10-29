@@ -59,20 +59,21 @@ const ProductsPopular: React.FC = () => {
       </h2>
       <div className="c-products__wrapper c-products__wrapper--grid">
         {loading
-          ? Array.from({ length: 2 }, () => (
+          ? Array.from({ length: 3 }, () => (
               <CardProduct key={length} isLoading={true} />
             ))
           : ''}
-        {products.data.map(({ attributes }) => (
-          <CardProduct
-            key={attributes.title}
-            image={attributes.image.data.attributes.url}
-            title={attributes.title}
-            price={attributes.price}
-            slug={attributes.slug}
-            isLoading={loading}
-          />
-        ))}
+        {!loading &&
+          products.data.map(({ attributes }) => (
+            <CardProduct
+              key={attributes.title}
+              image={attributes.image.data.attributes.url}
+              title={attributes.title}
+              price={attributes.price}
+              slug={attributes.slug}
+              isLoading={loading}
+            />
+          ))}
       </div>
 
       <ButtonLink title={button} href={location} isLoading={loading} />
