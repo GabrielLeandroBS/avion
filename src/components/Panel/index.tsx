@@ -19,7 +19,6 @@ const Panel: React.FC<PanelProps> = ({
             dangerouslySetInnerHTML={{ __html: description }}
           />
         </div>
-
         <div>{actions}</div>
       </div>
       <figure className="c-panel__figure">

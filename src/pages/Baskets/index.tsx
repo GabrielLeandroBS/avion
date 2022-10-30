@@ -5,7 +5,7 @@ import { Popover, Whisper, Button as ButtonPopover } from 'rsuite';
 import React, { useEffect, useState } from 'react';
 
 import { Layout } from '../../layout';
-import { ProductInCart, RemoveProductInCart } from '../../types/productInCart';
+import { ProductInCartProps, RemoveProductInCartProps } from '../../types/cart';
 import { REACT_APP_BASE_URL } from '../../../global/constants';
 import { useCart } from '../../hooks/useCart';
 import { useCartProps } from '../../types/context';
@@ -27,7 +27,7 @@ const Baskets: React.FC = () => {
     image,
     price,
     description,
-  }: RemoveProductInCart) =>
+  }: RemoveProductInCartProps) =>
     removeProductInCart({
       slug,
       image,
@@ -69,7 +69,7 @@ const Baskets: React.FC = () => {
                 price,
                 slug,
                 quantity,
-              }: ProductInCart) => (
+              }: ProductInCartProps) => (
                 <div key={price} className="baskets__wrapper">
                   <div key={title} className="baskets__product">
                     <figure className="baskets__figure">

@@ -1,14 +1,13 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-import { AddToCartProps } from '../../../types/addToCart';
-import { ProductInCart } from '../../../types/productInCart';
+import { ProductInCartProps, AddProductInCartProps } from '../../../types/cart';
 import { useCart } from '../../../hooks/useCart';
 import { useCartProps } from '../../../types/context';
 
-const ButtonAddToCart: React.FC<AddToCartProps> = ({
+const ButtonAddToCart: React.FC<AddProductInCartProps> = ({
   product,
-}: AddToCartProps) => {
+}: AddProductInCartProps) => {
   const getCart = useCart((state: useCartProps) => state.cartContent);
   const addToCart = useCart((state: useCartProps) => state.addTocart);
   const updateCart = useCart((state: useCartProps) => state.updateCart);
@@ -21,7 +20,7 @@ const ButtonAddToCart: React.FC<AddToCartProps> = ({
     stripe,
     title,
     description,
-  }: ProductInCart) => {
+  }: ProductInCartProps) => {
     const findProductEqual = getCart.findIndex(
       (item: { slug: string }) => item.slug === slug
     );
@@ -43,7 +42,7 @@ const ButtonAddToCart: React.FC<AddToCartProps> = ({
         theme: 'light',
       });
     } else {
-      toast.info('🦄 Item included in cart!', {
+      toast.info('Item included in cart!', {
         position: 'top-right',
         autoClose: 2000,
         hideProgressBar: false,

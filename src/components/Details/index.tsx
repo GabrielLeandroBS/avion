@@ -117,11 +117,12 @@ const Details: React.FC = () => {
                 />
               )}
             </div>
-            {loading ? (
-              <Skeleton height={56} />
-            ) : (
-              <Button title={'Go to Cart'} href={'/baskets'} color={'white'} />
-            )}
+            <Button
+              title={'Go to Cart'}
+              href={'/baskets'}
+              color={'white'}
+              isLoading={loading}
+            />
           </div>
         </section>
       </div>

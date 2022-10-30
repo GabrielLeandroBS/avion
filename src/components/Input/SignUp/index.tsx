@@ -11,12 +11,8 @@ const SignUp: React.FC = () => {
         />
 
         <button className="c-button c-button--dark">
-          <a
-            href={'href'}
-            aria-label="Change to list page products"
-            rel="noreferrer"
-          >
-            {'Sign up'}
+          <a href={'href'} aria-label="Change page" rel="noreferrer">
+            Sign up
           </a>
         </button>
       </section>
