@@ -1,0 +1,11 @@
+@use '../abstracts/functions' as functions;
+@use '../abstracts/mixins' as mixins;
+
+.c-filters {
+  &__container {
+    gap: functions.rem(48px);
+    margin-inline: auto;
+    max-width: functions.rem(1280px);
+    width: 100%;
+  }
+}

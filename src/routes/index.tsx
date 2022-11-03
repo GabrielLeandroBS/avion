@@ -5,6 +5,7 @@ import Home from '../pages/Home';
 import Details from '../pages/Details';
 import ScrollToTop from '../utils/ScrollToTop';
 import Baskets from '../pages/Baskets';
+import Products from '../pages/Products';
 
 const Routes: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const Routes: React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/details/:slug" element={<Details />} />
         <Route path="/baskets" element={<Baskets />} />
+        <Route path="/products" element={<Products />} />
         <Route path="*" element={<Home />} />
       </Switch>
     </>
