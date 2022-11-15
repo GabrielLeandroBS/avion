@@ -64,12 +64,6 @@
       display: block;
       overflow: hidden;
 
-      img {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-        transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-      }
 
       &:hover {
         img {

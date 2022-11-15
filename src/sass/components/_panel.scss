@@ -80,13 +80,6 @@
     width: 100%;
     overflow: hidden;
 
-    img {
-      height: 100%;
-      object-fit: cover;
-      width: 100%;
-      transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
-
     &:hover {
       img {
         transform: scale(1.1);
