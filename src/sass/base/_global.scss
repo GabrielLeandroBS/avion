@@ -1,15 +1,15 @@
-@use "../abstracts/functions" as functions;
-@use "../abstracts/typography";
+@use '../abstracts/functions' as functions;
+@use './../abstracts/mixins' as mixins;
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Clash Display", sans-serif;
+  font-family: Satoshi, sans-serif;
 }
 
 body {
-  margin: 0 auto;
+  @include mixins.margin-x(auto);
 }
 
 a {
@@ -20,8 +20,6 @@ a {
 }
 
 img {
-  height: 100%;
-  object-fit: cover;
-  width: 100%;
+  @include mixins.image-size();
   transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }

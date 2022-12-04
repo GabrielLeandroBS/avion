@@ -1,49 +1,28 @@
-@use "../abstracts/functions" as functions;
-@use "../abstracts/mixins" as mixins;
+@use '../abstracts/functions' as functions;
+@use '../abstracts/mixins' as mixins;
 
 .c-card {
-  height: 100%;
-  width: 100%;
+  @include mixins.width-height(100%);
 
   &__product {
-    @include mixins.breakpoint("md") {
+    @include mixins.breakpoint('md') {
       max-width: functions.rem(305px);
     }
   }
 
   &__feature & {
     &__image {
-      height: functions.rem(24px);
+      @include mixins.width-height(24px);
       margin-bottom: functions.rem(20px);
-      width: functions.rem(24px);
-
-      img {
-        width: 100%;
-      }
     }
 
     &__title {
-      color: functions.css-color("primary");
-      font-family: Satoshi, sans-serif;
-      font-size: functions.rem(16px);
-      font-weight: functions.css-weight("thin");
-      line-height: 140%;
-      text-align: start;
+      @include mixins.font-size-line-height(16px, 24px);
+      color: functions.css-color('primary');
+      font-weight: functions.css-weight('thin');
 
-      @include mixins.breakpoint("md") {
-        font-size: functions.rem(20px);
-        line-height: 140%;
-      }
-    }
-
-    &__description {
-      color: functions.css-color("primary");
-      font-family: Satoshi, sans-serif;
-      font-size: 14px;
-      line-height: 150%;
-
-      @include mixins.breakpoint("md") {
-        font-size: functions.rem(16px);
+      @include mixins.breakpoint('md') {
+        @include mixins.font-size-line-height(20px, 28px);
       }
     }
   }
@@ -53,7 +32,7 @@
       text-decoration: none;
 
       &:focus {
-        color: functions.css-color("primary");
+        color: functions.css-color('primary');
       }
     }
 
@@ -72,23 +51,20 @@
     }
 
     &__title {
-      color: functions.css-color("primary");
-      font-size: functions.rem(20px);
-      font-weight: functions.css-weight("thin");
-      line-height: 140%;
+      @include mixins.font-size-line-height(16px, 24px);
+      color: functions.css-color('primary');
+      font-weight: functions.css-weight('thin');
       margin-top: 24px;
 
-      @include mixins.breakpoint("md") {
-        font-size: functions.rem(20px);
-        line-height: 140%;
+      @include mixins.breakpoint('md') {
+        @include mixins.font-size-line-height(20px, 28px);
       }
     }
 
     &__price {
-      color: functions.css-color("primary");
-      font-size: functions.rem(18px);
-      font-weight: functions.css-weight("thin");
-      line-height: 150%;
+      @include mixins.font-size-line-height(18px, 28px);
+      color: functions.css-color('primary');
+      font-weight: functions.css-weight('thin');
       margin-top: functions.rem(8px);
     }
   }
