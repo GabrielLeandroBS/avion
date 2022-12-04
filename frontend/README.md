@@ -2,7 +2,7 @@
 
 Getting started with front-end development is quite simple. Just install the dependencies and you'll have pretty much everything installed on your machine. To do so, install the following steps:
   
-### `Install dependencies`
+### `install`
 
 In your terminal, type:
 
@@ -12,7 +12,7 @@ npm run install
 yarn install
 ```
 
-### `run development environment`
+### `dev`
 
 To run your environment add the command below:
 
@@ -22,7 +22,7 @@ npm run dev
 yarn dev
 ```
 
-### `building development environment`
+### `build`
 
 To build the entire application in production it is necessary to run the command below:
 
