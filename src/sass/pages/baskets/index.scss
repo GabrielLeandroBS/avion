@@ -171,6 +171,7 @@
 
   &__empty {
     @include mixins.display-flex(center,center);
+
     margin-bottom: functions.rem(32px);
     min-height: functions.rem(168px);
 
