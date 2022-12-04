@@ -18,7 +18,7 @@ In the administrative panel, you will be asked for email and password, you can e
 
 ```
 Email: avion@backend.io
-
+# and
 Password: Password12345
 ```
 
