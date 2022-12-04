@@ -9,10 +9,10 @@ In your terminal, type:
 ```
 npm run install
 # or
-yarn
+yarn install
 ```
 
-### `dev`
+### `run development environment`
 
 To run your environment add the command below:
 
@@ -22,7 +22,7 @@ npm run dev
 yarn dev
 ```
 
-### `build`
+### `building development environment`
 
 To build the entire application in production it is necessary to run the command below:
 
