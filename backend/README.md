@@ -17,7 +17,7 @@ yarn develop
 In the administrative panel, you will be asked for email and password, you can enter the administrator's default email and a generically created password. Se You can change the password later if needed. [Learn more](https://forum.strapi.io/t/forgot-my-password/10457)
 
 ```
-Email: gabrielleanbs@outlook.com
+Email: avion@backend.io
 
 Password: Password12345
 ```
