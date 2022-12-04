@@ -3,9 +3,7 @@
 
 .c-panel {
   @include mixins.display-flex(center, center);
-
-  margin-inline: auto;
-  max-width: functions.rem(1280px);
+  @include mixins.center-block(functions.rem(1280px));
   width: 100%;
 
   &--direction {
@@ -28,17 +26,14 @@
 
   &__content {
     @include mixins.display-flex(flex-start, space-between);
-
     flex-direction: column;
     gap: functions.rem(64px);
     max-width: functions.rem(720px);
-    padding-block: functions.rem(48px);
-    padding-inline: functions.rem(24px);
+    padding: functions.rem(48px) functions.rem(24px);
     width: 100%;
 
     @include mixins.breakpoint("md") {
-      padding-block: functions.rem(72px);
-      padding-inline: functions.rem(84px);
+      padding: functions.rem(72px) functions.rem(84px);
       height: functions.rem(603px);
     }
 
@@ -48,28 +43,27 @@
   }
 
   &__title {
+    @include mixins.font-size-line-height(functions.rem(20px), functions.rem(28px));
     color: functions.css-color("primary");
-    font-size: functions.rem(20px);
     font-weight: functions.css-weight("thin");
-    line-height: 140%;
     margin-bottom: functions.rem(25px);
     text-align: start;
 
     @include mixins.breakpoint("md") {
-      font-size: functions.rem(24px);
+      @include mixins.font-size-line-height(functions.rem(24px), functions.rem(32px));
+
     }
   }
 
   &__description {
+    @include mixins.font-size-line-height(functions.rem(14px), functions.rem(22px));
     color: functions.css-color("secondary");
-    font-family: Satoshi, sans-serif;
-    font-size: functions.rem(14px);
     font-weight: functions.css-weight("thin");
-    line-height: functions.rem(22px);
     text-align: start;
 
     @include mixins.breakpoint("md") {
-      font-size: functions.rem(16px);
+      @include mixins.font-size-line-height(functions.rem(16px), functions.rem(24px));
+
     }
   }
 

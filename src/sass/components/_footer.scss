@@ -1,30 +1,25 @@
-@use "../abstracts/functions" as functions;
-@use "../abstracts/mixins" as mixins;
+@use '../abstracts/functions' as functions;
+@use '../abstracts/mixins' as mixins;
 
 .c-footer {
   @include mixins.display-flex(flex-start, space-between);
-
-  background-color: functions.css-color("primary");
-  padding-block: functions.rem(40px);
-  padding-inline: functions.rem(25px);
+  background-color: functions.css-color('primary');
+  padding: functions.rem(40px) functions.rem(25px);
   width: 100%;
   flex-direction: column;
 
-  @include mixins.breakpoint("md") {
-    padding-block: functions.rem(40px);
-    padding-inline: functions.rem(82px);
+  @include mixins.breakpoint('md') {
+    padding: functions.rem(40px) functions.rem(85px);
   }
 
   &__container {
+    @include mixins.center-block(functions.rem(1280px));
     @include mixins.display-flex(flex-start, space-between);
-
     flex-direction: column;
     gap: functions.rem(48px);
-    margin-inline: auto;
-    max-width: functions.rem(1280px);
     width: 100%;
 
-    @include mixins.breakpoint("lg") {
+    @include mixins.breakpoint('lg') {
       flex-direction: row;
     }
   }
@@ -35,13 +30,12 @@
     grid-template-columns: repeat(2, 1fr);
     justify-items: flex-start;
 
-    @include mixins.breakpoint("smx") {
+    @include mixins.breakpoint('smx') {
       grid-template-columns: repeat(3, 1fr);
     }
 
-    @include mixins.breakpoint("md") {
+    @include mixins.breakpoint('md') {
       @include mixins.display-flex(flex-start, center);
-
       gap: functions.rem(130px);
     }
   }
@@ -51,15 +45,14 @@
   }
 
   &__title {
-    color: functions.css-color("white");
-    font-size: functions.rem(16px);
-    font-weight: functions.css-weight("thin");
-    line-height: functions.rem(20px);
+    @include mixins.font-size-line-height(functions.rem(16px), functions.rem(20px));
+    color: functions.css-color('white');
+    font-weight: functions.css-weight('thin');
     margin-bottom: functions.rem(14px);
   }
 
   &__unlist {
-    list-style: none;
+    @include mixins.list-unstyled();
   }
 
   &__content {
@@ -74,29 +67,25 @@
 
     a,
     p {
-      color: functions.css-color("white");
-      font-size: functions.rem(14px);
-      line-height: functions.rem(19px);
+      @include mixins.font-size-line-height(functions.rem(14px),
+        functions.rem(22px));
+      color: functions.css-color('white');
       text-decoration: none;
-      font-family: Satoshi, sans-serif;
     }
   }
 
   &__credits {
-    border-top: functions.rem(1px) solid functions.css-color("quinquenary");
-    color: functions.css-color("white");
-    font-family: Satoshi, sans-serif;
-    font-size: functions.rem(14px);
-    font-weight: functions.css-weight("thin");
-    line-height: functions.rem(19px);
-    margin-inline: auto;
+    @include mixins.center-block(functions.rem(1280px));
+    @include mixins.font-size-line-height(functions.rem(14px), functions.rem(22px));
+    border-top: functions.rem(1px) solid functions.css-color('quinquenary');
+    color: functions.css-color('white');
+    font-weight: functions.css-weight('thin');
     margin-top: functions.rem(36px);
-    max-width: functions.rem(1280px);
     padding-top: functions.rem(16px);
     text-align: center;
     width: 100%;
 
-    @include mixins.breakpoint("md") {
+    @include mixins.breakpoint('md') {
       text-align: start;
     }
   }

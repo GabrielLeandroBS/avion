@@ -3,7 +3,6 @@
 
 .c-button {
   @include mixins.display-flex(center, center);
-
   background: functions.css-color('tertiary');
   border: unset;
   cursor: pointer;
@@ -16,7 +15,7 @@
 
   a,
   span {
-    @include mixins.font-size-line-height(16px, 24px);
+    @include mixins.font-size-line-height(functions.rem(16px), functions.rem(24px));
     color: functions.css-color('primary');
     font-weight: functions.css-weight('thin');
     padding: functions.rem(16px) functions.rem(32px);

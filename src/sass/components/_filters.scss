@@ -1,11 +1,10 @@
-@use "../abstracts/functions" as functions;
-@use "../abstracts/mixins" as mixins;
+@use '../abstracts/functions' as functions;
+@use '../abstracts/mixins' as mixins;
 
 .c-filters {
   &__container {
-    gap: functions.rem(48px);
-    margin-inline: auto;
-    max-width: functions.rem(1280px);
+    @include mixins.center-block(functions.rem(1280px));
+    column-gap: functions.rem(48px);
     width: 100%;
   }
 }

@@ -4,17 +4,16 @@
 .c-signup {
   &__wrapper {
     @include mixins.display-flex(center, center);
-
-    gap: 0;
+    gap: functions.rem(0px);
   }
 
   &__input {
+    @include mixins.padding-x(functions.rem(32px));
     background: functions.css-color("tertiary");
     border: none;
     height: functions.rem(56px);
     max-width: functions.rem(354px);
     outline: none;
-    padding-inline: functions.rem(32px);
     width: 100%;
 
     &::placeholder {

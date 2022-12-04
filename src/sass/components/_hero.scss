@@ -2,16 +2,14 @@
 @use "../abstracts/mixins" as mixins;
 
 .c-hero {
+  @include mixins.center-block(functions.rem(1280px));
   @include mixins.display-flex(center, center);
-
   background-color: functions.css-color("primary");
-  margin-inline: auto;
-  max-width: functions.rem(1280px);
   width: 100%;
 
   @include mixins.breakpoint("md") {
     height: functions.rem(584px);
-    margin-block: functions.rem(60px);
+    @include mixins.margin-y(functions.rem(60px))
   }
 
   .c-button {
@@ -23,20 +21,18 @@
   }
 
   &__content {
+    @include mixins.width-height(100%);
     flex-direction: column;
-    height: 100%;
     padding: functions.rem(40px) functions.rem(24px);
-    width: 100%;
 
-    > div {
+    >div {
       width: 100%;
     }
 
     @include mixins.breakpoint("md") {
+      @include mixins.display-flex(center, space-between);
       padding: functions.rem(60px);
       width: auto;
-
-      @include mixins.display-flex(center, space-between);
     }
 
     @include mixins.breakpoint("lg") {
@@ -45,10 +41,9 @@
   }
 
   &__title {
+    @include mixins.font-size-line-height(functions.rem(32px), functions.rem(40px));
     color: functions.css-color("white");
-    font-size: functions.rem(32px);
     font-weight: functions.css-weight("thin");
-    line-height: 140%;
     margin-bottom: functions.rem(80px);
 
     @include mixins.breakpoint("md") {
@@ -75,10 +70,9 @@
   }
 
   &__description {
+    @include mixins.font-size-line-height(functions.rem(18px), functions.rem(26px));
     color: functions.css-color("white");
-    font-size: functions.rem(18px);
     font-weight: functions.css-weight("thin");
-    line-height: 150%;
     margin-bottom: functions.rem(32px);
     width: 100%;
 
@@ -88,10 +82,9 @@
   }
 
   &__figure {
+    @include mixins.width-height(100%);
     display: none;
-    height: 100%;
     max-width: functions.rem(520px);
-    width: 100%;
     overflow: hidden;
 
     @include mixins.breakpoint("md") {

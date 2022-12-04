@@ -2,21 +2,20 @@
 @use "../abstracts/mixins" as mixins;
 
 .c-products {
+  @include mixins.center-block(functions.rem(1280px));
   @include mixins.display-flex(center, center);
-
+  @include mixins.padding-x(functions.rem(46px));
+  @include mixins.padding-y(functions.rem(25px));
   flex-direction: column;
   gap: functions.rem(40px);
-  margin-inline: auto;
-  max-width: functions.rem(1280px);
-  padding-block: functions.rem(46px);
-  padding-inline: functions.rem(25px);
 
   @include mixins.breakpoint("md") {
-    padding-block: functions.rem(80px);
+    @include mixins.padding-y(functions.rem(80px));
+
   }
 
-  @include mixins.breakpoint("lg") {
-    padding-inline: 0;
+  @include mixins.breakpoint("xl") {
+    @include mixins.padding-x(functions.rem(0px));
   }
 
   &__wrapper {
@@ -27,7 +26,6 @@
 
     @include mixins.breakpoint("md") {
       @include mixins.display-flex(flex-start, space-between);
-
       gap: functions.rem(20px);
     }
 
@@ -54,20 +52,17 @@
 
   &__title {
     @include mixins.display-flex(center, flex-start);
+    @include mixins.font-size-line-height(functions.rem(20px), functions.rem(28px));
+    color: functions.css-color("primary");
+    font-weight: functions.css-weight("thin");
+    width: 100%;
 
     span {
       width: 100%;
     }
 
-    color: functions.css-color("primary");
-    font-size: functions.rem(20px);
-    font-weight: functions.css-weight("thin");
-    line-height: functions.rem(25px);
-    width: 100%;
-
     @include mixins.breakpoint("md") {
-      font-size: functions.rem(32px);
-      line-height: functions.rem(39px);
+      @include mixins.font-size-line-height(functions.rem(32px), functions.rem(40px));
 
       span {
         max-width: functions.rem(600px);

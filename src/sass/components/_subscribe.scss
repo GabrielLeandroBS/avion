@@ -3,42 +3,38 @@
 
 .c-subscribe {
   background-color: functions.css-color("white");
-  padding-block: functions.rem(60px);
-  padding-inline: functions.rem(30px);
+  padding: functions.rem(60px) functions.rem(30px);
+  ;
 
   @include mixins.breakpoint("md") {
     background-color: functions.css-color("tertiary");
-    padding-inline: functions.rem(80px);
+    @include mixins.padding-x(functions.rem(80px))
   }
 
   &__wrapper {
     background-color: functions.css-color("white");
-    margin-inline: auto;
-    max-width: functions.rem(1280px);
-    padding-block: functions.rem(68px);
+    @include mixins.center-block(functions.rem(1280px));
+    @include mixins.padding-y(functions.rem(68px));
 
     @include mixins.breakpoint("md") {
-      padding-inline: functions.rem(30px);
+      @include mixins.padding-x(functions.rem(30px));
     }
   }
 
   &__title {
-    font-size: functions.rem(20px);
+    @include mixins.font-size-line-height(functions.rem(20px), functions.rem(28px));
     font-weight: functions.css-weight("thin");
-    line-height: 140%;
     text-align: center;
 
     @include mixins.breakpoint("md") {
-      font-size: functions.rem(36px);
+      @include mixins.font-size-line-height(functions.rem(36px), functions.rem(44px));
       font-weight: functions.css-weight("thin");
-      line-height: 140%;
+
     }
   }
 
   &__description {
-    font-family: Satoshi, sans-serif;
-    margin-inline: auto;
-    max-width: functions.rem(470px);
+    @include mixins.center-block(functions.rem(470px));
     text-align: center;
     margin-top: functions.rem(16px);
   }

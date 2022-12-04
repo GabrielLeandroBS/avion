@@ -1,45 +1,42 @@
-@use "../abstracts/functions" as functions;
-@use "../abstracts/mixins" as mixins;
+@use '../abstracts/functions' as functions;
+@use '../abstracts/mixins' as mixins;
 
 .c-feature {
   @include mixins.display-flex(center, center);
-
+  @include mixins.margin-x(auto);
   flex-direction: column;
-  margin-inline: auto;
   max-width: functions.rem(1280px);
-  padding-block: functions.rem(45px);
-  padding-inline: functions.rem(25px);
+  padding: functions.rem(45px) functions.rem(25px);
 
   &__title {
-    font-size: 20px;
-    font-weight: functions.css-weight("thin");
-    padding-block: functions.rem(40px);
+    @include mixins.display-flex(center, flex-start);
+    @include mixins.font-size-line-height(functions.rem(20px),
+      functions.rem(28px));
+    @include mixins.padding-y(functions.rem(40px));
+    font-weight: functions.css-weight('thin');
     width: 100%;
 
-    @include mixins.display-flex(center, flex-start);
-
-    @include mixins.breakpoint("md") {
-      font-size: 24px;
-      padding-block: functions.rem(50px);
-
+    @include mixins.breakpoint('md') {
       @include mixins.display-flex(center, center);
+      @include mixins.font-size-line-height(functions.rem(24px),
+        functions.rem(32px));
+      @include mixins.padding-y(functions.rem(50px));
     }
   }
 
   &__wrapper {
     @include mixins.display-flex(center, center);
-
     flex-direction: column;
     gap: functions.rem(40px);
     width: 100%;
 
-    @include mixins.breakpoint("md") {
+    @include mixins.breakpoint('md') {
       flex-direction: row;
-      padding-block: functions.rem(60px) functions.rem(86px);
+      @include mixins.padding-y(functions.rem(60px));
     }
 
-    @include mixins.breakpoint("lg") {
-      padding-inline: 0;
+    @include mixins.breakpoint('lg') {
+      @include mixins.padding-y(functions.rem(0px));
     }
   }
 }
