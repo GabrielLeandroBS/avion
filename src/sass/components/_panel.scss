@@ -48,9 +48,9 @@
   }
 
   &__title {
-    color: functions.color("primary");
+    color: functions.css-color("primary");
     font-size: functions.rem(20px);
-    font-weight: functions.weight("thin");
+    font-weight: functions.css-weight("thin");
     line-height: 140%;
     margin-bottom: functions.rem(25px);
     text-align: start;
@@ -61,10 +61,10 @@
   }
 
   &__description {
-    color: functions.color("secondary");
+    color: functions.css-color("secondary");
     font-family: Satoshi, sans-serif;
     font-size: functions.rem(14px);
-    font-weight: functions.weight("thin");
+    font-weight: functions.css-weight("thin");
     line-height: functions.rem(22px);
     text-align: start;
 

@@ -9,7 +9,7 @@
   }
 
   &__input {
-    background: functions.color("tertiary");
+    background: functions.css-color("tertiary");
     border: none;
     height: functions.rem(56px);
     max-width: functions.rem(354px);

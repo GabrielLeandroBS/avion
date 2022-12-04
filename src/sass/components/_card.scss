@@ -23,10 +23,10 @@
     }
 
     &__title {
-      color: functions.color("primary");
+      color: functions.css-color("primary");
       font-family: Satoshi, sans-serif;
       font-size: functions.rem(16px);
-      font-weight: functions.weight("thin");
+      font-weight: functions.css-weight("thin");
       line-height: 140%;
       text-align: start;
 
@@ -37,7 +37,7 @@
     }
 
     &__description {
-      color: functions.color("primary");
+      color: functions.css-color("primary");
       font-family: Satoshi, sans-serif;
       font-size: 14px;
       line-height: 150%;
@@ -53,7 +53,7 @@
       text-decoration: none;
 
       &:focus {
-        color: functions.color("primary");
+        color: functions.css-color("primary");
       }
     }
 
@@ -72,9 +72,9 @@
     }
 
     &__title {
-      color: functions.color("primary");
+      color: functions.css-color("primary");
       font-size: functions.rem(20px);
-      font-weight: functions.weight("thin");
+      font-weight: functions.css-weight("thin");
       line-height: 140%;
       margin-top: 24px;
 
@@ -85,9 +85,9 @@
     }
 
     &__price {
-      color: functions.color("primary");
+      color: functions.css-color("primary");
       font-size: functions.rem(18px);
-      font-weight: functions.weight("thin");
+      font-weight: functions.css-weight("thin");
       line-height: 150%;
       margin-top: functions.rem(8px);
     }

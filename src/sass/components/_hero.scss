@@ -4,7 +4,7 @@
 .c-hero {
   @include mixins.display-flex(center, center);
 
-  background-color: functions.color("primary");
+  background-color: functions.css-color("primary");
   margin-inline: auto;
   max-width: functions.rem(1280px);
   width: 100%;
@@ -18,7 +18,7 @@
     background: rgb(249 249 249 / 15%);
 
     a {
-      color: functions.color("white");
+      color: functions.css-color("white");
     }
   }
 
@@ -45,9 +45,9 @@
   }
 
   &__title {
-    color: functions.color("white");
+    color: functions.css-color("white");
     font-size: functions.rem(32px);
-    font-weight: functions.weight("thin");
+    font-weight: functions.css-weight("thin");
     line-height: 140%;
     margin-bottom: functions.rem(80px);
 
@@ -75,9 +75,9 @@
   }
 
   &__description {
-    color: functions.color("white");
+    color: functions.css-color("white");
     font-size: functions.rem(18px);
-    font-weight: functions.weight("thin");
+    font-weight: functions.css-weight("thin");
     line-height: 150%;
     margin-bottom: functions.rem(32px);
     width: 100%;

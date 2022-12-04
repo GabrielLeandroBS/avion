@@ -2,12 +2,12 @@
 @use '../abstracts/mixins' as mixins;
 
 .c-details {
-  background-color: functions.color('tertiary');
+  background-color: functions.css-color('tertiary');
 
   &__container {
     @include mixins.display-flex(center, flex-start);
 
-    background-color: functions.color('tertiary');
+    background-color: functions.css-color('tertiary');
     flex-direction: column;
     gap: functions.rem(65px);
     margin-inline: auto;
@@ -55,9 +55,9 @@
   }
 
   &__title {
-    color: functions.color('primary');
+    color: functions.css-color('primary');
     font-size: functions.rem(24px);
-    font-weight: functions.weight('thin');
+    font-weight: functions.css-weight('thin');
     line-height: 140%;
     margin-bottom: functions.rem(16px);
 
@@ -68,10 +68,10 @@
   }
 
   &__price {
-    border-bottom: functions.rem(1px) solid functions.color('quartenary');
-    color: functions.color('primary');
+    border-bottom: functions.rem(1px) solid functions.css-color('quartenary');
+    color: functions.css-color('primary');
     font-size: functions.rem(20px);
-    font-weight: functions.weight('thin');
+    font-weight: functions.css-weight('thin');
     line-height: 140%;
     margin-bottom: functions.rem(16px);
     padding-bottom: functions.rem(16px);
@@ -83,17 +83,17 @@
   }
 
   &__subtitle {
-    color: functions.color('primary');
+    color: functions.css-color('primary');
     font-size: functions.rem(16px);
-    font-weight: functions.weight('thin');
+    font-weight: functions.css-weight('thin');
     line-height: 140%;
     margin-bottom: functions.rem(14px);
   }
 
   &__description {
-    color: functions.color('primary');
+    color: functions.css-color('primary');
     font-size: functions.rem(14px);
-    font-weight: functions.weight('thin');
+    font-weight: functions.css-weight('thin');
     line-height: 150%;
     max-width: functions.rem(500px);
     margin-bottom: functions.rem(28px);
@@ -101,7 +101,7 @@
 
   &__dimensions {
     h2 {
-      border-bottom: functions.rem(1px) solid functions.color('quartenary');
+      border-bottom: functions.rem(1px) solid functions.css-color('quartenary');
       padding-bottom: functions.rem(12px);
     }
   }
@@ -112,7 +112,7 @@
     margin-bottom: functions.rem(40px);
 
     p {
-      font-weight: functions.weight('thin');
+      font-weight: functions.css-weight('thin');
       font-size: functions.rem(14px);
 
       @include mixins.breakpoint('md') {
@@ -123,7 +123,7 @@
 
   &__wrapper & {
     &__subtitle {
-      font-weight: functions.weight('thin');
+      font-weight: functions.css-weight('thin');
       font-size: functions.rem(14px);
     }
   }

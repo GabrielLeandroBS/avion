@@ -59,9 +59,9 @@
       width: 100%;
     }
 
-    color: functions.color("primary");
+    color: functions.css-color("primary");
     font-size: functions.rem(20px);
-    font-weight: functions.weight("thin");
+    font-weight: functions.css-weight("thin");
     line-height: functions.rem(25px);
     width: 100%;
 

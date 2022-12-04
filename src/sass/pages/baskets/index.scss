@@ -2,7 +2,7 @@
 @use "../../abstracts/mixins" as mixins;
 
 .baskets {
-  background-color: functions.color("tertiary");
+  background-color: functions.css-color("tertiary");
   min-height: 30vh;
   padding-block: functions.rem(36px);
   padding-inline: functions.rem(24px);
@@ -16,7 +16,7 @@
     max-width: functions.rem(1280px);
 
     @include mixins.breakpoint("lg") {
-      background-color: functions.color("white");
+      background-color: functions.css-color("white");
       padding-block: functions.rem(72px);
       padding-inline: functions.rem(62px);
     }
@@ -38,7 +38,7 @@
   }
 
   &__header {
-    border-bottom: functions.rem(1px) solid functions.color("quartenary");
+    border-bottom: functions.rem(1px) solid functions.css-color("quartenary");
     display: none;
     margin-bottom: functions.rem(32px);
     padding-bottom: functions.rem(16px);
@@ -95,9 +95,9 @@
   }
 
   &__title {
-    color: functions.color("primary");
+    color: functions.css-color("primary");
     font-size: functions.rem(16px);
-    font-weight: functions.weight("thin");
+    font-weight: functions.css-weight("thin");
     line-height: 140%;
     margin-bottom: functions.rem(8px);
 
@@ -108,16 +108,16 @@
 
   &__description,
   &__rating {
-    color: functions.color("primary");
+    color: functions.css-color("primary");
     font-size: functions.rem(14px);
-    font-weight: functions.weight("thin");
+    font-weight: functions.css-weight("thin");
     line-height: 140%;
     margin-bottom: functions.rem(8px);
     max-width: functions.rem(232px);
   }
 
   &__footer {
-    border-top: functions.rem(1px) solid functions.color("quartenary");
+    border-top: functions.rem(1px) solid functions.css-color("quartenary");
     padding-top: functions.rem(25px);
     text-align: end;
 
@@ -139,9 +139,9 @@
   }
 
   &__span {
-    color: functions.color("quinquenary");
+    color: functions.css-color("quinquenary");
     font-size: functions.rem(14px);
-    font-weight: functions.weight("thin");
+    font-weight: functions.css-weight("thin");
     line-height: 140%;
     font-family: Satoshi, sans-serif;
   }
@@ -149,17 +149,17 @@
   &__content {
     @include mixins.display-flex(flex-end, flex-end);
 
-    color: functions.color("quinquenary");
+    color: functions.css-color("quinquenary");
     flex-direction: column;
     font-size: functions.rem(20px);
-    font-weight: functions.weight("regular");
+    font-weight: functions.css-weight("regular");
     gap: functions.rem(16px);
     line-height: 140%;
 
     p {
       font-size: functions.rem(24px);
       line-height: 140%;
-      color: functions.color("primary");
+      color: functions.css-color("primary");
     }
   }
 
@@ -170,7 +170,7 @@
   }
 
   &__remove {
-    color: functions.color("red");
+    color: functions.css-color("red");
     cursor: pointer;
   }
 
@@ -178,21 +178,21 @@
     margin-bottom: functions.rem(20px);
 
     span {
-      color: functions.color("primary");
-      font-weight: functions.weight("thin");
+      color: functions.css-color("primary");
+      font-weight: functions.css-weight("thin");
     }
   }
 
   &__subtotal {
     span {
-      color: functions.color("primary");
+      color: functions.css-color("primary");
       font-size: functions.rem(20px);
     }
 
     span:first-of-type {
-      color: functions.color("quinquenary");
+      color: functions.css-color("quinquenary");
       font-size: functions.rem(20px);
-      font-weight: functions.weight("thin");
+      font-weight: functions.css-weight("thin");
       line-height: 140%;
       margin-right: functions.rem(16px);
     }

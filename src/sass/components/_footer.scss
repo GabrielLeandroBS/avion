@@ -4,7 +4,7 @@
 .c-footer {
   @include mixins.display-flex(flex-start, space-between);
 
-  background-color: functions.color("primary");
+  background-color: functions.css-color("primary");
   padding-block: functions.rem(40px);
   padding-inline: functions.rem(25px);
   width: 100%;
@@ -51,9 +51,9 @@
   }
 
   &__title {
-    color: functions.color("white");
+    color: functions.css-color("white");
     font-size: functions.rem(16px);
-    font-weight: functions.weight("thin");
+    font-weight: functions.css-weight("thin");
     line-height: functions.rem(20px);
     margin-bottom: functions.rem(14px);
   }
@@ -74,7 +74,7 @@
 
     a,
     p {
-      color: functions.color("white");
+      color: functions.css-color("white");
       font-size: functions.rem(14px);
       line-height: functions.rem(19px);
       text-decoration: none;
@@ -83,11 +83,11 @@
   }
 
   &__credits {
-    border-top: functions.rem(1px) solid functions.color("quinquenary");
-    color: functions.color("white");
+    border-top: functions.rem(1px) solid functions.css-color("quinquenary");
+    color: functions.css-color("white");
     font-family: Satoshi, sans-serif;
     font-size: functions.rem(14px);
-    font-weight: functions.weight("thin");
+    font-weight: functions.css-weight("thin");
     line-height: functions.rem(19px);
     margin-inline: auto;
     margin-top: functions.rem(36px);

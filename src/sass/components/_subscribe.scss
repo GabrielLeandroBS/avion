@@ -2,17 +2,17 @@
 @use "../abstracts/mixins" as mixins;
 
 .c-subscribe {
-  background-color: functions.color("white");
+  background-color: functions.css-color("white");
   padding-block: functions.rem(60px);
   padding-inline: functions.rem(30px);
 
   @include mixins.breakpoint("md") {
-    background-color: functions.color("tertiary");
+    background-color: functions.css-color("tertiary");
     padding-inline: functions.rem(80px);
   }
 
   &__wrapper {
-    background-color: functions.color("white");
+    background-color: functions.css-color("white");
     margin-inline: auto;
     max-width: functions.rem(1280px);
     padding-block: functions.rem(68px);
@@ -24,13 +24,13 @@
 
   &__title {
     font-size: functions.rem(20px);
-    font-weight: functions.weight("thin");
+    font-weight: functions.css-weight("thin");
     line-height: 140%;
     text-align: center;
 
     @include mixins.breakpoint("md") {
       font-size: functions.rem(36px);
-      font-weight: functions.weight("thin");
+      font-weight: functions.css-weight("thin");
       line-height: 140%;
     }
   }

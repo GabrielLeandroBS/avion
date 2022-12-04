@@ -7,15 +7,15 @@
   padding-bottom: functions.rem(40px);
 
   &__title {
-    color: functions.color("primary");
+    color: functions.css-color("primary");
     font-size: functions(32px);
-    font-weight: functions.weight("thin");
+    font-weight: functions.css-weight("thin");
     line-height: 140%;
     padding-block: functions.rem(40px);
     text-align: center;
 
     @include mixins.breakpoint("md") {
-      font-size: functions.color(36px);
+      font-size: functions.css-color(36px);
       padding-block: functions.rem(80px) functions.rem(40px);
     }
   }

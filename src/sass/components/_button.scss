@@ -4,7 +4,7 @@
 .c-button {
   @include mixins.display-flex(center, center);
 
-  background: functions.color("tertiary");
+  background: functions.css-color("tertiary");
   border: unset;
   cursor: pointer;
   width: 100%;
@@ -16,10 +16,10 @@
 
   a,
   span {
-    color: functions.color("primary");
+    color: functions.css-color("primary");
     font-family: Satoshi, sans-serif;
     font-size: functions.rem(16px);
-    font-weight: functions.weight("thin");
+    font-weight: functions.css-weight("thin");
     line-height: 150%;
     padding: functions.rem(16px) functions.rem(32px);
     text-decoration: none;
@@ -27,20 +27,20 @@
   }
 
   &--dark {
-    background: functions.color("primary");
+    background: functions.css-color("primary");
 
     a,
     span {
-      color: functions.color("white");
+      color: functions.css-color("white");
     }
   }
 
   &--white {
-    background: functions.color("white");
+    background: functions.css-color("white");
 
     a,
     span {
-      color: functions.color("secondary");
+      color: functions.css-color("secondary");
     }
   }
 

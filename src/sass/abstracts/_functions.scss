@@ -3,11 +3,11 @@
 @use "sass:math";
 
 // Function for get colors and insert array colors
-@function color($color, $palette: variables.$colors) {
+@function css-color($color, $palette: variables.$colors) {
   @return map-get($palette, $color);
 }
 
-@function weight($fontWeight, $arr: variables.$fontWeight) {
+@function css-weight($fontWeight, $arr: variables.$fontWeight) {
   @return map-get($arr, $fontWeight);
 }
 
