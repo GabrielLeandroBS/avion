@@ -2,7 +2,7 @@
 @use "../abstracts/mixins" as mixins;
 
 .c-header {
-  @include mixins.flex(center, space-between);
+  @include mixins.display-flex(center, space-between);
 
   max-width: functions.rem(1353px);
   margin-inline: auto;

@@ -2,7 +2,7 @@
 @use "../abstracts/mixins" as mixins;
 
 .c-feature {
-  @include mixins.flex(center, center);
+  @include mixins.display-flex(center, center);
 
   flex-direction: column;
   margin-inline: auto;
@@ -16,18 +16,18 @@
     padding-block: functions.rem(40px);
     width: 100%;
 
-    @include mixins.flex(center, flex-start);
+    @include mixins.display-flex(center, flex-start);
 
     @include mixins.breakpoint("md") {
       font-size: 24px;
       padding-block: functions.rem(50px);
 
-      @include mixins.flex(center, center);
+      @include mixins.display-flex(center, center);
     }
   }
 
   &__wrapper {
-    @include mixins.flex(center, center);
+    @include mixins.display-flex(center, center);
 
     flex-direction: column;
     gap: functions.rem(40px);

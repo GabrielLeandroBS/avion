@@ -3,7 +3,7 @@
 
 .c-signup {
   &__wrapper {
-    @include mixins.flex(center, center);
+    @include mixins.display-flex(center, center);
 
     gap: 0;
   }

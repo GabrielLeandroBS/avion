@@ -2,7 +2,7 @@
 @use "../abstracts/mixins" as mixins;
 
 .c-hero {
-  @include mixins.flex(center, center);
+  @include mixins.display-flex(center, center);
 
   background-color: functions.color("primary");
   margin-inline: auto;
@@ -36,7 +36,7 @@
       padding: functions.rem(60px);
       width: auto;
 
-      @include mixins.flex(center, space-between);
+      @include mixins.display-flex(center, space-between);
     }
 
     @include mixins.breakpoint("lg") {

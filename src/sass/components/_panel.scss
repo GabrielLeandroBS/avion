@@ -2,7 +2,7 @@
 @use "../abstracts/mixins" as mixins;
 
 .c-panel {
-  @include mixins.flex(center, center);
+  @include mixins.display-flex(center, center);
 
   margin-inline: auto;
   max-width: functions.rem(1280px);
@@ -27,7 +27,7 @@
   }
 
   &__content {
-    @include mixins.flex(flex-start, space-between);
+    @include mixins.display-flex(flex-start, space-between);
 
     flex-direction: column;
     gap: functions.rem(64px);

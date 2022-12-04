@@ -2,7 +2,7 @@
 @use "../abstracts/mixins" as mixins;
 
 .c-button {
-  @include mixins.flex(center, center);
+  @include mixins.display-flex(center, center);
 
   background: functions.color("tertiary");
   border: unset;

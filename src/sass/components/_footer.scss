@@ -2,7 +2,7 @@
 @use "../abstracts/mixins" as mixins;
 
 .c-footer {
-  @include mixins.flex(flex-start, space-between);
+  @include mixins.display-flex(flex-start, space-between);
 
   background-color: functions.color("primary");
   padding-block: functions.rem(40px);
@@ -16,7 +16,7 @@
   }
 
   &__container {
-    @include mixins.flex(flex-start, space-between);
+    @include mixins.display-flex(flex-start, space-between);
 
     flex-direction: column;
     gap: functions.rem(48px);
@@ -40,7 +40,7 @@
     }
 
     @include mixins.breakpoint("md") {
-      @include mixins.flex(flex-start, center);
+      @include mixins.display-flex(flex-start, center);
 
       gap: functions.rem(130px);
     }

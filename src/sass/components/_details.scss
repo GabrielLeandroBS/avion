@@ -5,7 +5,7 @@
   background-color: functions.color('tertiary');
 
   &__container {
-    @include mixins.flex(center, flex-start);
+    @include mixins.display-flex(center, flex-start);
 
     background-color: functions.color('tertiary');
     flex-direction: column;
@@ -129,7 +129,7 @@
   }
 
   &__input {
-    @include mixins.flex(center, center);
+    @include mixins.display-flex(center, center);
 
     border: unset;
     height: functions.rem(46px);
@@ -142,7 +142,7 @@
   }
 
   &__buttons {
-    @include mixins.flex(center, flex-start);
+    @include mixins.display-flex(center, flex-start);
 
     div,
     span {

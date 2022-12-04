@@ -50,7 +50,7 @@
 
   &__product,
   &__price {
-    @include mixins.flex(flex-start, flex-start);
+    @include mixins.display-flex(flex-start, flex-start);
 
     gap: functions.rem(24px);
   }
@@ -59,7 +59,7 @@
     display: none;
 
     @include mixins.breakpoint("lg") {
-      @include mixins.flex(flex-start, flex-end);
+      @include mixins.display-flex(flex-start, flex-end);
 
       span {
         padding-top: functions.rem(10px);
@@ -76,7 +76,7 @@
       display: none;
 
       &--desktop {
-        @include mixins.flex(flex-start, flex-end);
+        @include mixins.display-flex(flex-start, flex-end);
       }
     }
   }
@@ -122,7 +122,7 @@
     text-align: end;
 
     @include mixins.breakpoint("lg") {
-      @include mixins.flex(flex-start, space-between);
+      @include mixins.display-flex(flex-start, space-between);
 
       flex-direction: row;
     }
@@ -147,7 +147,7 @@
   }
 
   &__content {
-    @include mixins.flex(flex-end, flex-end);
+    @include mixins.display-flex(flex-end, flex-end);
 
     color: functions.color("quinquenary");
     flex-direction: column;
@@ -164,7 +164,7 @@
   }
 
   &__buttons {
-    @include mixins.flex(center, flex-end);
+    @include mixins.display-flex(center, flex-end);
 
     width: 100%;
   }
