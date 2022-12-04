@@ -170,7 +170,9 @@
   }
 
   &__empty {
-    margin-bottom: functions.rem(20px);
+    @include mixins.display-flex(center,center);
+    margin-bottom: functions.rem(32px);
+    min-height: functions.rem(168px);
 
     span {
       color: functions.css-color("primary");

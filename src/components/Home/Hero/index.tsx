@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
           display things digitally using modern web technologies.
         </p>
         <div className="c-hero__button--desktop">
-          <ButtonLink href="/" title="Button" isLoading={false} />
+          <ButtonLink href="/" title="View collection" isLoading={false} />
         </div>
       </div>
       <figure className="c-hero__figure">
