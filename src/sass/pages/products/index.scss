@@ -14,7 +14,7 @@
 
     @include mixins.breakpoint("md") {
       @include mixins.font-size-line-height(functions.rem(36px), functions.rem(44px));
-      padding: functions.rem(80px) functions.rem(0) functions.rem(40px) functions.rem(0);
+      padding: functions.rem(80px) functions.rem(0px) functions.rem(40px) functions.rem(0px);
     }
   }
 
