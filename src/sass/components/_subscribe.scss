@@ -5,7 +5,6 @@
   background-color: functions.css-color("white");
   padding: functions.rem(60px) functions.rem(30px);
 
-
   @include mixins.breakpoint("md") {
     background-color: functions.css-color("tertiary");
 
