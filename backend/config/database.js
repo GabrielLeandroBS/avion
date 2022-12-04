@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports = () => ({
+module.exports = ({ env }) => ({
   connection: {
     client: 'sqlite',
     connection: {
