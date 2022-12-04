@@ -12,6 +12,16 @@ npm run develop
 yarn develop
 ```
 
+### `credential`
+
+In the administrative panel, you will be asked for email and password, you can enter the administrator's default email and a generically created password
+
+```
+Email: gabrielleanbs@outlook.com
+
+Password: Password12345
+```
+
 ### `start`
 
 Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-start)
