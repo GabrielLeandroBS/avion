@@ -8,6 +8,10 @@
   font-family: Satoshi, sans-serif;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   @include mixins.margin-x(auto);
 }
@@ -17,6 +21,11 @@ a {
   &:visited {
     text-decoration: none;
   }
+}
+
+main {
+  flex: 1 0 auto;
+  width: 100%;
 }
 
 img {

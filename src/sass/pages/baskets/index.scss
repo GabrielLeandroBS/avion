@@ -3,7 +3,7 @@
 
 .baskets {
   background-color: functions.css-color("tertiary");
-  min-height: 30vh;
+  min-height: 100%;
   padding: functions.rem(36px) functions.rem(24px);
 
   @include mixins.breakpoint("lg") {
