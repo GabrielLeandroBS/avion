@@ -4,21 +4,19 @@
 .baskets {
   background-color: functions.css-color("tertiary");
   min-height: 30vh;
-  padding-block: functions.rem(36px);
-  padding-inline: functions.rem(24px);
+  padding: functions.rem(36px) functions.rem(24px);
+
 
   @include mixins.breakpoint("lg") {
     padding: functions.rem(85px);
   }
 
   &__container {
-    margin-inline: auto;
-    max-width: functions.rem(1280px);
+    @include mixins.center-block(functions.rem(1280px));
 
     @include mixins.breakpoint("lg") {
       background-color: functions.css-color("white");
-      padding-block: functions.rem(72px);
-      padding-inline: functions.rem(62px);
+      padding: functions.rem(72px) functions.rem(62px);
     }
   }
 
@@ -31,7 +29,7 @@
       grid-template-columns: repeat(5, 1fr);
       margin-bottom: functions.rem(32px);
 
-      > div:first-of-type {
+      >div:first-of-type {
         grid-area: 1 / 1 / 2 / 4;
       }
     }
@@ -51,7 +49,6 @@
   &__product,
   &__price {
     @include mixins.display-flex(flex-start, flex-start);
-
     gap: functions.rem(24px);
   }
 
@@ -95,25 +92,25 @@
   }
 
   &__title {
+    @include mixins.font-size-line-height(functions.rem(16px), functions.rem(24px));
     color: functions.css-color("primary");
-    font-size: functions.rem(16px);
     font-weight: functions.css-weight("thin");
-    line-height: 140%;
     margin-bottom: functions.rem(8px);
 
     @include mixins.breakpoint("lg") {
-      font-size: functions.rem(20px);
+      @include mixins.font-size-line-height(functions.rem(20px), functions.rem(28px));
+
     }
   }
 
   &__description,
   &__rating {
+    @include mixins.font-size-line-height(functions.rem(14px), functions.rem(22px));
     color: functions.css-color("primary");
-    font-size: functions.rem(14px);
     font-weight: functions.css-weight("thin");
-    line-height: 140%;
     margin-bottom: functions.rem(8px);
     max-width: functions.rem(232px);
+
   }
 
   &__footer {
@@ -123,7 +120,6 @@
 
     @include mixins.breakpoint("lg") {
       @include mixins.display-flex(flex-start, space-between);
-
       flex-direction: row;
     }
 
@@ -139,33 +135,29 @@
   }
 
   &__span {
+    @include mixins.font-size-line-height(functions.rem(14px), functions.rem(22px));
     color: functions.css-color("quinquenary");
-    font-size: functions.rem(14px);
     font-weight: functions.css-weight("thin");
-    line-height: 140%;
-    font-family: Satoshi, sans-serif;
+
   }
 
   &__content {
     @include mixins.display-flex(flex-end, flex-end);
-
+    @include mixins.font-size-line-height(functions.rem(20px), functions.rem(28px));
     color: functions.css-color("quinquenary");
     flex-direction: column;
-    font-size: functions.rem(20px);
     font-weight: functions.css-weight("regular");
     gap: functions.rem(16px);
-    line-height: 140%;
+
 
     p {
-      font-size: functions.rem(24px);
-      line-height: 140%;
+      @include mixins.font-size-line-height(functions.rem(24px), functions.rem(32px));
       color: functions.css-color("primary");
     }
   }
 
   &__buttons {
     @include mixins.display-flex(center, flex-end);
-
     width: 100%;
   }
 
@@ -186,14 +178,13 @@
   &__subtotal {
     span {
       color: functions.css-color("primary");
-      font-size: functions.rem(20px);
+      @include mixins.font-size-line-height(functions.rem(20px), functions.rem(28px)); 
     }
 
     span:first-of-type {
+      @include mixins.font-size-line-height(functions.rem(20px), functions.rem(28px));
       color: functions.css-color("quinquenary");
-      font-size: functions.rem(20px);
       font-weight: functions.css-weight("thin");
-      line-height: 140%;
       margin-right: functions.rem(16px);
     }
   }

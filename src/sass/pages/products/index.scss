@@ -2,21 +2,19 @@
 @use "../../abstracts/mixins" as mixins;
 
 .p-products {
-  margin-inline: auto;
-  max-width: functions.rem(1280px);
+  @include mixins.center-block(functions.rem(1280px));
   padding-bottom: functions.rem(40px);
 
   &__title {
+    @include mixins.font-size-line-height(functions.rem(32px), functions.rem(40px));
+    @include mixins.padding-y(functions.rem(40px));
     color: functions.css-color("primary");
-    font-size: functions(32px);
     font-weight: functions.css-weight("thin");
-    line-height: 140%;
-    padding-block: functions.rem(40px);
     text-align: center;
 
     @include mixins.breakpoint("md") {
-      font-size: functions.css-color(36px);
-      padding-block: functions.rem(80px) functions.rem(40px);
+      @include mixins.font-size-line-height(functions.rem(36px), functions.rem(44px));
+      padding: functions.rem(80px) functions.rem(0) functions.rem(40px) functions.rem(0);
     }
   }
 
