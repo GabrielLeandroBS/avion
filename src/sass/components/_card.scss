@@ -12,17 +12,17 @@
 
   &__feature & {
     &__image {
-      @include mixins.width-height(24px);
+      @include mixins.width-height(functions.rem(24px));
       margin-bottom: functions.rem(20px);
     }
 
     &__title {
-      @include mixins.font-size-line-height(16px, 24px);
+      @include mixins.font-size-line-height(functions.rem(16px), functions.rem(24px));
       color: functions.css-color('primary');
       font-weight: functions.css-weight('thin');
 
       @include mixins.breakpoint('md') {
-        @include mixins.font-size-line-height(20px, 28px);
+        @include mixins.font-size-line-height(functions.rem(20px), functions.rem(28px));
       }
     }
   }
@@ -51,18 +51,18 @@
     }
 
     &__title {
-      @include mixins.font-size-line-height(16px, 24px);
+      @include mixins.font-size-line-height(functions.rem(16px), functions.rem(24px));
       color: functions.css-color('primary');
       font-weight: functions.css-weight('thin');
-      margin-top: 24px;
+      margin-top: functions.rem(24px);
 
       @include mixins.breakpoint('md') {
-        @include mixins.font-size-line-height(20px, 28px);
+        @include mixins.font-size-line-height(functions.rem(20px), functions.rem(28px));
       }
     }
 
     &__price {
-      @include mixins.font-size-line-height(18px, 28px);
+      @include mixins.font-size-line-height(functions.rem(18px), functions.rem(26px));
       color: functions.css-color('primary');
       font-weight: functions.css-weight('thin');
       margin-top: functions.rem(8px);

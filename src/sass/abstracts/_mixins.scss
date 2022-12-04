@@ -27,7 +27,7 @@
 
 // Set font size and line height.
 @mixin font-size-line-height($font-size, $line-height) {
-  font-size: functions.rem($font-size);
+  font-size: $font-size;
   line-height: ($line-height / $font-size);
 }
 
