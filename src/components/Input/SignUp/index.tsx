@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SignUp: React.FC = () => {
   return (
@@ -11,9 +12,9 @@ const SignUp: React.FC = () => {
         />
 
         <button className="c-button c-button--dark">
-          <a href={'href'} aria-label="Change page" rel="noreferrer">
+          <Link to={'/href'} aria-label="Change page" rel="noreferrer">
             Sign up
-          </a>
+          </Link>
         </button>
       </section>
     </label>
