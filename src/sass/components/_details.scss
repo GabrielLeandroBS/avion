@@ -1,23 +1,24 @@
-@use '../abstracts/functions' as functions;
-@use '../abstracts/mixins' as mixins;
+@use "../abstracts/functions" as functions;
+@use "../abstracts/mixins" as mixins;
 
 .c-details {
-  background-color: functions.css-color('tertiary');
+  background-color: functions.css-color("tertiary");
 
   &__container {
     @include mixins.display-flex(center, flex-start);
     @include mixins.center-block(functions.rem(1280px));
     @include mixins.padding-y(functions.rem(50px));
-    background-color: functions.css-color('tertiary');
+
+    background-color: functions.css-color("tertiary");
     row-gap: functions.rem(65px);
     flex-direction: column;
 
-    @include mixins.breakpoint('md') {
+    @include mixins.breakpoint("md") {
       flex-direction: row;
       column-gap: functions.rem(45px);
     }
 
-    @include mixins.breakpoint('lg') {
+    @include mixins.breakpoint("lg") {
       column-gap: functions.rem(65px);
     }
   }
@@ -27,11 +28,11 @@
     width: 100%;
     overflow: hidden;
 
-    @include mixins.breakpoint('smx') {
+    @include mixins.breakpoint("smx") {
       max-height: functions.rem(661px);
     }
 
-    @include mixins.breakpoint('md') {
+    @include mixins.breakpoint("md") {
       height: functions.rem(661px);
       max-width: functions.rem(607px);
     }
@@ -45,9 +46,10 @@
 
   &__content {
     @include mixins.padding-x(functions.rem(24px));
+
     width: 100%;
 
-    @include mixins.breakpoint('lg') {
+    @include mixins.breakpoint("lg") {
       @include mixins.padding-x(functions.rem(24px));
     }
   }
@@ -57,11 +59,12 @@
       functions.rem(24px),
       functions.rem(34px)
     );
-    color: functions.css-color('primary');
-    font-weight: functions.css-weight('thin');
+
+    color: functions.css-color("primary");
+    font-weight: functions.css-weight("thin");
     margin-bottom: functions.rem(16px);
 
-    @include mixins.breakpoint('md') {
+    @include mixins.breakpoint("md") {
       @include mixins.font-size-line-height(
         functions.rem(35px),
         functions.rem(44px)
@@ -74,13 +77,14 @@
       functions.rem(20px),
       functions.rem(28px)
     );
-    border-bottom: functions.rem(1px) solid functions.css-color('quartenary');
-    color: functions.css-color('primary');
-    font-weight: functions.css-weight('thin');
+
+    border-bottom: functions.rem(1px) solid functions.css-color("quartenary");
+    color: functions.css-color("primary");
+    font-weight: functions.css-weight("thin");
     margin-bottom: functions.rem(16px);
     padding-bottom: functions.rem(16px);
 
-    @include mixins.breakpoint('md') {
+    @include mixins.breakpoint("md") {
       @include mixins.font-size-line-height(
         functions.rem(24px),
         functions.rem(32px)
@@ -93,8 +97,9 @@
       functions.rem(16px),
       functions.rem(24px)
     );
-    color: functions.css-color('primary');
-    font-weight: functions.css-weight('thin');
+
+    color: functions.css-color("primary");
+    font-weight: functions.css-weight("thin");
     margin-bottom: functions.rem(14px);
   }
 
@@ -103,15 +108,16 @@
       functions.rem(14px),
       functions.rem(22px)
     );
-    color: functions.css-color('primary');
-    font-weight: functions.css-weight('thin');
+
+    color: functions.css-color("primary");
+    font-weight: functions.css-weight("thin");
     margin-bottom: functions.rem(28px);
     max-width: functions.rem(500px);
   }
 
   &__dimensions {
     h2 {
-      border-bottom: functions.rem(1px) solid functions.css-color('quartenary');
+      border-bottom: functions.rem(1px) solid functions.css-color("quartenary");
       padding-bottom: functions.rem(12px);
     }
   }
@@ -122,13 +128,14 @@
     margin-bottom: functions.rem(40px);
 
     p {
-      font-weight: functions.css-weight('thin');
+      font-weight: functions.css-weight("thin");
+
       @include mixins.font-size-line-height(
         functions.rem(14px),
         functions.rem(22px)
       );
 
-      @include mixins.breakpoint('md') {
+      @include mixins.breakpoint("md") {
         @include mixins.font-size-line-height(
           functions.rem(16px),
           functions.rem(24px)
@@ -139,7 +146,8 @@
 
   &__wrapper & {
     &__subtitle {
-      font-weight: functions.css-weight('thin');
+      font-weight: functions.css-weight("thin");
+
       @include mixins.font-size-line-height(
         functions.rem(14px),
         functions.rem(22px)
@@ -150,10 +158,12 @@
   &__input {
     @include mixins.display-flex(center, center);
     @include mixins.padding-x(functions.rem(20px));
+
     border: unset;
     height: functions.rem(46px);
     width: 100%;
-    @include mixins.breakpoint('md') {
+
+    @include mixins.breakpoint("md") {
       width: functions.rem(122px);
     }
   }
@@ -170,7 +180,7 @@
     gap: functions.rem(16px);
     margin-top: functions.rem(48px);
 
-    @include mixins.breakpoint('md') {
+    @include mixins.breakpoint("md") {
       flex-direction: row;
 
       div,

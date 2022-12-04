@@ -3,18 +3,21 @@
 
 .p-products {
   @include mixins.center-block(functions.rem(1280px));
+
   padding-bottom: functions.rem(40px);
 
   &__title {
     @include mixins.font-size-line-height(functions.rem(32px), functions.rem(40px));
     @include mixins.padding-y(functions.rem(40px));
+
     color: functions.css-color("primary");
     font-weight: functions.css-weight("thin");
     text-align: center;
 
     @include mixins.breakpoint("md") {
       @include mixins.font-size-line-height(functions.rem(36px), functions.rem(44px));
-      padding: functions.rem(80px) functions.rem(0px) functions.rem(40px) functions.rem(0px);
+
+      padding: functions.rem(80px) 0 functions.rem(40px) 0;
     }
   }
 

@@ -1,5 +1,5 @@
-@use '../abstracts/functions' as functions;
-@use './../abstracts/mixins' as mixins;
+@use "../abstracts/functions" as functions;
+@use "./../abstracts/mixins" as mixins;
 
 * {
   box-sizing: border-box;
@@ -20,6 +20,7 @@ a {
 }
 
 img {
-  @include mixins.image-size();
+  @include mixins.image-size;
+
   transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }

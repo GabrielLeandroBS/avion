@@ -4,6 +4,7 @@
 .c-panel {
   @include mixins.display-flex(center, center);
   @include mixins.center-block(functions.rem(1280px));
+
   width: 100%;
 
   &--direction {
@@ -26,6 +27,7 @@
 
   &__content {
     @include mixins.display-flex(flex-start, space-between);
+
     flex-direction: column;
     gap: functions.rem(64px);
     max-width: functions.rem(720px);
@@ -44,6 +46,7 @@
 
   &__title {
     @include mixins.font-size-line-height(functions.rem(20px), functions.rem(28px));
+
     color: functions.css-color("primary");
     font-weight: functions.css-weight("thin");
     margin-bottom: functions.rem(25px);
@@ -51,19 +54,18 @@
 
     @include mixins.breakpoint("md") {
       @include mixins.font-size-line-height(functions.rem(24px), functions.rem(32px));
-
     }
   }
 
   &__description {
     @include mixins.font-size-line-height(functions.rem(14px), functions.rem(22px));
+
     color: functions.css-color("secondary");
     font-weight: functions.css-weight("thin");
     text-align: start;
 
     @include mixins.breakpoint("md") {
       @include mixins.font-size-line-height(functions.rem(16px), functions.rem(24px));
-
     }
   }
 

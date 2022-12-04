@@ -1,11 +1,11 @@
-@use '../abstracts/functions' as functions;
-@use '../abstracts/mixins' as mixins;
+@use "../abstracts/functions" as functions;
+@use "../abstracts/mixins" as mixins;
 
 .c-card {
   @include mixins.width-height(100%);
 
   &__product {
-    @include mixins.breakpoint('md') {
+    @include mixins.breakpoint("md") {
       max-width: functions.rem(305px);
     }
   }
@@ -13,15 +13,17 @@
   &__feature & {
     &__image {
       @include mixins.width-height(functions.rem(24px));
+
       margin-bottom: functions.rem(20px);
     }
 
     &__title {
       @include mixins.font-size-line-height(functions.rem(16px), functions.rem(24px));
-      color: functions.css-color('primary');
-      font-weight: functions.css-weight('thin');
 
-      @include mixins.breakpoint('md') {
+      color: functions.css-color("primary");
+      font-weight: functions.css-weight("thin");
+
+      @include mixins.breakpoint("md") {
         @include mixins.font-size-line-height(functions.rem(20px), functions.rem(28px));
       }
     }
@@ -32,7 +34,7 @@
       text-decoration: none;
 
       &:focus {
-        color: functions.css-color('primary');
+        color: functions.css-color("primary");
       }
     }
 
@@ -52,19 +54,21 @@
 
     &__title {
       @include mixins.font-size-line-height(functions.rem(16px), functions.rem(24px));
-      color: functions.css-color('primary');
-      font-weight: functions.css-weight('thin');
+
+      color: functions.css-color("primary");
+      font-weight: functions.css-weight("thin");
       margin-top: functions.rem(24px);
 
-      @include mixins.breakpoint('md') {
+      @include mixins.breakpoint("md") {
         @include mixins.font-size-line-height(functions.rem(20px), functions.rem(28px));
       }
     }
 
     &__price {
       @include mixins.font-size-line-height(functions.rem(18px), functions.rem(26px));
-      color: functions.css-color('primary');
-      font-weight: functions.css-weight('thin');
+
+      color: functions.css-color("primary");
+      font-weight: functions.css-weight("thin");
       margin-top: functions.rem(8px);
     }
   }

@@ -6,7 +6,6 @@
   min-height: 30vh;
   padding: functions.rem(36px) functions.rem(24px);
 
-
   @include mixins.breakpoint("lg") {
     padding: functions.rem(85px);
   }
@@ -49,6 +48,7 @@
   &__product,
   &__price {
     @include mixins.display-flex(flex-start, flex-start);
+
     gap: functions.rem(24px);
   }
 
@@ -93,24 +93,24 @@
 
   &__title {
     @include mixins.font-size-line-height(functions.rem(16px), functions.rem(24px));
+
     color: functions.css-color("primary");
     font-weight: functions.css-weight("thin");
     margin-bottom: functions.rem(8px);
 
     @include mixins.breakpoint("lg") {
       @include mixins.font-size-line-height(functions.rem(20px), functions.rem(28px));
-
     }
   }
 
   &__description,
   &__rating {
     @include mixins.font-size-line-height(functions.rem(14px), functions.rem(22px));
+
     color: functions.css-color("primary");
     font-weight: functions.css-weight("thin");
     margin-bottom: functions.rem(8px);
     max-width: functions.rem(232px);
-
   }
 
   &__footer {
@@ -120,6 +120,7 @@
 
     @include mixins.breakpoint("lg") {
       @include mixins.display-flex(flex-start, space-between);
+
       flex-direction: row;
     }
 
@@ -136,28 +137,30 @@
 
   &__span {
     @include mixins.font-size-line-height(functions.rem(14px), functions.rem(22px));
+
     color: functions.css-color("quinquenary");
     font-weight: functions.css-weight("thin");
-
   }
 
   &__content {
     @include mixins.display-flex(flex-end, flex-end);
     @include mixins.font-size-line-height(functions.rem(20px), functions.rem(28px));
+
     color: functions.css-color("quinquenary");
     flex-direction: column;
     font-weight: functions.css-weight("regular");
     gap: functions.rem(16px);
 
-
     p {
       @include mixins.font-size-line-height(functions.rem(24px), functions.rem(32px));
+
       color: functions.css-color("primary");
     }
   }
 
   &__buttons {
     @include mixins.display-flex(center, flex-end);
+
     width: 100%;
   }
 
@@ -178,11 +181,13 @@
   &__subtotal {
     span {
       color: functions.css-color("primary");
-      @include mixins.font-size-line-height(functions.rem(20px), functions.rem(28px)); 
+
+      @include mixins.font-size-line-height(functions.rem(20px), functions.rem(28px));
     }
 
     span:first-of-type {
       @include mixins.font-size-line-height(functions.rem(20px), functions.rem(28px));
+
       color: functions.css-color("quinquenary");
       font-weight: functions.css-weight("thin");
       margin-right: functions.rem(16px);
