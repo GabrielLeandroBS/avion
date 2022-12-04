@@ -1,8 +1,9 @@
 @use "../abstracts/mixins" as mixins;
 
 #root {
-    @include mixins.display-flex(center, space-between);
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
+  @include mixins.display-flex(center, space-between);
+
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
 }

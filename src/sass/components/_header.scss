@@ -6,6 +6,7 @@
   @include mixins.center-block(functions.rem(1353px));
   @include mixins.display-flex(center, space-between);
   @include mixins.padding-x(functions.rem(24px));
+
   width: 100%;
 
   @include mixins.breakpoint("lg") {
