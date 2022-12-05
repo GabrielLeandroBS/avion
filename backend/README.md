@@ -1,6 +1,16 @@
 # 🚀 Getting started with Strapi
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html) (CLI) which lets you scaffold and manage your project in seconds.
+Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/installation/cli.html) (CLI) which lets you scaffold and manage your project in seconds.
+
+### `install`
+
+Install your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-develop)
+
+```
+npm run install
+# or
+yarn install
+```
   
 ### `develop`
 
@@ -10,16 +20,6 @@ Start your Strapi application with autoReload enabled. [Learn more](https://docs
 npm run develop
 # or
 yarn develop
-```
-
-### `credential`
-
-In the administrative panel, you will be asked for email and password, you can enter the administrator's default email and a generically created password. Se You can change the password later if needed. [Learn more]([https://forum.strapi.io/t/forgot-my-password/10457](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-configuration-dump))
-
-```
-Email: avion@backend.io
-# and
-Password: Password12345
 ```
 
 ### `start`
@@ -40,6 +40,16 @@ Build your admin panel. [Learn more](https://docs.strapi.io/developer-docs/lates
 npm run build
 # or
 yarn build
+```
+
+### `credential`
+
+In the administrative panel, you will be asked for email and password, you can enter the administrator's default email and a generically created password. Se You can change the password later if needed. [Learn more]([https://forum.strapi.io/t/forgot-my-password/10457](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-configuration-dump))
+
+```
+Email: avion@backend.io
+# and
+Password: Password12345
 ```
 
 ## ⚙️ Deployment
