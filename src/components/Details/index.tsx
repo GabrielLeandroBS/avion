@@ -52,8 +52,6 @@ const Details: React.FC = () => {
     })();
   }, [slug]);
 
-  console.log(details);
-
   return (
     <section className="c-details">
       <div className="c-details__container">
