@@ -63,8 +63,11 @@ const ProductsHighlighted: React.FC = () => {
       </h2>
       <div className="c-products__wrapper">
         {loading
-          ? Array.from({ length: 4 }, () => (
-              <CardProduct key={length} isLoading={true} />
+          ? Array.from({ length: 4 }, (item = length, index) => (
+              <CardProduct
+                key={`highlighted-${item}-${index}`}
+                isLoading={true}
+              />
             ))
           : ''}
         {!loading &&
