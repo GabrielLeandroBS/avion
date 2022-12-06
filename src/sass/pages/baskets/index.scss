@@ -110,7 +110,6 @@
     color: functions.css-color("primary");
     font-weight: functions.css-weight("thin");
     margin-bottom: functions.rem(8px);
-    max-width: functions.rem(232px);
   }
 
   &__footer {
@@ -170,10 +169,15 @@
   }
 
   &__empty {
-    @include mixins.display-flex(center,center);
+    @include mixins.display-flex(center, center);
 
-    margin-bottom: functions.rem(32px);
-    min-height: functions.rem(168px);
+    margin-bottom: functions.rem(20px);
+    min-height: functions.rem(196px);
+
+    @include mixins.breakpoint("lg") {
+      min-height: functions.rem(155.16px);
+      margin-bottom: functions.rem(32px);
+    }
 
     span {
       color: functions.css-color("primary");

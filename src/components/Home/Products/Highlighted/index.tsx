@@ -22,8 +22,10 @@ const ProductsHighlighted: React.FC = () => {
               description: '',
               image: {
                 data: {
-                  attributes: {
-                    url: '/',
+                  [0]: {
+                    attributes: {
+                      url: '/',
+                    },
                   },
                 },
               },
@@ -39,7 +41,7 @@ const ProductsHighlighted: React.FC = () => {
     try {
       setLoading(true);
       const { data } = await getPage({
-        page: 'Home',
+        page: 'home',
       });
       setHighlightedProduct(data.attributes.Highlighted);
     } finally {
@@ -68,8 +70,8 @@ const ProductsHighlighted: React.FC = () => {
         {!loading &&
           products.data.map(({ attributes }) => (
             <CardProduct
-              key={attributes.title}
-              image={attributes.image.data.attributes.url}
+              key={`highlighted-${attributes.title}`}
+              image={attributes.image.data[0].attributes.url}
               title={attributes.title}
               price={attributes.price}
               slug={attributes.slug}

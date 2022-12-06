@@ -1,0 +1,13 @@
+.lazy-load-image-background {
+    width: 100%;
+    height: 100%;
+
+    &.blur {
+        &.lazy-load-image-loaded {
+            >img {
+                transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            }
+        }
+    }
+
+}

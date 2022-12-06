@@ -9,7 +9,7 @@
 
   width: 100%;
 
-  @include mixins.breakpoint("lg") {
+  @include mixins.breakpoint("xl") {
     @include mixins.padding-x(0);
   }
 }

@@ -11,8 +11,10 @@ export type popularProps = {
           description: string;
           image: {
             data: {
-              attributes: {
-                url: string;
+              [0]: {
+                attributes: {
+                  url: string;
+                };
               };
             };
           };

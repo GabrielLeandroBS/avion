@@ -1,10 +1,11 @@
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Link } from 'react-router-dom';
 import { NumericFormat } from 'react-number-format';
 import React from 'react';
 import Skeleton from 'react-loading-skeleton';
 
 import { CardProductProps } from '../../../types/card/product';
-import { REACT_APP_BASE_URL } from '../../../../global/constants';
 
 const CardProduct: React.FC<CardProductProps> = ({
   title,
@@ -20,9 +21,10 @@ const CardProduct: React.FC<CardProductProps> = ({
           {isLoading ? (
             <Skeleton height={'100%'} />
           ) : (
-            <img
-              src={`${REACT_APP_BASE_URL}${image}`}
+            <LazyLoadImage
               alt="Image card product"
+              src={`${image}`}
+              effect="blur"
             />
           )}
         </figure>

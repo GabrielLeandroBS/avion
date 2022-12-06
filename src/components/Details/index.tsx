@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import NumberPicker from 'react-widgets/NumberPicker';
+import React, { useEffect, useState } from 'react';
 
 import Button from '../Button/Link';
 import { getDetails } from '../../services/details.service';
 import { useParams } from 'react-router-dom';
 import { DetailsItemProps, DetailsInitalStateProps } from '../../types/details';
 import { NumericFormat } from 'react-number-format';
-import { REACT_APP_BASE_URL } from '../../../global/constants';
 import ButtonAddToCart from '../Button/AddToCart';
 import Skeleton from 'react-loading-skeleton';
 
@@ -20,8 +21,10 @@ const Details: React.FC = () => {
     quantity: 1,
     image: {
       data: {
-        attributes: {
-          url: '',
+        [0]: {
+          attributes: {
+            url: '',
+          },
         },
       },
     },
@@ -49,6 +52,8 @@ const Details: React.FC = () => {
     })();
   }, [slug]);
 
+  console.log(details);
+
   return (
     <section className="c-details">
       <div className="c-details__container">
@@ -56,9 +61,10 @@ const Details: React.FC = () => {
           {loading ? (
             <Skeleton height={'100%'} width={'100%'} />
           ) : (
-            <img
-              src={`${REACT_APP_BASE_URL}${details.image.data.attributes.url}`}
+            <LazyLoadImage
               alt="product image"
+              src={`${details.image.data[0].attributes.url}`}
+              effect="blur"
             />
           )}
         </figure>
@@ -80,9 +86,6 @@ const Details: React.FC = () => {
             )}
           </p>
           <div>
-            <h2 className="c-details__subtitle">
-              {loading ? <Skeleton height={40} /> : details.title}
-            </h2>
             <p className="c-details__description">
               {loading ? <Skeleton height={80} /> : details.description}
             </p>
@@ -107,7 +110,7 @@ const Details: React.FC = () => {
                 <ButtonAddToCart
                   product={{
                     slug: details.slug,
-                    image: details.image.data.attributes.url,
+                    image: details.image.data[0].attributes.url,
                     price: details.price,
                     quantity: quantity,
                     stripe: details.stripe,

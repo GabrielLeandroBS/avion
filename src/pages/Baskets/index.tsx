@@ -1,12 +1,13 @@
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import 'react-widgets/scss/styles.scss';
 import 'rsuite/dist/rsuite.min.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { NumericFormat } from 'react-number-format';
 import { Popover, Whisper, Button as ButtonPopover } from 'rsuite';
 import React, { useEffect, useState } from 'react';
 
 import { Layout } from '../../layout';
 import { ProductInCartProps, RemoveProductInCartProps } from '../../types/cart';
-import { REACT_APP_BASE_URL } from '../../../global/constants';
 import { useCart } from '../../hooks/useCart';
 import { useCartProps } from '../../types/context';
 import Checkout from '../../components/Button/Checkout';
@@ -73,18 +74,16 @@ const Baskets: React.FC = () => {
                 <div key={price} className="baskets__wrapper">
                   <div key={title} className="baskets__product">
                     <figure className="baskets__figure">
-                      <img
-                        src={`${REACT_APP_BASE_URL}${image}`}
+                      <LazyLoadImage
                         alt="Image baskets"
+                        src={`${image}`}
+                        effect="blur"
                       />
                     </figure>
 
                     <div>
                       <h2 className="baskets__title">{title}</h2>
-                      <p className="baskets__description">{`${description.slice(
-                        0,
-                        80
-                      )}. . .`}</p>
+                      <p className="baskets__description">{`${description}`}</p>
                       <p className="baskets__rating">
                         {`${quantity} x `}
                         <NumericFormat

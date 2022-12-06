@@ -21,8 +21,10 @@ const ProductsPopular: React.FC = () => {
             description: '',
             image: {
               data: {
-                attributes: {
-                  url: '/',
+                [0]: {
+                  attributes: {
+                    url: '/',
+                  },
                 },
               },
             },
@@ -36,7 +38,7 @@ const ProductsPopular: React.FC = () => {
   const getHighlightedProduct = async () => {
     try {
       const { data } = await getPage({
-        page: 'Home',
+        page: 'home',
       });
       setPopularProduct(data.attributes.Popular);
     } finally {
@@ -66,8 +68,8 @@ const ProductsPopular: React.FC = () => {
         {!loading &&
           products.data.map(({ attributes }) => (
             <CardProduct
-              key={attributes.title}
-              image={attributes.image.data.attributes.url}
+              key={`highlighted-${attributes.title}`}
+              image={attributes.image.data[0].attributes.url}
               title={attributes.title}
               price={attributes.price}
               slug={attributes.slug}

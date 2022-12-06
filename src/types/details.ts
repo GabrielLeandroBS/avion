@@ -16,8 +16,10 @@ export type DetailsItemProps = {
     quantity: number;
     image: {
       data: {
-        attributes: {
-          url: string;
+        [0]: {
+          attributes: {
+            url: string;
+          };
         };
       };
     };
@@ -34,8 +36,10 @@ export type DetailsInitalStateProps = {
   stripe: string;
   image: {
     data: {
-      attributes: {
-        url: string;
+      [0]: {
+        attributes: {
+          url: string;
+        };
       };
     };
   };
