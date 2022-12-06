@@ -4,7 +4,7 @@
 .c-products {
   @include mixins.center-block(functions.rem(1280px));
   @include mixins.display-flex(center, center);
-  @include mixins.padding-x(functions.rem(46px));
+  @include mixins.padding-x(functions.rem(24px));
   @include mixins.padding-y(functions.rem(25px));
 
   flex-direction: column;
@@ -20,7 +20,7 @@
 
   &__wrapper {
     display: grid;
-    gap: functions.rem(16px);
+    gap: functions.rem(32px) functions.rem(16px);
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
 

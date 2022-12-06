@@ -80,9 +80,14 @@
 
   &__figure {
     height: functions.rem(155.16px);
-    max-width: functions.rem(109px);
+    min-width: functions.rem(109px);
     overflow: hidden;
     width: 100%;
+
+
+    @include mixins.breakpoint("smx") {
+      max-width: functions.rem(109px);
+    }
 
     &:hover {
       img {
@@ -101,6 +106,14 @@
     @include mixins.breakpoint("lg") {
       @include mixins.font-size-line-height(functions.rem(20px), functions.rem(28px));
     }
+  }
+
+  &__description {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__description,

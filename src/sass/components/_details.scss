@@ -7,7 +7,6 @@
   &__container {
     @include mixins.display-flex(center, flex-start);
     @include mixins.center-block(functions.rem(1280px));
-    @include mixins.padding-y(functions.rem(50px));
 
     background-color: functions.css-color("tertiary");
     row-gap: functions.rem(65px);
@@ -16,6 +15,7 @@
     @include mixins.breakpoint("md") {
       flex-direction: row;
       column-gap: functions.rem(45px);
+      @include mixins.padding-y(functions.rem(50px));
     }
 
     @include mixins.breakpoint("lg") {

@@ -19,7 +19,8 @@ body {
 
 a {
   &:hover,
-  &:visited {
+  &:visited,
+  &:active {
     text-decoration: none;
   }
 }
