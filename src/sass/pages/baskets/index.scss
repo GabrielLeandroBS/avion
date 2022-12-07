@@ -1,7 +1,7 @@
 @use "../../abstracts/functions" as functions;
 @use "../../abstracts/mixins" as mixins;
 
-.baskets {
+.p-baskets {
   background-color: functions.css-color("tertiary");
   min-height: 100%;
   padding: functions.rem(36px) functions.rem(24px);
@@ -65,6 +65,8 @@
   }
 
   &__actions {
+    @include mixins.display-flex(flex-start, flex-end);
+
     &--desktop {
       display: none;
     }

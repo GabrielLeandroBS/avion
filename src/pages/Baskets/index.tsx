@@ -50,15 +50,15 @@ const Baskets: React.FC = () => {
 
   return (
     <Layout>
-      <section className="baskets">
-        <div className="baskets__container">
-          <header className="baskets__wrapper baskets__header">
+      <section className="p-baskets">
+        <div className="p-baskets__container">
+          <header className="p-baskets__wrapper p-baskets__header">
             <div>Product</div>
-            <div className="baskets__price">Total price</div>
+            <div className="p-baskets__price">Total price</div>
           </header>
 
           {getProductsInCart.length <= 0 ? (
-            <div className="baskets__empty">
+            <div className="p-baskets__empty">
               <span>There are no items in the cart.</span>
             </div>
           ) : (
@@ -71,9 +71,9 @@ const Baskets: React.FC = () => {
                 slug,
                 quantity,
               }: ProductInCartProps) => (
-                <div key={price} className="baskets__wrapper">
-                  <div key={title} className="baskets__product">
-                    <figure className="baskets__figure">
+                <div key={price} className="p-baskets__wrapper">
+                  <div key={title} className="p-baskets__product">
+                    <figure className="p-baskets__figure">
                       <LazyLoadImage
                         alt="Image baskets"
                         src={`${image}`}
@@ -82,9 +82,9 @@ const Baskets: React.FC = () => {
                     </figure>
 
                     <div>
-                      <h2 className="baskets__title">{title}</h2>
-                      <p className="baskets__description">{`${description}`}</p>
-                      <p className="baskets__rating">
+                      <h2 className="p-baskets__title">{title}</h2>
+                      <p className="p-baskets__description">{`${description}`}</p>
+                      <p className="p-baskets__rating">
                         {`${quantity} x `}
                         <NumericFormat
                           value={price.toFixed(2)}
@@ -94,14 +94,14 @@ const Baskets: React.FC = () => {
                         />
                       </p>
 
-                      <div className="baskets__actions">
+                      <div className="p-baskets__actions">
                         <Whisper
-                          placement="bottomStart"
+                          placement="bottomEnd"
                           trigger="click"
                           speaker={
                             <Popover arrow={false}>
                               <div
-                                className="baskets__remove"
+                                className="p-baskets__remove"
                                 onClick={() =>
                                   handleRemoveProductInCart({
                                     description,
@@ -116,13 +116,15 @@ const Baskets: React.FC = () => {
                             </Popover>
                           }
                         >
-                          <ButtonPopover>Click</ButtonPopover>
+                          <ButtonPopover>
+                            <img src={Dots} alt="Dots" />
+                          </ButtonPopover>
                         </Whisper>
                       </div>
                     </div>
                   </div>
 
-                  <div className="baskets__price">
+                  <div className="p-baskets__price">
                     {
                       <NumericFormat
                         value={(price * quantity).toFixed(2)}
@@ -133,14 +135,14 @@ const Baskets: React.FC = () => {
                     }
                   </div>
 
-                  <div className="baskets__actions baskets__actions--desktop">
+                  <div className="p-baskets__actions p-baskets__actions--desktop">
                     <Whisper
                       placement="bottomEnd"
                       trigger="click"
                       speaker={
                         <Popover arrow={false}>
                           <div
-                            className="baskets__remove"
+                            className="p-baskets__remove"
                             onClick={() =>
                               handleRemoveProductInCart({
                                 description,
@@ -165,13 +167,13 @@ const Baskets: React.FC = () => {
             )
           )}
 
-          <footer className="baskets__footer">
-            <span className="baskets__span">
+          <footer className="p-baskets__footer">
+            <span className="p-baskets__span">
               See prices and rates at checkout.
             </span>
 
-            <div className="baskets__content">
-              <div className="baskets__subtotal">
+            <div className="p-baskets__content">
+              <div className="p-baskets__subtotal">
                 <span>Subtotal</span>
                 <NumericFormat
                   value={totalQuantity.toFixed(2)}
@@ -181,7 +183,7 @@ const Baskets: React.FC = () => {
                 />
               </div>
 
-              <div className="baskets__buttons">
+              <div className="p-baskets__buttons">
                 <Checkout items={getProductsInCart} isDisabled={disabled} />
               </div>
             </div>
