@@ -15,6 +15,7 @@
     @include mixins.breakpoint("md") {
       flex-direction: row;
       column-gap: functions.rem(45px);
+
       @include mixins.padding-y(functions.rem(50px));
     }
 

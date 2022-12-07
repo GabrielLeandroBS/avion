@@ -86,7 +86,6 @@
     overflow: hidden;
     width: 100%;
 
-
     @include mixins.breakpoint("smx") {
       max-width: functions.rem(109px);
     }
