@@ -5,7 +5,7 @@ const FilterCategories: React.FC = () => {
   return (
     <section className="c-categories">
       <Whisper
-        placement="bottomEnd"
+        placement="bottomStart"
         trigger="click"
         speaker={<Popover arrow={false}>List filters with Categories Product</Popover>}
       >
