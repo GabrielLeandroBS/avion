@@ -1,3 +1,2 @@
-export const REACT_APP_BASE_URL = 'https://strapi-production-2753.up.railway.app';
-export const REACT_APP_STRIPE_KEY =
-  'pk_test_51LtkFyDuF8RuVtK1hJuL2NyzFfHdTpFMYToJefCb0Aexk4ddK6tGUx1K29T345u3qAkMUTiyHfNeYFcBnjD2eO4s00oFZtXfH0';
+export const REACT_APP_BASE_URL = import.meta.env.VITE_APP_BASE_URL
+export const REACT_APP_STRIPE_KEY = import.meta.env.VITE_APP_STRIPE_KEY
