@@ -100,10 +100,14 @@
 
   &__title {
     @include mixins.font-size-line-height(functions.rem(16px), functions.rem(24px));
-
+    @include mixins.line-clamp(2);
     color: functions.css-color("primary");
     font-weight: functions.css-weight("thin");
     margin-bottom: functions.rem(8px);
+
+    @include mixins.breakpoint("md") {
+      @include mixins.line-clamp(4);
+    }
 
     @include mixins.breakpoint("lg") {
       @include mixins.font-size-line-height(functions.rem(20px), functions.rem(28px));
