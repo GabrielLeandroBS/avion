@@ -4,14 +4,14 @@ import React, { useState } from 'react';
 
 import { CheckoutButtonItemsProps } from '../../../types/button/checkout';
 import { checkoutOptionsProps } from '../../../types/checkout';
-import { REACT_APP_STRIPE_KEY } from '../../../../global/constants';
+import { VITE_STRIPE_KEY } from '../../../../global/constants';
 import { useStripeProps } from '../../../types/stripe';
 
 let stripePromise: Promise<Stripe | null>;
 
 const getStripe = () => {
   if (!stripePromise) {
-    stripePromise = loadStripe(REACT_APP_STRIPE_KEY);
+    stripePromise = loadStripe(VITE_STRIPE_KEY);
   }
   return stripePromise;
 };
