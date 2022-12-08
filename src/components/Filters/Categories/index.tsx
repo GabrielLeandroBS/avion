@@ -7,7 +7,7 @@ const FilterCategories: React.FC = () => {
       <Whisper
         placement="bottomEnd"
         trigger="click"
-        speaker={<Popover arrow={false}>Remove Item</Popover>}
+        speaker={<Popover arrow={false}>List filters with Categories Product</Popover>}
       >
         <ButtonPopover>Categories</ButtonPopover>
       </Whisper>
