@@ -12,6 +12,7 @@ import { useCart } from '../../hooks/useCart';
 import { useCartProps } from '../../types/context';
 import Checkout from '../../components/Button/Checkout';
 import Dots from '../../assets/sprite-svg/dots.svg';
+import { Link } from 'react-router-dom';
 
 const Baskets: React.FC = () => {
   const [totalQuantity, setTotalQuantity] = useState<number>(1);
@@ -73,55 +74,57 @@ const Baskets: React.FC = () => {
               }: ProductInCartProps) => (
                 <div key={price} className="p-baskets__wrapper">
                   <div key={title} className="p-baskets__product">
-                    <figure className="p-baskets__figure">
-                      <LazyLoadImage
-                        alt="Image baskets"
-                        src={`${image}`}
-                        effect="blur"
-                      />
-                    </figure>
-
-                    <div>
-                      <h2 className="p-baskets__title">{title}</h2>
-                      <p className="p-baskets__description">{`${description}`}</p>
-                      <p className="p-baskets__rating">
-                        {`${quantity} x `}
-                        <NumericFormat
-                          value={price.toFixed(2)}
-                          displayType={'text'}
-                          thousandSeparator={true}
-                          prefix={'US$ '}
+                    <Link to={`/details/${slug}`} className="p-baskets__item">
+                      <figure className="p-baskets__figure">
+                        <LazyLoadImage
+                          alt="Image baskets"
+                          src={`${image}`}
+                          effect="blur"
                         />
-                      </p>
+                      </figure>
 
-                      <div className="p-baskets__actions">
-                        <Whisper
-                          placement="bottomEnd"
-                          trigger="click"
-                          speaker={
-                            <Popover arrow={false}>
-                              <div
-                                className="p-baskets__remove"
-                                onClick={() =>
-                                  handleRemoveProductInCart({
-                                    description,
-                                    image,
-                                    price,
-                                    slug,
-                                  })
-                                }
-                              >
-                                Remove Item
-                              </div>
-                            </Popover>
-                          }
-                        >
-                          <ButtonPopover>
-                            <img src={Dots} alt="Dots" />
-                          </ButtonPopover>
-                        </Whisper>
+                      <div>
+                        <h2 className="p-baskets__title">{title}</h2>
+                        <p className="p-baskets__description">{`${description}`}</p>
+                        <p className="p-baskets__rating">
+                          {`${quantity} x `}
+                          <NumericFormat
+                            value={price.toFixed(2)}
+                            displayType={'text'}
+                            thousandSeparator={true}
+                            prefix={'US$ '}
+                          />
+                        </p>
+
+                        <div className="p-baskets__actions">
+                          <Whisper
+                            placement="bottomEnd"
+                            trigger="click"
+                            speaker={
+                              <Popover arrow={false}>
+                                <div
+                                  className="p-baskets__remove"
+                                  onClick={() =>
+                                    handleRemoveProductInCart({
+                                      description,
+                                      image,
+                                      price,
+                                      slug,
+                                    })
+                                  }
+                                >
+                                  Remove Item
+                                </div>
+                              </Popover>
+                            }
+                          >
+                            <ButtonPopover>
+                              <img src={Dots} alt="Dots" />
+                            </ButtonPopover>
+                          </Whisper>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
 
                   <div className="p-baskets__price">

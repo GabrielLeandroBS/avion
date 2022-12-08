@@ -46,7 +46,8 @@
   }
 
   &__product,
-  &__price {
+  &__price,
+  &__item {
     @include mixins.display-flex(flex-start, flex-start);
 
     gap: functions.rem(24px);
