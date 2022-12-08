@@ -59,7 +59,7 @@ const ProductsPopular: React.FC = () => {
       <h2 className="c-products__title">
         {loading ? <Skeleton height={50} /> : title}
       </h2>
-      <div className="c-products__wrapper c-products__wrapper--grid">
+      <div className="c-products__wrapper c-products__wrapper--columns">
         {loading
           ? Array.from({ length: 3 }, (item = length, index) => (
               <CardProduct key={`popular-${item}-${index}`} isLoading={true} />

@@ -30,7 +30,7 @@
       gap: functions.rem(20px);
     }
 
-    &--grid {
+    &--columns {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
 
@@ -46,6 +46,16 @@
         article:first-of-type {
           grid-area: 1 / 1 / 2 / 3;
           max-width: 100%;
+        }
+      }
+
+      &-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        @include mixins.breakpoint("md") {
+          gap: functions.rem(20px);
+          grid-template-columns: repeat(4, 1fr);
         }
       }
     }

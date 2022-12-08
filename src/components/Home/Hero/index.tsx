@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
             The furniture brand for the future, with timeless designs
           </h1>
           <div className="c-hero__button">
-            <ButtonLink href="/" title="View collection" isLoading={false} />
+            <ButtonLink href="/products" title="View collection" isLoading={false} />
           </div>
         </div>
         <p className="c-hero__description">
