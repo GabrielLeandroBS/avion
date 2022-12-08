@@ -125,7 +125,7 @@
 
   border-radius: 100%;
 
-  @if $background-color !="" {
+  @if $background-color != "" {
     background-color: $background-color;
   }
 }
