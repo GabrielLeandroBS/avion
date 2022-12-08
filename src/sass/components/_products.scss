@@ -59,7 +59,6 @@
 
         @include mixins.breakpoint("md") {
           grid-template-columns: repeat(3, 1fr);
-
         }
 
         @include mixins.breakpoint("lg") {
