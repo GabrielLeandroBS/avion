@@ -180,10 +180,8 @@
 
 // Breakpoint mininum width viewport
 @mixin breakpoint($value) {
-
   // If the key exists in the map
   @if map-has-key(variables.$breakpoints, $value) {
-
     // Prints a media query based on the value
     @media screen and (min-width: map-get(variables.$breakpoints, $value)) {
       @content;
