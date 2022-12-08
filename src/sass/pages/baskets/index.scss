@@ -110,11 +110,7 @@
   }
 
   &__description {
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    display: -webkit-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    @include mixins.line-clamp(3);
   }
 
   &__description,

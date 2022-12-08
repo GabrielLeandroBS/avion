@@ -125,7 +125,7 @@
 
   border-radius: 100%;
 
-  @if $background-color != "" {
+  @if $background-color !="" {
     background-color: $background-color;
   }
 }
@@ -169,10 +169,21 @@
   }
 }
 
+// Inserting line clamp in text
+@mixin line-clamp($lines) {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 // Breakpoint mininum width viewport
 @mixin breakpoint($value) {
+
   // If the key exists in the map
   @if map-has-key(variables.$breakpoints, $value) {
+
     // Prints a media query based on the value
     @media screen and (min-width: map-get(variables.$breakpoints, $value)) {
       @content;
