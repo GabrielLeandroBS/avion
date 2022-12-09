@@ -7,8 +7,7 @@ const FilterCategories: React.FC = () => {
   const getFilterCategories = async () => {
     try {
       const { data } = await getCategories();
-      const { data: dataEntry } = data;
-      setCategories(dataEntry);
+      setCategories(data);
     } catch {
       alert('Não deu certo!');
     }
