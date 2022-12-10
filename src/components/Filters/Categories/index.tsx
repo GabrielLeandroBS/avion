@@ -29,7 +29,7 @@ const FilterCategories: React.FC = () => {
 
   // console.log(categories?.map(item => item));
 
-  categories.map((item) => console.log(item));
+  categories.map((item) => console.log(item.attributes));
 
   return (
     <section className="c-categories">
