@@ -1,4 +1,4 @@
-export type FilterCategories = [
+export type FilterCategoriesProps = [
   attributes: {
     categories: string;
   }
