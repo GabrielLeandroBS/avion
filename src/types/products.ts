@@ -13,25 +13,23 @@ export type ProductsProps = {
   };
 };
 
-export type ProductsListProps = {
-  data: [
-    {
-      attributes: {
-        price: string;
-        slug: string;
-        stripe: string;
-        title: string;
-        description: string;
-        image: {
-          data: {
-            [0]:{
-              attributes: {
-                url: string;
-              };
-            }
-          };
+export type ProductsListProps = [
+  {
+    attributes: {
+      price: string;
+      slug: string;
+      stripe: string;
+      title: string;
+      description: string;
+      image: {
+        data: {
+          [0]:{
+            attributes: {
+              url: string;
+            };
+          }
         };
       };
-    }
-  ];
-};
+    };
+  }
+]

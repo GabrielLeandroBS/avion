@@ -5,33 +5,31 @@ import CardProduct from '../Card/Product';
 
 const ListProducts: React.FC = () => {
   const [loading, setLoading] = useState(true);
-  const [listProducts, setListProducts] = useState<ProductsListProps>({
-    data: [
-      {
-        attributes: {
-          price: '',
-          slug: '',
-          stripe: '',
-          title: '',
-          description: '',
-          image: {
-            data: {
-              [0]: {
-                attributes: {
-                  url: '/',
-                },
+  const [listProducts, setListProducts] = useState<ProductsListProps>([
+    {
+      attributes: {
+        price: '',
+        slug: '',
+        stripe: '',
+        title: '',
+        description: '',
+        image: {
+          data: {
+            [0]: {
+              attributes: {
+                url: '/',
               },
             },
           },
         },
       },
-    ],
-  });
+    },
+  ]);
 
   const getListProducts = async () => {
     try {
       const data = await getProducts();
-      setListProducts(data);
+      setListProducts(data.data);
     } finally {
       setLoading(false);
     }
@@ -55,7 +53,7 @@ const ListProducts: React.FC = () => {
             ))
           : ''}
         {!loading &&
-          listProducts.data.map(({ attributes }) => (
+          listProducts.map(({ attributes }) => (
             <CardProduct
               key={`list-products-${attributes.title}`}
               image={attributes.image.data[0].attributes.url}
