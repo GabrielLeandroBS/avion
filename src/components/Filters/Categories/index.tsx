@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Popover, Whisper, Button as ButtonPopover } from 'rsuite';
 import { getCategories } from '../../../services/categories.service';
+import { FilterCategoriesProps } from '../../../types/filters/categories';
 
 const FilterCategories: React.FC = () => {
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState<FilterCategoriesProps>([
+    {
+      attributes: {
+        categories: '',
+      },
+    },
+  ]);
+
   const getFilterCategories = async () => {
     try {
       const { data } = await getCategories();
@@ -19,7 +27,9 @@ const FilterCategories: React.FC = () => {
     })();
   }, []);
 
-  console.log(categories);
+  // console.log(categories?.map(item => item));
+
+  categories.map((item) => console.log(item));
 
   return (
     <section className="c-categories">
