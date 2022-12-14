@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const SignUp: React.FC = () => {
   return (
     <label className="c-signup">
-      <section className="c-signup__wrapper">
-        <form action="">
+      <section>
+        <form action="" className="c-signup__wrapper">
           <input
             type="text"
             className="c-signup__input"
@@ -13,10 +12,12 @@ const SignUp: React.FC = () => {
             required
           />
 
-          <button className="c-button c-button--dark" aria-label='create account'>
-            <Link to={'/href'} aria-label="Change page" rel="noreferrer">
-              Sign up
-            </Link>
+          <button
+            type="submit"
+            className="c-button c-button--dark"
+            aria-label="create account"
+          >
+            <a href="">Sign up</a>
           </button>
         </form>
       </section>
