@@ -72,6 +72,7 @@ const Checkout: React.FC<CheckoutButtonItemsProps> = (
 
   return (
     <button
+      aria-label="Checkout button"
       className={`c-button c-button--dark ${
         items.isDisabled ? 'c-button--disabled' : ''
       } `}
