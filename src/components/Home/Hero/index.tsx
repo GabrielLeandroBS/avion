@@ -7,14 +7,14 @@ const Hero: React.FC = () => {
   return (
     <section className="c-hero">
       <div className="c-hero__content">
-        <div>
+        <section>
           <h1 className="c-hero__title">
             The furniture brand for the future, with timeless designs
           </h1>
           <div className="c-hero__button">
             <ButtonLink href="/products" title="View collection" isLoading={false} />
           </div>
-        </div>
+        </section>
         <p className="c-hero__description">
           A new era in eco friendly furniture with Avelon, the French luxury
           retail brand with nice fonts, tasteful colors and a beautiful way to
