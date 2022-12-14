@@ -11,7 +11,7 @@ const SignUp: React.FC = () => {
           placeholder="your@email.com"
         />
 
-        <button className="c-button c-button--dark">
+        <button className="c-button c-button--dark" aria-label='create account'>
           <Link to={'/href'} aria-label="Change page" rel="noreferrer">
             Sign up
           </Link>
