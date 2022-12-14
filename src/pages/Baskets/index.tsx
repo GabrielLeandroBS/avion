@@ -120,7 +120,9 @@ const Baskets: React.FC = () => {
                           }
                         >
                           <ButtonPopover>
-                            <img src={Dots} alt="Dots" />
+                            <figure>
+                              <img src={Dots} alt="Dots" />
+                            </figure>
                           </ButtonPopover>
                         </Whisper>
                       </div>
@@ -161,7 +163,9 @@ const Baskets: React.FC = () => {
                       }
                     >
                       <ButtonPopover>
-                        <img src={Dots} alt="Dots" />
+                        <figure>
+                          <img src={Dots} alt="Dots" />
+                        </figure>
                       </ButtonPopover>
                     </Whisper>
                   </div>
