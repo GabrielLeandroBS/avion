@@ -12,13 +12,13 @@ const Panel: React.FC<PanelProps> = ({
   return (
     <section className={`c-panel c-panel--direction-${direction}`}>
       <div className="c-panel__content">
-        <div>
+        <section>
           <h2 className="c-panel__title">{title}</h2>
           <p
             className="c-panel__description"
             dangerouslySetInnerHTML={{ __html: description }}
           />
-        </div>
+        </section>
         <div>{actions}</div>
       </div>
       <figure className="c-panel__figure">
