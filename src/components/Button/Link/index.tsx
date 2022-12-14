@@ -15,8 +15,8 @@ const ButtonLink: React.FC<buttonProps> = ({
       {isLoading ? (
         <Skeleton width={170} height={60} />
       ) : (
-        <button className={`c-button ${color ? `c-button--${color}` : ''}`}>
-          <Link to={href} aria-label="Change to list page products">
+        <button aria-label='Action to change url' className={`c-button ${color ? `c-button--${color}` : ''}`}>
+          <Link to={href} aria-label="Change page">
             {title}
           </Link>
         </button>
