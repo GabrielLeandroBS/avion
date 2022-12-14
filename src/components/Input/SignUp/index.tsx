@@ -10,6 +10,7 @@ const SignUp: React.FC = () => {
             className="c-signup__input"
             placeholder="your@email.com"
             required
+            aria-required='true'
           />
 
           <button
