@@ -10,7 +10,7 @@ const CardFeature: React.FC<CardFeatureProps> = ({
   return (
     <section className="c-card c-card__feature">
       <figure className="c-card__image">
-        <img src={image} alt={'image card'} />
+        <img src={image} alt='image card' />
       </figure>
 
       <section>
