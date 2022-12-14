@@ -16,7 +16,7 @@ const CardProduct: React.FC<CardProductProps> = ({
 }: CardProductProps) => {
   return (
     <article className="c-card c-card__product">
-      <Link to={isLoading ? '/' : `/details/${slug}`} className="card__wrapper">
+      <Link to={isLoading ? '/' : `/details/${slug}`} className="card__wrapper" aria-label="link to product item">
         <figure className="c-card__image">
           {isLoading ? (
             <Skeleton height={'100%'} />
