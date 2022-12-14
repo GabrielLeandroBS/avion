@@ -68,7 +68,7 @@ const ButtonAddToCart: React.FC<AddProductInCartProps> = ({
 
   return (
     <button
-      aria-label="Add product in cart"
+      aria-label="add product in cart"
       className="c-button c-button--dark"
       onClick={() =>
         handleCartProducts({
