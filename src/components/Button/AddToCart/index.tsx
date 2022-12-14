@@ -70,6 +70,7 @@ const ButtonAddToCart: React.FC<AddProductInCartProps> = ({
     <button
       aria-label="add product in cart"
       className="c-button c-button--dark"
+      aria-haspopup="dialog"
       onClick={() =>
         handleCartProducts({
           slug,
