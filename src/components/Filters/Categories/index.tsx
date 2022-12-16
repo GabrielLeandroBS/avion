@@ -3,6 +3,9 @@ import { Popover, Whisper, Button as ButtonPopover } from 'rsuite';
 import { getCategories } from '../../../services/categories.service';
 import { FilterCategoriesProps } from '../../../types/filters/categories';
 
+import { useFilter } from '../../../hooks/useFilter';
+import { useFilterProps } from '../../../types/context';
+
 const FilterCategories: React.FC = () => {
   const [categories, setCategories] = useState<FilterCategoriesProps>([
     {
@@ -12,6 +15,10 @@ const FilterCategories: React.FC = () => {
     },
   ]);
 
+  const getFilter = useFilter((state: any) => state.filterContent);
+  const addFilter = useFilter((state: useFilterProps) => state.addFilter);
+  const updateFilter = useFilter((state: useFilterProps) => state.updateFilter);
+  const removeFilter = useFilter((state: useFilterProps) => state.removeFilter);
   const getFilterCategories = async () => {
     try {
       const { data } = await getCategories();
@@ -27,9 +34,17 @@ const FilterCategories: React.FC = () => {
     })();
   }, []);
 
-  console.log(categories?.map((item) => item));
+  const handleAddingFilter = (category: string) => {
+    const findFilter = getFilter.includes(category);
+    findFilter ? console.log('Não existe') : addFilter(category);
+  };
 
-  categories.map((item) => console.log(item.attributes));
+  const handleRemoveFilter = (category: string) => {
+    removeFilter(category);
+    console.log(`Remover ${category}`);
+  };
+
+  console.log(getFilter);
 
   return (
     <section className="c-categories">
@@ -37,15 +52,30 @@ const FilterCategories: React.FC = () => {
         placement="bottomStart"
         trigger="click"
         speaker={
-          <Popover arrow={false}>
-            {categories.map(({ attributes }) => (
-              <form key={attributes.category}>
-                <label htmlFor={attributes.category}>
-                  <input type="checkbox" id={attributes.category} value={attributes.category} />
+          <Popover arrow={true}>
+            <form>
+              {categories.map(({ attributes }) => (
+                <label
+                  key={attributes.category}
+                  className="c-categories__label"
+                  htmlFor={attributes.category}
+                >
+                  <input
+                    type="checkbox"
+                    id={attributes.category}
+                    value={attributes.category}
+                    onChange={(e) => {
+                      if (e.target.checked) {
+                        handleAddingFilter(attributes.category);
+                      } else {
+                        handleRemoveFilter(attributes.category);
+                      }
+                    }}
+                  />
                   {attributes.category}
                 </label>
-              </form>
-            ))}
+              ))}
+            </form>
           </Popover>
         }
       >

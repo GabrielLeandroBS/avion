@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export type useCartProps = any;
+export type useFilterProps = any;
 
 export type AddToCartInitialProps = {
   addTocart: any;

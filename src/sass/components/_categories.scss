@@ -1,0 +1,14 @@
+@use '../abstracts/functions' as functions;
+@use '../abstracts/mixins' as mixins;
+
+.c-categories {
+  &__label {
+    display: block;
+  }
+
+  form & {
+    &__label:not(:last-child) {
+      margin-bottom: functions.rem(12px);
+    }
+  }
+}

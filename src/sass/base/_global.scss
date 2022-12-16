@@ -38,6 +38,6 @@ img {
 
 input[type='checkbox'] {
   accent-color: functions.css-color('quinquenary');
-  margin-right: functions.rem(5px);
+  margin-right: functions.rem(12px);
   @include mixins.width-height(functions.rem(16px));
 }
