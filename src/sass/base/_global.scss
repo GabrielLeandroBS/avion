@@ -31,7 +31,13 @@ main {
 }
 
 img {
-  @include mixins.image-size;
+  @include mixins.image-size(cover);
 
   transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+input[type='checkbox'] {
+  accent-color: functions.css-color('quinquenary');
+  margin-right: functions.rem(5px);
+  @include mixins.width-height(functions.rem(16px));
 }

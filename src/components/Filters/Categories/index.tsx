@@ -7,7 +7,7 @@ const FilterCategories: React.FC = () => {
   const [categories, setCategories] = useState<FilterCategoriesProps>([
     {
       attributes: {
-        categories: '',
+        category: '',
       },
     },
   ]);
@@ -27,7 +27,7 @@ const FilterCategories: React.FC = () => {
     })();
   }, []);
 
-  // console.log(categories?.map(item => item));
+  console.log(categories?.map((item) => item));
 
   categories.map((item) => console.log(item.attributes));
 
@@ -36,7 +36,18 @@ const FilterCategories: React.FC = () => {
       <Whisper
         placement="bottomStart"
         trigger="click"
-        speaker={<Popover arrow={false}>Categories Product</Popover>}
+        speaker={
+          <Popover arrow={false}>
+            {categories.map(({ attributes }) => (
+              <form key={attributes.category}>
+                <label htmlFor={attributes.category}>
+                  <input type="checkbox" id={attributes.category} value={attributes.category} />
+                  {attributes.category}
+                </label>
+              </form>
+            ))}
+          </Popover>
+        }
       >
         <ButtonPopover>Categories</ButtonPopover>
       </Whisper>

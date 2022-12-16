@@ -1,7 +1,7 @@
 export type FilterCategoriesProps = [
   {
     attributes: {
-      categories: string;
+      category: string;
     };
   }
 ];

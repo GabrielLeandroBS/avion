@@ -1,6 +1,17 @@
-@use "../variables";
-@use "sass:map";
-@use "sass:math";
+@use '../variables';
+
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:meta';
+
+// Remove unit from a given value.
+@function strip-unit($value) {
+  @if (meta.type-of($value) == 'number' and not math.is-unitless($value)) {
+    @return math.div($value, $value * 0 + 1);
+  }
+
+  @return $value;
+}
 
 // Function for get colors and insert array colors
 @function css-color($color, $palette: variables.$colors) {
@@ -12,7 +23,7 @@
   @return map-get($arr, $fontWeight);
 }
 
-// PX to Rem transform function, value in function automatically entered as px and compiled to rem.
-@function rem($value) {
-  @return math.div($value, 16px) * 1rem;
+// Px to rem transform function, value in function automatically entered as px and compiled to rem.
+@function rem($value: 16px, $base: $font-size-base-px) {
+  @return math.div(strip-unit($value), strip-unit($base)) * 1rem;
 }
