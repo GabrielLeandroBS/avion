@@ -1,7 +1,7 @@
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
 
-export const useFilter = create(
+export const useCategoryFilter = create(
   persist(
     (set) => ({
       filterContent: [],

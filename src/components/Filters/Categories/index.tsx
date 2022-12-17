@@ -3,7 +3,7 @@ import { Popover, Whisper, Button as ButtonPopover } from 'rsuite';
 import { getCategories } from '../../../services/categories.service';
 import { FilterCategoriesProps } from '../../../types/filters/categories';
 
-import { useFilter } from '../../../hooks/useFilter';
+import { useCategoryFilter } from '../../../hooks/filters/useCategoryFilter';
 import { useFilterProps } from '../../../types/context';
 
 const FilterCategories: React.FC = () => {
@@ -14,11 +14,19 @@ const FilterCategories: React.FC = () => {
       },
     },
   ]);
+  const getFilter = useCategoryFilter(
+    (state: useFilterProps) => state.filterContent
+  );
+  const addFilter = useCategoryFilter(
+    (state: useFilterProps) => state.addFilter
+  );
+  const updateFilter = useCategoryFilter(
+    (state: useFilterProps) => state.updateFilter
+  );
+  const removeFilter = useCategoryFilter(
+    (state: useFilterProps) => state.removeFilter
+  );
 
-  const getFilter = useFilter((state: any) => state.filterContent);
-  const addFilter = useFilter((state: useFilterProps) => state.addFilter);
-  const updateFilter = useFilter((state: useFilterProps) => state.updateFilter);
-  const removeFilter = useFilter((state: useFilterProps) => state.removeFilter);
   const getFilterCategories = async () => {
     try {
       const { data } = await getCategories();
@@ -36,7 +44,7 @@ const FilterCategories: React.FC = () => {
 
   const handleAddingFilter = (category: string) => {
     const findFilter = getFilter.includes(category);
-    findFilter ? console.log('Não existe') : addFilter(category);
+    findFilter ? updateFilter(category) : addFilter(category);
   };
 
   const handleRemoveFilter = (category: string) => {
@@ -65,11 +73,9 @@ const FilterCategories: React.FC = () => {
                     id={attributes.category}
                     value={attributes.category}
                     onChange={(e) => {
-                      if (e.target.checked) {
-                        handleAddingFilter(attributes.category);
-                      } else {
-                        handleRemoveFilter(attributes.category);
-                      }
+                      e.target.checked
+                        ? handleAddingFilter(attributes.category)
+                        : handleRemoveFilter(attributes.category);
                     }}
                   />
                   {attributes.category}
