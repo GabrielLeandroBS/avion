@@ -23,22 +23,22 @@ export type UpdateInitialCartProps = {
 };
 
 export type RemoveCartInitialProps = {
-  quantity: number;
+  quantityOfItemsInCart: number;
   slug: string;
   price: number;
 };
 
-export type UpdateCartInitialStateProps = {
-  total: number;
-  cartContent: [];
-  quantity: number;
+export type InitialProps = {
+  totalOfItemsInCart: number;
+  itemsAllocatedInsideCart: [];
+  quantityOfItemsInCart: number;
   slug: string;
 };
 
 export type CartContentProps = {
   cartContent: [
     {
-      quantity: number;
+      quantityOfItemsInCart: number;
     }
   ];
 };

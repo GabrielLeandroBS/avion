@@ -53,6 +53,10 @@
     gap: functions.rem(24px);
   }
 
+  &__product > div {
+    width: 100%;
+  }
+
   &__price {
     display: none;
 

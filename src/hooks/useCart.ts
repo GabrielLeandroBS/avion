@@ -5,50 +5,55 @@ import {
   AddToCartInitialProps,
   CartContentProps,
   RemoveCartInitialProps,
-  UpdateCartInitialStateProps,
+  InitialProps,
   UpdateInitialCartProps,
 } from '../types/context/cart';
 
 export const useCart = create(
   persist(
     (set) => ({
-      total: 0,
-      quantity: 0,
-      cartContent: [],
+      totalOfItemsInCartOfItemsInCart: 0,
+      quantityOfItemsInCart: 0,
+      itemsAllocatedInsideCart: [],
 
-      addTocart: (params: AddToCartInitialProps) => {
-        set((state: UpdateCartInitialStateProps) => ({
-          quantity: state.quantity + 1,
-          total: state.total + parseFloat(params.price),
-          cartContent: [...state.cartContent, params],
+      addItemsIntoCart: (params: AddToCartInitialProps) => {
+        set((state: InitialProps) => ({
+          quantityOfItemsInCart: state.quantityOfItemsInCart + 1,
+          totalOfItemsInCart:
+            state.totalOfItemsInCart + parseFloat(params.price),
+          itemsAllocatedInsideCart: [...state.itemsAllocatedInsideCart, params],
         }));
       },
 
-      updateCart: (
+      UpdatingItemInsideTheCart: (
         params: UpdateInitialCartProps,
         getCart: CartContentProps
       ) => {
-        set((state: UpdateCartInitialStateProps) => ({
-          quantity: state.quantity + 1,
-          total: state.total + parseFloat(params.price),
-          cartContent: getCart,
+        set((state: InitialProps) => ({
+          quantityOfItemsInCart: state.quantityOfItemsInCart + 1,
+          totalOfItemsInCart:
+            state.totalOfItemsInCart + parseFloat(params.price),
+          itemsAllocatedInsideCart: getCart,
         }));
       },
 
-      removeFromCart: (params: RemoveCartInitialProps) =>
-        set((state: UpdateCartInitialStateProps) => ({
-          total: state.total - params.price * params.quantity,
-          quantity: state.quantity - params.quantity,
-          cartContent: state.cartContent.filter(
-            (item: UpdateCartInitialStateProps) => item.slug !== params.slug
+      removeCompleteItemFromCart: (params: RemoveCartInitialProps) =>
+        set((state: InitialProps) => ({
+          totalOfItemsInCart:
+            state.totalOfItemsInCart -
+            params.price * params.quantityOfItemsInCart,
+          quantityOfItemsInCart:
+            state.quantityOfItemsInCart - params.quantityOfItemsInCart,
+          itemsAllocatedInsideCart: state.itemsAllocatedInsideCart.filter(
+            (item: InitialProps) => item.slug !== params.slug
           ),
         })),
 
-      clearCart: () =>
+      RemoveAllItemsFromCart: () =>
         set({
-          total: 0,
-          quantity: 0,
-          cartContent: [],
+          totalOfItemsInCart: 0,
+          quantityOfItemsInCart: 0,
+          itemsAllocatedInsideCart: [],
         }),
     }),
     { name: 'cart' }

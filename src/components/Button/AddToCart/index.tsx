@@ -8,9 +8,11 @@ import { useCartProps } from '../../../types/context/cart';
 const ButtonAddToCart: React.FC<AddProductInCartProps> = ({
   product,
 }: AddProductInCartProps) => {
-  const getCart = useCart((state: useCartProps) => state.cartContent);
-  const addToCart = useCart((state: useCartProps) => state.addTocart);
-  const updateCart = useCart((state: useCartProps) => state.updateCart);
+  const getCart = useCart(
+    (state: useCartProps) => state.itemsAllocatedInsideCart
+  );
+  const addToCart = useCart((state: useCartProps) => state.addItemsIntoCart);
+  const updateCart = useCart((state: useCartProps) => state.UpdatingItemInsideTheCart);
 
   const handleCartProducts = ({
     slug,

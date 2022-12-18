@@ -19,9 +19,11 @@ const Baskets: React.FC = () => {
 
   const [disabled, setDisabled] = useState<boolean>(false);
 
-  const getProductsInCart = useCart((state: useCartProps) => state.cartContent);
+  const getProductsInCart = useCart(
+    (state: useCartProps) => state.itemsAllocatedInsideCart
+  );
   const removeProductInCart = useCart(
-    (state: useCartProps) => state.removeFromCart
+    (state: useCartProps) => state.removeCompleteItemFromCart
   );
 
   const handleRemoveProductInCart = ({
