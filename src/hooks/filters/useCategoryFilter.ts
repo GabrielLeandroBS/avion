@@ -6,22 +6,25 @@ import { useFilterProps } from '../../types/context/filters';
 export const useCategoryFilter = create(
   persist(
     (set) => ({
-      categoryfilterContent: [],
-      categoryRequestContent: [],
+      listOfCategoriesDeterminedByTheAdministrativePanel: [],
+      userSelectedCheckboxList: [],
 
       addCategoryFilter: (
         params: FilterCategoriesProps,
         search: FilterCategoriesProps
       ) => {
         set((state: useFilterProps) => ({
-          categoryfilterContent: [...state.categoryfilterContent, params],
-          categoryRequestContent: [...state.categoryRequestContent, search],
+          listOfCategoriesDeterminedByTheAdministrativePanel: [
+            ...state.listOfCategoriesDeterminedByTheAdministrativePanel,
+            params,
+          ],
+          userSelectedCheckboxList: [...state.userSelectedCheckboxList, search],
         }));
       },
 
-      updateCategoryFilter: (getFilter: FilterCategoriesProps) => {
+      updateCategoryFilter: (getFilterResult: FilterCategoriesProps) => {
         set(() => ({
-          categoryfilterContent: getFilter,
+          listOfCategoriesDeterminedByTheAdministrativePanel: getFilterResult,
         }));
       },
 
@@ -30,10 +33,11 @@ export const useCategoryFilter = create(
         search: FilterCategoriesProps
       ) =>
         set((state: useFilterProps) => ({
-          categoryfilterContent: state.categoryfilterContent.filter(
-            (item: FilterCategoriesProps) => item !== params
-          ),
-          categoryRequestContent: state.categoryRequestContent.filter(
+          listOfCategoriesDeterminedByTheAdministrativePanel:
+            state.listOfCategoriesDeterminedByTheAdministrativePanel.filter(
+              (item: FilterCategoriesProps) => item !== params
+            ),
+          userSelectedCheckboxList: state.userSelectedCheckboxList.filter(
             (item: FilterCategoriesProps) => item !== search
           ),
         })),

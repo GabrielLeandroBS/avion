@@ -18,30 +18,27 @@ const FilterCategories: React.FC = () => {
       },
     },
   ]);
-  const getFilter = useCategoryFilter(
-    (state: useFilterProps) => state.categoryfilterContent
+  const getFilterResult = useCategoryFilter(
+    (state: useFilterProps) =>
+      state.listOfCategoriesDeterminedByTheAdministrativePanel
   );
-  const requestContent = useCategoryFilter(
-    (state: useFilterProps) => state.categoryRequestContent
+  const getStateWithSelectedCheckbox = useCategoryFilter(
+    (state: useFilterProps) => state.userSelectedCheckboxList
   );
-  const addFilter = useCategoryFilter(
+  const AddFilterWithGlobalStateCategory = useCategoryFilter(
     (state: useFilterProps) => state.addCategoryFilter
   );
-  const updateFilter = useCategoryFilter(
+  const updateFilterWithGlobalStateCategory = useCategoryFilter(
     (state: useFilterProps) => state.updateCategoryFilter
   );
-  const removeFilter = useCategoryFilter(
+  const removeFilterWithGlobalStateCategory = useCategoryFilter(
     (state: useFilterProps) => state.removeCategoryFilter
   );
   const goToNavigate = useNavigate();
 
   const getFilterCategories = async () => {
-    try {
-      const { data } = await getCategories();
-      setCategories(data);
-    } catch {
-      alert('Não deu certo!');
-    }
+    const { data } = await getCategories();
+    setCategories(data);
   };
 
   useEffect(() => {
@@ -52,28 +49,33 @@ const FilterCategories: React.FC = () => {
 
   const handleFormatRequestParams = () => {
     const formatRequestParamsContent: FilterCategoriesStringProps =
-      requestContent.join('').replaceAll(/\?/g, '&');
+      getStateWithSelectedCheckbox.join('').replaceAll(/\?/g, '&');
+
     const formatRequestParamsSearch: FilterCategoriesStringProps =
       formatRequestParamsContent.replaceAll(/=/g, '');
+
     const getRequestParams = decodeURIComponent(formatRequestParamsSearch);
     console.log(getRequestParams);
   };
 
   const handleAddingFilter = (category: FilterCategoriesStringProps) => {
-    const findFilter = getFilter.includes(category);
+    const ValidateIfItemAlreadyExists = getFilterResult.includes(category);
     goToNavigate({
       pathname: '/products',
       search: `${createSearchParams({
         filters: `[categories][category][$in]=${category}`,
       })}`,
     });
-    const getUrlRequest = decodeURI(window.location.search);
-    findFilter ? updateFilter(getFilter) : addFilter(category, getUrlRequest);
+    const getSearchParametersFromUrl = decodeURI(window.location.search);
+
+    ValidateIfItemAlreadyExists
+      ? updateFilterWithGlobalStateCategory(getFilterResult)
+      : AddFilterWithGlobalStateCategory(category, getSearchParametersFromUrl);
   };
 
   const handleRemoveFilter = (category: FilterCategoriesStringProps) => {
-    const getUrlRequest = decodeURI(window.location.search);
-    removeFilter(category, getUrlRequest);
+    const getSearchParametersFromUrl = decodeURI(window.location.search);
+    removeFilterWithGlobalStateCategory(category, getSearchParametersFromUrl);
   };
 
   return (
