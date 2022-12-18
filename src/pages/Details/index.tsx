@@ -12,7 +12,6 @@ const Product: React.FC = () => {
     <Layout>
       <Details />
       <ProductsPopular />
-      {/* <Feature title={'What makes our brand different'} feature={features} /> */}
       <Subscribe />
       <Panel
         image="https://images.unsplash.com/photo-1603204077809-d94bb1ea0fad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"

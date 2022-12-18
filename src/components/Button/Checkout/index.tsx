@@ -52,9 +52,11 @@ const Checkout: React.FC<CheckoutButtonProps> = (
         draggable: true,
         progress: undefined,
         theme: 'light',
-        onClose: async () => await stripe.redirectToCheckout(checkoutOptions),
+        onClose: async () => {
+          setLoading(false);
+          await stripe.redirectToCheckout(checkoutOptions);
+        },
       });
-      setLoading(false);
     } catch (error) {
       toast.error(`Product not registered.`, {
         position: 'top-right',
@@ -66,7 +68,6 @@ const Checkout: React.FC<CheckoutButtonProps> = (
         progress: undefined,
         theme: 'light',
       });
-      setLoading(false);
     }
   };
 
