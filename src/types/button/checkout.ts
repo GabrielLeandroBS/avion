@@ -1,4 +1,4 @@
-export type CheckoutButtonItemsProps = {
+export type CheckoutButtonProps = {
   isDisabled: boolean;
   items: Array<{
     stripe: string;

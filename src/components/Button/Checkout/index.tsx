@@ -2,7 +2,7 @@ import { loadStripe, Stripe } from '@stripe/stripe-js';
 import { toast } from 'react-toastify';
 import React, { useState } from 'react';
 
-import { CheckoutButtonItemsProps } from '../../../types/button/checkout';
+import { CheckoutButtonProps } from '../../../types/button/checkout';
 import { checkoutOptionsProps } from '../../../types/checkout';
 import { VITE_STRIPE_KEY } from '../../../../global/constants';
 import { useStripeProps } from '../../../types/stripe';
@@ -16,15 +16,15 @@ const getStripe = () => {
   return stripePromise;
 };
 
-const Checkout: React.FC<CheckoutButtonItemsProps> = (
-  items: CheckoutButtonItemsProps
+const Checkout: React.FC<CheckoutButtonProps> = (
+  checkoutProps: CheckoutButtonProps
 ) => {
   const [loading, setLoading] = useState(false);
-
-  const checkout = items.items.map((item) => {
+  const { items } = checkoutProps;
+  const checkout = items.map((product) => {
     return {
-      price: item.stripe.toString(),
-      quantity: item.quantity,
+      price: product.stripe.toString(),
+      quantity: product.quantity,
     };
   });
 
@@ -43,7 +43,6 @@ const Checkout: React.FC<CheckoutButtonItemsProps> = (
     try {
       setLoading(true);
       const stripe: useStripeProps = await getStripe();
-      await stripe.redirectToCheckout(checkoutOptions);
       toast.info(`Product Added list, you will be redirected.`, {
         position: 'top-right',
         autoClose: 2000,
@@ -53,6 +52,7 @@ const Checkout: React.FC<CheckoutButtonItemsProps> = (
         draggable: true,
         progress: undefined,
         theme: 'light',
+        onClose: async () => await stripe.redirectToCheckout(checkoutOptions),
       });
       setLoading(false);
     } catch (error) {
@@ -74,7 +74,7 @@ const Checkout: React.FC<CheckoutButtonItemsProps> = (
     <button
       aria-label="checkout button"
       className={`c-button c-button--dark ${
-        items.isDisabled ? 'c-button--disabled' : ''
+        checkoutProps.isDisabled ? 'c-button--disabled' : ''
       } `}
       type="button"
       onClick={redirectToCheckout}
