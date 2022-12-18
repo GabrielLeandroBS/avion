@@ -1,9 +1,4 @@
-import {
-  useLocation,
-  createSearchParams,
-  useNavigate,
-  useAsyncError,
-} from 'react-router-dom';
+import { createSearchParams, useNavigate } from 'react-router-dom';
 import { Popover, Whisper, Button as ButtonPopover } from 'rsuite';
 import React, { useEffect, useState } from 'react';
 
@@ -53,8 +48,11 @@ const FilterCategories: React.FC = () => {
   }, []);
 
   const handleFilter = () => {
-    const formatRequestParams: string = requestContent.join('').replace(/\?/g, '&');
-    console.log(formatRequestParams);
+    const formatRequestParams: string = requestContent
+      .join('')
+      .replaceAll(/\?/g, '&')
+      .replaceAll(/=/g, '');
+    console.log(decodeURIComponent(formatRequestParams));
   };
 
   const handleAddingFilter = (category: string) => {
@@ -65,12 +63,12 @@ const FilterCategories: React.FC = () => {
         filters: `[categories][category][$in]=${category}`,
       })}`,
     });
-    const getUrlRequest = decodeURIComponent(window.location.search);
+    const getUrlRequest = decodeURI(window.location.search);
     findFilter ? updateFilter(category) : addFilter(category, getUrlRequest);
   };
 
   const handleRemoveFilter = (category: string) => {
-    const getUrlRequest = decodeURIComponent(window.location.search);
+    const getUrlRequest = decodeURI(window.location.search);
     removeFilter(category, getUrlRequest);
     console.log(`Remover ${category}`);
   };
