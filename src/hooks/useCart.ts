@@ -7,7 +7,7 @@ import {
   RemoveCartInitialProps,
   UpdateCartInitialStateProps,
   UpdateInitialCartProps,
-} from '../types/context';
+} from '../types/context/cart';
 
 export const useCart = create(
   persist(

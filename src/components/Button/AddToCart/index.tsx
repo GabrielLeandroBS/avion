@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 import { ProductInCartProps, AddProductInCartProps } from '../../../types/cart';
 import { useCart } from '../../../hooks/useCart';
-import { useCartProps } from '../../../types/context';
+import { useCartProps } from '../../../types/context/cart';
 
 const ButtonAddToCart: React.FC<AddProductInCartProps> = ({
   product,

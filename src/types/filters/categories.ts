@@ -5,3 +5,5 @@ export type FilterCategoriesProps = [
     };
   }
 ];
+
+export type FilterCategoriesStringProps =  string

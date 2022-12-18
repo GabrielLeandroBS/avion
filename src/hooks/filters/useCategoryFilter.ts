@@ -1,5 +1,9 @@
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
+import {
+  FilterCategoriesStringsProps,
+  useFilterProps,
+} from '../../types/context/filters/categories';
 
 export const useCategoryFilter = create(
   persist(
@@ -7,27 +11,32 @@ export const useCategoryFilter = create(
       categoryfilterContent: [],
       categoryRequestContent: [],
 
-      addCategoryFilter: (params: string[], search: string[]) => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        set((state: any) => ({
+      addCategoryFilter: (
+        params: FilterCategoriesStringsProps,
+        search: FilterCategoriesStringsProps
+      ) => {
+        set((state: useFilterProps) => ({
           categoryfilterContent: [...state.categoryfilterContent, params],
           categoryRequestContent: [...state.categoryRequestContent, search],
         }));
       },
 
-      updateCategoryFilter: (getFilter: string[]) => {
-        set((state: any) => ({
+      updateCategoryFilter: (getFilter: FilterCategoriesStringsProps) => {
+        set(() => ({
           categoryfilterContent: getFilter,
         }));
       },
 
-      removeCategoryFilter: (params: string[], search: string[]) =>
-        set((state: any) => ({
+      removeCategoryFilter: (
+        params: FilterCategoriesStringsProps,
+        search: FilterCategoriesStringsProps
+      ) =>
+        set((state: useFilterProps) => ({
           categoryfilterContent: state.categoryfilterContent.filter(
-            (item: string[]) => item !== params
+            (item: FilterCategoriesStringsProps) => item !== params
           ),
           categoryRequestContent: state.categoryRequestContent.filter(
-            (item: string[]) => item !== search
+            (item: FilterCategoriesStringsProps) => item !== search
           ),
         })),
     }),

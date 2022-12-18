@@ -9,7 +9,7 @@ import React, { useEffect, useState } from 'react';
 import { Layout } from '../../layout';
 import { ProductInCartProps, RemoveProductInCartProps } from '../../types/cart';
 import { useCart } from '../../hooks/useCart';
-import { useCartProps } from '../../types/context';
+import { useCartProps } from '../../types/context/cart';
 import Checkout from '../../components/Button/Checkout';
 import Dots from '../../assets/sprite-svg/dots.svg';
 import { Link } from 'react-router-dom';

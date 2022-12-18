@@ -3,9 +3,12 @@ import { Popover, Whisper, Button as ButtonPopover } from 'rsuite';
 import React, { useEffect, useState } from 'react';
 
 import { getCategories } from '../../../services/categories.service';
-import { FilterCategoriesProps } from '../../../types/filters/categories';
+import {
+  FilterCategoriesStringProps,
+  FilterCategoriesProps,
+} from '../../../types/filters/categories';
 import { useCategoryFilter } from '../../../hooks/filters/useCategoryFilter';
-import { useFilterProps } from '../../../types/context';
+import { useFilterProps } from '../../../types/context/filters/categories';
 
 const FilterCategories: React.FC = () => {
   const [categories, setCategories] = useState<FilterCategoriesProps>([
@@ -47,17 +50,16 @@ const FilterCategories: React.FC = () => {
     })();
   }, []);
 
-  const handleFilter = () => {
-    const formatRequestParamsContent: string = requestContent
-      .join('')
-      .replaceAll(/\?/g, '&');
-    const formatRequestParamsSearch: string =
+  const handleFormatRequestParams = () => {
+    const formatRequestParamsContent: FilterCategoriesStringProps =
+      requestContent.join('').replaceAll(/\?/g, '&');
+    const formatRequestParamsSearch: FilterCategoriesStringProps =
       formatRequestParamsContent.replaceAll(/=/g, '');
     const getRequestParams = decodeURIComponent(formatRequestParamsSearch);
     console.log(getRequestParams);
   };
 
-  const handleAddingFilter = (category: string) => {
+  const handleAddingFilter = (category: FilterCategoriesStringProps) => {
     const findFilter = getFilter.includes(category);
     goToNavigate({
       pathname: '/products',
@@ -66,13 +68,12 @@ const FilterCategories: React.FC = () => {
       })}`,
     });
     const getUrlRequest = decodeURI(window.location.search);
-    findFilter ? updateFilter(category) : addFilter(category, getUrlRequest);
+    findFilter ? updateFilter(getFilter) : addFilter(category, getUrlRequest);
   };
 
-  const handleRemoveFilter = (category: string) => {
+  const handleRemoveFilter = (category: FilterCategoriesStringProps) => {
     const getUrlRequest = decodeURI(window.location.search);
     removeFilter(category, getUrlRequest);
-    console.log(`Remover ${category}`);
   };
 
   return (
@@ -103,7 +104,7 @@ const FilterCategories: React.FC = () => {
                 </label>
               ))}
 
-              <button type="button" onClick={() => handleFilter()}>
+              <button type="button" onClick={() => handleFormatRequestParams()}>
                 Filter
               </button>
             </form>
