@@ -1,9 +1,7 @@
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
-import {
-  FilterCategoriesProps,
-  useFilterProps,
-} from '../../types/context/filters/categories';
+import { FilterCategoriesProps } from '../../types/context/filters/categories';
+import { useFilterProps } from '../../types/context/filters';
 
 export const useCategoryFilter = create(
   persist(
@@ -41,6 +39,6 @@ export const useCategoryFilter = create(
         })),
     }),
 
-    { name: 'Filters' }
+    { name: 'Filters Category' }
   )
 );

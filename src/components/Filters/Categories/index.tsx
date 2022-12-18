@@ -8,7 +8,7 @@ import {
   FilterCategoriesProps,
 } from '../../../types/filters/categories';
 import { useCategoryFilter } from '../../../hooks/filters/useCategoryFilter';
-import { useFilterProps } from '../../../types/context/filters/categories';
+import { useFilterProps } from '../../../types/context/filters';
 
 const FilterCategories: React.FC = () => {
   const [categories, setCategories] = useState<FilterCategoriesProps>([
