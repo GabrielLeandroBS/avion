@@ -74,7 +74,6 @@ const FilterCategories: React.FC = () => {
     const getSearchParametersFromUrl = decodeURIComponent(
       window.location.search
     );
-
     validateIfItemAlreadyExists
       ? updateFilterWithGlobalStateCategory(getFilterResult)
       : AddFilterWithGlobalStateCategory(category, getSearchParametersFromUrl);
