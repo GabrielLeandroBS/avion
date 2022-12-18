@@ -1,4 +1,9 @@
-import { useLocation, createSearchParams, useNavigate } from 'react-router-dom';
+import {
+  useLocation,
+  createSearchParams,
+  useNavigate,
+  useAsyncError,
+} from 'react-router-dom';
 import { Popover, Whisper, Button as ButtonPopover } from 'rsuite';
 import React, { useEffect, useState } from 'react';
 
@@ -30,7 +35,6 @@ const FilterCategories: React.FC = () => {
   const removeFilter = useCategoryFilter(
     (state: useFilterProps) => state.removeFilter
   );
-  const getParamsFromUrl = useLocation();
   const goToNavigate = useNavigate();
 
   const getFilterCategories = async () => {
@@ -48,25 +52,26 @@ const FilterCategories: React.FC = () => {
     })();
   }, []);
 
+  const handleFilter = () => {
+    const formatRequestParams: string = requestContent.join('').replace(/\?/g, '&');
+    console.log(formatRequestParams);
+  };
+
   const handleAddingFilter = (category: string) => {
     const findFilter = getFilter.includes(category);
-
     goToNavigate({
       pathname: '/products',
-      search: `?${createSearchParams({
+      search: `${createSearchParams({
         filters: `[categories][category][$in]=${category}`,
       })}`,
     });
-
-    const getUrlRequest = decodeURIComponent(getParamsFromUrl.search);
-
-
+    const getUrlRequest = decodeURIComponent(window.location.search);
     findFilter ? updateFilter(category) : addFilter(category, getUrlRequest);
-    console.log(requestContent);
   };
 
   const handleRemoveFilter = (category: string) => {
-    removeFilter(category);
+    const getUrlRequest = decodeURIComponent(window.location.search);
+    removeFilter(category, getUrlRequest);
     console.log(`Remover ${category}`);
   };
 
@@ -97,6 +102,10 @@ const FilterCategories: React.FC = () => {
                   {attributes.category}
                 </label>
               ))}
+
+              <button type="button" onClick={() => handleFilter()}>
+                Filter
+              </button>
             </form>
           </Popover>
         }

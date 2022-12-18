@@ -7,8 +7,7 @@ export const useCategoryFilter = create(
       filterContent: [],
       requestContent: [],
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      addFilter: (params: any, search: string[]) => {
+      addFilter: (params: string[], search: any[]) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         set((state: any) => ({
           filterContent: [...state.filterContent, params],
@@ -16,16 +15,19 @@ export const useCategoryFilter = create(
         }));
       },
 
-      updateFilter: (params: any, getFilter: any) => {
+      updateFilter: (params: string[], getFilter: string[]) => {
         set((state: any) => ({
           filterContent: getFilter,
         }));
       },
 
-      removeFilter: (params: any) =>
+      removeFilter: (params: string[], search: string[]) =>
         set((state: any) => ({
           filterContent: state.filterContent.filter(
-            (item: any) => item !== params
+            (item: string[]) => item !== params
+          ),
+          requestContent: state.requestContent.filter(
+            (item: string[]) => item !== search
           ),
         })),
     }),
