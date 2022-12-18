@@ -6,4 +6,4 @@ export type FilterCategoriesProps = [
   }
 ];
 
-export type FilterCategoriesStringProps =  string
+export type FilteringParametersForCategoryProps = string;

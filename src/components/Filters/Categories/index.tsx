@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 
 import { getCategories } from '../../../services/categories.service';
 import {
-  FilterCategoriesStringProps,
+  FilteringParametersForCategoryProps,
   FilterCategoriesProps,
 } from '../../../types/filters/categories';
 import { useCategoryFilter } from '../../../hooks/filters/useCategoryFilter';
@@ -48,33 +48,44 @@ const FilterCategories: React.FC = () => {
   }, []);
 
   const handleFormatRequestParams = () => {
-    const formatRequestParamsContent: FilterCategoriesStringProps =
+    const formattingQueryCharactersForConcatenation: FilteringParametersForCategoryProps =
       getStateWithSelectedCheckbox.join('').replaceAll(/\?/g, '&');
 
-    const formatRequestParamsSearch: FilterCategoriesStringProps =
-      formatRequestParamsContent.replaceAll(/=/g, '');
+    const formattingQueryCharactersSearch: FilteringParametersForCategoryProps =
+      formattingQueryCharactersForConcatenation.replaceAll(/=/g, '');
 
-    const getRequestParams = decodeURIComponent(formatRequestParamsSearch);
-    console.log(getRequestParams);
+    const getCompleteFilteringParameters = decodeURIComponent(
+      formattingQueryCharactersSearch
+    );
+    // After add in the filter global
+    console.log(getCompleteFilteringParameters);
   };
 
-  const handleAddingFilter = (category: FilterCategoriesStringProps) => {
-    const ValidateIfItemAlreadyExists = getFilterResult.includes(category);
+  const handleAddingFilter = (
+    category: FilteringParametersForCategoryProps
+  ) => {
+    const validateIfItemAlreadyExists = getFilterResult.includes(category);
     goToNavigate({
       pathname: '/products',
       search: `${createSearchParams({
         filters: `[categories][category][$in]=${category}`,
       })}`,
     });
-    const getSearchParametersFromUrl = decodeURI(window.location.search);
+    const getSearchParametersFromUrl = decodeURIComponent(
+      window.location.search
+    );
 
-    ValidateIfItemAlreadyExists
+    validateIfItemAlreadyExists
       ? updateFilterWithGlobalStateCategory(getFilterResult)
       : AddFilterWithGlobalStateCategory(category, getSearchParametersFromUrl);
   };
 
-  const handleRemoveFilter = (category: FilterCategoriesStringProps) => {
-    const getSearchParametersFromUrl = decodeURI(window.location.search);
+  const handleRemoveFilter = (
+    category: FilteringParametersForCategoryProps
+  ) => {
+    const getSearchParametersFromUrl = decodeURIComponent(
+      window.location.search
+    );
     removeFilterWithGlobalStateCategory(category, getSearchParametersFromUrl);
   };
 

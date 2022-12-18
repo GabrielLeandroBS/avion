@@ -14,7 +14,7 @@ const ButtonAddToCart: React.FC<AddProductInCartProps> = ({
   const addItemsIntoCart = useCart(
     (state: useCartProps) => state.addItemsIntoCart
   );
-  const UpdatingItemInsideTheCart = useCart(
+  const updatingItemInsideTheCart = useCart(
     (state: useCartProps) => state.UpdatingItemInsideTheCart
   );
 
@@ -34,7 +34,7 @@ const ButtonAddToCart: React.FC<AddProductInCartProps> = ({
     if (findProductAlreadyEntered !== -1) {
       getItemsAllocatedInsideTheCart[findProductAlreadyEntered].quantity =
         quantity;
-      UpdatingItemInsideTheCart(
+      updatingItemInsideTheCart(
         { slug, image, price, quantity, stripe, title, description },
         getItemsAllocatedInsideTheCart
       );
