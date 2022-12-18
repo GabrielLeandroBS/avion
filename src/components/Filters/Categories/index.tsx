@@ -68,7 +68,7 @@ const FilterCategories: React.FC = () => {
     goToNavigate({
       pathname: '/products',
       search: `${createSearchParams({
-        filters: `[categories][category][$in]=${category}`,
+        filters: window.btoa(`[categories][category][$in]=${category}`),
       })}`,
     });
     const getSearchParametersFromUrl = decodeURIComponent(
