@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useLocation, createSearchParams, useNavigate } from 'react-router-dom';
 import { Popover, Whisper, Button as ButtonPopover } from 'rsuite';
+import React, { useEffect, useState } from 'react';
+
 import { getCategories } from '../../../services/categories.service';
 import { FilterCategoriesProps } from '../../../types/filters/categories';
-
 import { useCategoryFilter } from '../../../hooks/filters/useCategoryFilter';
 import { useFilterProps } from '../../../types/context';
 
@@ -17,6 +18,9 @@ const FilterCategories: React.FC = () => {
   const getFilter = useCategoryFilter(
     (state: useFilterProps) => state.filterContent
   );
+  const requestContent = useCategoryFilter(
+    (state: useFilterProps) => state.requestContent
+  );
   const addFilter = useCategoryFilter(
     (state: useFilterProps) => state.addFilter
   );
@@ -26,6 +30,8 @@ const FilterCategories: React.FC = () => {
   const removeFilter = useCategoryFilter(
     (state: useFilterProps) => state.removeFilter
   );
+  const getParamsFromUrl = useLocation();
+  const goToNavigate = useNavigate();
 
   const getFilterCategories = async () => {
     try {
@@ -44,15 +50,25 @@ const FilterCategories: React.FC = () => {
 
   const handleAddingFilter = (category: string) => {
     const findFilter = getFilter.includes(category);
-    findFilter ? updateFilter(category) : addFilter(category);
+
+    goToNavigate({
+      pathname: '/products',
+      search: `?${createSearchParams({
+        filters: `[categories][category][$in]=${category}`,
+      })}`,
+    });
+
+    const getUrlRequest = decodeURIComponent(getParamsFromUrl.search);
+
+
+    findFilter ? updateFilter(category) : addFilter(category, getUrlRequest);
+    console.log(requestContent);
   };
 
   const handleRemoveFilter = (category: string) => {
     removeFilter(category);
     console.log(`Remover ${category}`);
   };
-
-  console.log(getFilter);
 
   return (
     <section className="c-categories">

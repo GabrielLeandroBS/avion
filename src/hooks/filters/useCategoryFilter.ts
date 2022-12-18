@@ -5,12 +5,14 @@ export const useCategoryFilter = create(
   persist(
     (set) => ({
       filterContent: [],
+      requestContent: [],
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      addFilter: (params: any) => {
+      addFilter: (params: any, search: string[]) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         set((state: any) => ({
           filterContent: [...state.filterContent, params],
+          requestContent: [...state.requestContent, search],
         }));
       },
 
@@ -22,7 +24,9 @@ export const useCategoryFilter = create(
 
       removeFilter: (params: any) =>
         set((state: any) => ({
-          filterContent: state.filterContent.filter((item: any) => item !== params),
+          filterContent: state.filterContent.filter(
+            (item: any) => item !== params
+          ),
         })),
     }),
 
