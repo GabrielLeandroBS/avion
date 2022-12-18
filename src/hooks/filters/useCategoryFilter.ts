@@ -1,7 +1,7 @@
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
 import {
-  FilterCategoriesStringsProps,
+  FilterCategoriesProps,
   useFilterProps,
 } from '../../types/context/filters/categories';
 
@@ -12,8 +12,8 @@ export const useCategoryFilter = create(
       categoryRequestContent: [],
 
       addCategoryFilter: (
-        params: FilterCategoriesStringsProps,
-        search: FilterCategoriesStringsProps
+        params: FilterCategoriesProps,
+        search: FilterCategoriesProps
       ) => {
         set((state: useFilterProps) => ({
           categoryfilterContent: [...state.categoryfilterContent, params],
@@ -21,22 +21,22 @@ export const useCategoryFilter = create(
         }));
       },
 
-      updateCategoryFilter: (getFilter: FilterCategoriesStringsProps) => {
+      updateCategoryFilter: (getFilter: FilterCategoriesProps) => {
         set(() => ({
           categoryfilterContent: getFilter,
         }));
       },
 
       removeCategoryFilter: (
-        params: FilterCategoriesStringsProps,
-        search: FilterCategoriesStringsProps
+        params: FilterCategoriesProps,
+        search: FilterCategoriesProps
       ) =>
         set((state: useFilterProps) => ({
           categoryfilterContent: state.categoryfilterContent.filter(
-            (item: FilterCategoriesStringsProps) => item !== params
+            (item: FilterCategoriesProps) => item !== params
           ),
           categoryRequestContent: state.categoryRequestContent.filter(
-            (item: FilterCategoriesStringsProps) => item !== search
+            (item: FilterCategoriesProps) => item !== search
           ),
         })),
     }),
