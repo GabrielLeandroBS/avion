@@ -16,19 +16,19 @@ const FilterCategories: React.FC = () => {
     },
   ]);
   const getFilter = useCategoryFilter(
-    (state: useFilterProps) => state.filterContent
+    (state: useFilterProps) => state.categoryfilterContent
   );
   const requestContent = useCategoryFilter(
-    (state: useFilterProps) => state.requestContent
+    (state: useFilterProps) => state.categoryRequestContent
   );
   const addFilter = useCategoryFilter(
-    (state: useFilterProps) => state.addFilter
+    (state: useFilterProps) => state.addCategoryFilter
   );
   const updateFilter = useCategoryFilter(
-    (state: useFilterProps) => state.updateFilter
+    (state: useFilterProps) => state.updateCategoryFilter
   );
   const removeFilter = useCategoryFilter(
-    (state: useFilterProps) => state.removeFilter
+    (state: useFilterProps) => state.removeCategoryFilter
   );
   const goToNavigate = useNavigate();
 
@@ -48,11 +48,13 @@ const FilterCategories: React.FC = () => {
   }, []);
 
   const handleFilter = () => {
-    const formatRequestParams: string = requestContent
+    const formatRequestParamsContent: string = requestContent
       .join('')
-      .replaceAll(/\?/g, '&')
-      .replaceAll(/=/g, '');
-    console.log(decodeURIComponent(formatRequestParams));
+      .replaceAll(/\?/g, '&');
+    const formatRequestParamsSearch: string =
+      formatRequestParamsContent.replaceAll(/=/g, '');
+    const getRequestParams = decodeURIComponent(formatRequestParamsSearch);
+    console.log(getRequestParams);
   };
 
   const handleAddingFilter = (category: string) => {

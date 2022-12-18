@@ -4,29 +4,29 @@ import { persist } from 'zustand/middleware';
 export const useCategoryFilter = create(
   persist(
     (set) => ({
-      filterContent: [],
-      requestContent: [],
+      categoryfilterContent: [],
+      categoryRequestContent: [],
 
-      addFilter: (params: string[], search: any[]) => {
+      addCategoryFilter: (params: string[], search: string[]) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         set((state: any) => ({
-          filterContent: [...state.filterContent, params],
-          requestContent: [...state.requestContent, search],
+          categoryfilterContent: [...state.categoryfilterContent, params],
+          categoryRequestContent: [...state.categoryRequestContent, search],
         }));
       },
 
-      updateFilter: (params: string[], getFilter: string[]) => {
+      updateCategoryFilter: (getFilter: string[]) => {
         set((state: any) => ({
-          filterContent: getFilter,
+          categoryfilterContent: getFilter,
         }));
       },
 
-      removeFilter: (params: string[], search: string[]) =>
+      removeCategoryFilter: (params: string[], search: string[]) =>
         set((state: any) => ({
-          filterContent: state.filterContent.filter(
+          categoryfilterContent: state.categoryfilterContent.filter(
             (item: string[]) => item !== params
           ),
-          requestContent: state.requestContent.filter(
+          categoryRequestContent: state.categoryRequestContent.filter(
             (item: string[]) => item !== search
           ),
         })),
