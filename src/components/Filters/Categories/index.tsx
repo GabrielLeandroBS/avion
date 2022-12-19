@@ -10,7 +10,6 @@ import {
 import { useCategoryFilter } from '../../../hooks/filters/useCategoryFilter';
 import { useFilterProps } from '../../../types/context/filters';
 import useEncrypted from '../../../hooks/useEncrypted';
-import useReplace from '../../../hooks/useReplace';
 
 const FilterCategories: React.FC = () => {
   const [categories, setCategories] = useState<FilterCategoriesProps>([
@@ -54,7 +53,7 @@ const FilterCategories: React.FC = () => {
       getStateWithSelectedCheckbox.join('').replaceAll(/\?/g, '&');
 
     const formattingQueryCharactersSearch: FilteringParametersForCategoryProps =
-      useReplace(formattingQueryCharactersForConcatenation, '=', '');
+      formattingQueryCharactersForConcatenation.replaceAll(/=/g, '');
 
     const getCompleteFilteringParameters = decodeURIComponent(
       formattingQueryCharactersSearch

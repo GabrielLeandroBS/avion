@@ -4,8 +4,14 @@
 .c-filters {
   &__container {
     @include mixins.center-block(functions.rem(1280px));
+    @include mixins.padding-x(auto);
+    @include mixins.padding-x(functions.rem(24px));
 
     column-gap: functions.rem(48px);
     width: 100%;
+
+    @include mixins.breakpoint('xl') {
+      @include mixins.padding-x(0);
+    }
   }
 }
