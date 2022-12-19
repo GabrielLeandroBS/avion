@@ -1,5 +1,5 @@
-@use '../abstracts/functions' as functions;
-@use '../abstracts/mixins' as mixins;
+@use "../abstracts/functions" as functions;
+@use "../abstracts/mixins" as mixins;
 
 .c-filters {
   &__container {
@@ -10,7 +10,7 @@
     column-gap: functions.rem(48px);
     width: 100%;
 
-    @include mixins.breakpoint('xl') {
+    @include mixins.breakpoint("xl") {
       @include mixins.padding-x(0);
     }
   }
