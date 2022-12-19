@@ -9,6 +9,8 @@ import {
 } from '../../../types/filters/categories';
 import { useCategoryFilter } from '../../../hooks/filters/useCategoryFilter';
 import { useFilterProps } from '../../../types/context/filters';
+import useEncrypted from '../../../hooks/useEncrypted';
+import useReplace from '../../../hooks/useReplace';
 
 const FilterCategories: React.FC = () => {
   const [categories, setCategories] = useState<FilterCategoriesProps>([
@@ -52,7 +54,7 @@ const FilterCategories: React.FC = () => {
       getStateWithSelectedCheckbox.join('').replaceAll(/\?/g, '&');
 
     const formattingQueryCharactersSearch: FilteringParametersForCategoryProps =
-      formattingQueryCharactersForConcatenation.replaceAll(/=/g, '');
+      useReplace(formattingQueryCharactersForConcatenation, '=', '');
 
     const getCompleteFilteringParameters = decodeURIComponent(
       formattingQueryCharactersSearch
@@ -68,7 +70,7 @@ const FilterCategories: React.FC = () => {
     goToNavigate({
       pathname: '/products',
       search: `${createSearchParams({
-        filters: window.btoa(`[categories][category][$in]=${category}`),
+        filters: useEncrypted(`[categories][category][$in]=${category}`),
       })}`,
     });
     const getSearchParametersFromUrl = decodeURIComponent(
