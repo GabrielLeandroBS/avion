@@ -69,7 +69,7 @@ const FilterCategories: React.FC = () => {
     goToNavigate({
       pathname: '/products',
       search: `${createSearchParams({
-        filters: useEncrypted(`[categories][category][$in]=${category}`),
+        filters: decodeURIComponent(`[categories][category][$in]=${category}`),
       })}`,
     });
     const getSearchParametersFromUrl = decodeURIComponent(
