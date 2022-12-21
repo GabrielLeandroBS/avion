@@ -58,7 +58,9 @@ const FilterCategories: React.FC = () => {
   }, []);
 
   const handleFormatRequestParams = () => {
-    const getSelectedCheckbox = getStateWithSelectedCheckbox.filter((element: string, index: number, self: string) =>  index === self.indexOf(element)) ;
+    const getSelectedCheckbox = getStateWithSelectedCheckbox.filter((element: string, index: number, self: string) =>  index === self.indexOf(element));
+
+    getStateWithSelectedCheckbox.
     // getSelectedCheckbox.replaceAll(/%3D/g, 'teste')
     // const formattingQueryCharactersForConcatenation: FilteringParametersForCategoryProps =
     //   getSelectedCheckbox.join('').replaceAll(/\?/g, '&');
