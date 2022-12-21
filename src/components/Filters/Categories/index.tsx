@@ -58,9 +58,18 @@ const FilterCategories: React.FC = () => {
   }, []);
 
   const handleFormatRequestParams = () => {
-    const getSelectedCheckbox = getStateWithSelectedCheckbox.filter((element: string, index: number, self: string) =>  index === self.indexOf(element));
+    const getSelectedCheckbox = getStateWithSelectedCheckbox.filter(
+      (element: string, index: number, self: string) =>
+        index === self.indexOf(element)
+    );
 
-    getStateWithSelectedCheckbox.
+    const getFiltered = getFilterResult.map((item) => {
+      getSelectedCheckbox.map((word) => {
+        const validateHasCategory = word.replace(/%3D/g, ' ');
+        console.log(validateHasCategory.includes(item));
+      });
+    });
+
     // getSelectedCheckbox.replaceAll(/%3D/g, 'teste')
     // const formattingQueryCharactersForConcatenation: FilteringParametersForCategoryProps =
     //   getSelectedCheckbox.join('').replaceAll(/\?/g, '&');
@@ -81,7 +90,7 @@ const FilterCategories: React.FC = () => {
     // });
 
     // getFilteredProducts(getCompleteFilteringParameters);
-    console.log(getFilterResult, getSelectedCheckbox, getSelectedCheckbox.indexOf("Table"));
+    console.log(getFilterResult, getFiltered);
   };
 
   const handleAddingFilter = (
