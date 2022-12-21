@@ -1,4 +1,4 @@
-export type buttonProps = {
+export type LinkButtonProps = {
   title: string;
   href: string;
   color?: string;

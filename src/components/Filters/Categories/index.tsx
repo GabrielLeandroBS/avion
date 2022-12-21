@@ -9,7 +9,7 @@ import {
 } from '../../../types/filters/categories';
 import { useCategoryFilter } from '../../../hooks/filters/useCategoryFilter';
 import { useFilterProps } from '../../../types/context/filters';
-import useEncrypted from '../../../hooks/useEncrypted';
+import ButtonFilter from '../../Button/Filter';
 
 const FilterCategories: React.FC = () => {
   const [categories, setCategories] = useState<FilterCategoriesProps>([
@@ -55,11 +55,8 @@ const FilterCategories: React.FC = () => {
     const formattingQueryCharactersSearch: FilteringParametersForCategoryProps =
       formattingQueryCharactersForConcatenation.replaceAll(/=/g, '');
 
-    const formattingQueryCharactersSelectedCheckbox: FilteringParametersForCategoryProps =
-      formattingQueryCharactersSearch.replace('equal', '=');
-
     const getCompleteFilteringParameters = decodeURIComponent(
-      formattingQueryCharactersSelectedCheckbox
+      formattingQueryCharactersSearch
     );
     // After add in the filter global
     console.log(getCompleteFilteringParameters);
@@ -72,13 +69,11 @@ const FilterCategories: React.FC = () => {
     goToNavigate({
       pathname: '/products',
       search: `${createSearchParams({
-        filters: `[categories][category][$in]equal${category}`,
+        filters: `[categories][category][$in]=${category}`,
       })}`,
     });
 
-    const setDecodeAllUrlWithSearchParams = decodeURIComponent(
-      window.location.search
-    );
+    const setDecodeAllUrlWithSearchParams = window.location.search;
 
     validateIfItemAlreadyExists
       ? updateFilterWithGlobalStateCategory(getFilterResult)
@@ -124,10 +119,7 @@ const FilterCategories: React.FC = () => {
                   {attributes.category}
                 </label>
               ))}
-
-              <button type="button" onClick={() => handleFormatRequestParams()}>
-                Filter
-              </button>
+              <ButtonFilter filterButtonProps={handleFormatRequestParams} />
             </form>
           </Popover>
         }
