@@ -10,6 +10,7 @@ import {
 import { useCategoryFilter } from '../../../hooks/filters/useCategoryFilter';
 import { useFilterProps } from '../../../types/context/filters';
 import ButtonFilter from '../../Button/Filter';
+import { getProductsFilteredByCategories } from '../../../services/filter.service';
 
 const FilterCategories: React.FC = () => {
   const [categories, setCategories] = useState<FilterCategoriesProps>([
@@ -19,6 +20,7 @@ const FilterCategories: React.FC = () => {
       },
     },
   ]);
+  const [searchParams, setSearchParams] = useState('');
   const getFilterResult = useCategoryFilter(
     (state: useFilterProps) =>
       state.listOfCategoriesDeterminedByTheAdministrativePanel
@@ -42,6 +44,13 @@ const FilterCategories: React.FC = () => {
     setCategories(data);
   };
 
+  const getFilteredProducts = async (
+    params: FilteringParametersForCategoryProps
+  ) => {
+    const { data } = await getProductsFilteredByCategories(params);
+    console.log(data);
+  };
+
   useEffect(() => {
     (async () => {
       await getFilterCategories();
@@ -49,17 +58,28 @@ const FilterCategories: React.FC = () => {
   }, []);
 
   const handleFormatRequestParams = () => {
-    const formattingQueryCharactersForConcatenation: FilteringParametersForCategoryProps =
-      getStateWithSelectedCheckbox.join('').replaceAll(/\?/g, '&');
+    const getSelectedCheckbox = getStateWithSelectedCheckbox.filter((element: string, index: number, self: string) =>  index === self.indexOf(element)) ;
+    // getSelectedCheckbox.replaceAll(/%3D/g, 'teste')
+    // const formattingQueryCharactersForConcatenation: FilteringParametersForCategoryProps =
+    //   getSelectedCheckbox.join('').replaceAll(/\?/g, '&');
 
-    const formattingQueryCharactersSearch: FilteringParametersForCategoryProps =
-      formattingQueryCharactersForConcatenation.replaceAll(/=/g, '');
+    // const formattingQueryCharactersSearch: FilteringParametersForCategoryProps =
+    //   formattingQueryCharactersForConcatenation.replaceAll(/=/g, '');
 
-    const getCompleteFilteringParameters = decodeURIComponent(
-      formattingQueryCharactersSearch
-    );
+    // const getCompleteFilteringParameters = decodeURIComponent(
+    //   formattingQueryCharactersSearch
+    // );
     // After add in the filter global
-    console.log(getCompleteFilteringParameters);
+
+    // const result = getFilterResult.filter(function (element) {
+    //   // const validateIfItemAlreadyExistsFprCheckbox =
+    //     // getSelectedCheckbox.includes(searchParams);
+
+    //   console.log(getSelectedCheckbox, getSelectedCheckbox.includes(element));
+    // });
+
+    // getFilteredProducts(getCompleteFilteringParameters);
+    console.log(getFilterResult, getSelectedCheckbox, getSelectedCheckbox.indexOf("Table"));
   };
 
   const handleAddingFilter = (
@@ -73,14 +93,12 @@ const FilterCategories: React.FC = () => {
       })}`,
     });
 
-    const setDecodeAllUrlWithSearchParams = window.location.search;
+    const setAllUrlWithSearchParams = window.location.search;
+    setSearchParams(setAllUrlWithSearchParams);
 
     validateIfItemAlreadyExists
       ? updateFilterWithGlobalStateCategory(getFilterResult)
-      : AddFilterWithGlobalStateCategory(
-          category,
-          setDecodeAllUrlWithSearchParams
-        );
+      : AddFilterWithGlobalStateCategory(category, setAllUrlWithSearchParams);
   };
 
   const handleRemoveFilter = (
@@ -89,6 +107,7 @@ const FilterCategories: React.FC = () => {
     const getSearchParametersFromUrl = decodeURIComponent(
       window.location.search
     );
+
     removeFilterWithGlobalStateCategory(category, getSearchParametersFromUrl);
   };
 
