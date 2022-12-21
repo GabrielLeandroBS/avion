@@ -55,8 +55,11 @@ const FilterCategories: React.FC = () => {
     const formattingQueryCharactersSearch: FilteringParametersForCategoryProps =
       formattingQueryCharactersForConcatenation.replaceAll(/=/g, '');
 
+    const formattingQueryCharactersSelectedCheckbox: FilteringParametersForCategoryProps =
+      formattingQueryCharactersSearch.replace('equal', '=');
+
     const getCompleteFilteringParameters = decodeURIComponent(
-      formattingQueryCharactersSearch
+      formattingQueryCharactersSelectedCheckbox
     );
     // After add in the filter global
     console.log(getCompleteFilteringParameters);
@@ -69,15 +72,20 @@ const FilterCategories: React.FC = () => {
     goToNavigate({
       pathname: '/products',
       search: `${createSearchParams({
-        filters: decodeURIComponent(`[categories][category][$in]=${category}`),
+        filters: `[categories][category][$in]equal${category}`,
       })}`,
     });
-    const getSearchParametersFromUrl = decodeURIComponent(
+
+    const setDecodeAllUrlWithSearchParams = decodeURIComponent(
       window.location.search
     );
+
     validateIfItemAlreadyExists
       ? updateFilterWithGlobalStateCategory(getFilterResult)
-      : AddFilterWithGlobalStateCategory(category, getSearchParametersFromUrl);
+      : AddFilterWithGlobalStateCategory(
+          category,
+          setDecodeAllUrlWithSearchParams
+        );
   };
 
   const handleRemoveFilter = (
