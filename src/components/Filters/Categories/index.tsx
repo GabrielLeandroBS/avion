@@ -76,8 +76,19 @@ const FilterCategories: React.FC = () => {
   };
 
   const handleRequestParams = ( )=> {
-    
+    const formattingQueryCharactersForConcatenation: FilteringParametersForCategoryProps =
+      getStateWithSelectedCheckbox.join('').replaceAll(/\?/g, '&');
+
+    const formattingQueryCharactersSearch: FilteringParametersForCategoryProps =
+      formattingQueryCharactersForConcatenation.replaceAll(/=/g, '');
+
+    const getCompleteFilteringParameters = decodeURIComponent(
+      formattingQueryCharactersSearch
+    );
+    // After add in the filter global and insert new request for categories /******* */
+    console.log(getCompleteFilteringParameters);
   }
+
   useEffect(() => {
     (async () => {
       await getFilterCategories();
@@ -113,7 +124,7 @@ const FilterCategories: React.FC = () => {
                   {attributes.category}
                 </label>
               ))}
-              {/* <ButtonFilter filterButtonProps={handleFormatRequestParams} /> */}
+              <ButtonFilter filterButtonProps={handleRequestParams} />
             </form>
           </Popover>
         }
