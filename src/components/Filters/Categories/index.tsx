@@ -21,6 +21,7 @@ const FilterCategories: React.FC = () => {
     },
   ]);
   const [searchParams, setSearchParams] = useState('');
+
   const getFilterResult = useCategoryFilter(
     (state: useFilterProps) =>
       state.listOfCategoriesDeterminedByTheAdministrativePanel
@@ -48,6 +49,7 @@ const FilterCategories: React.FC = () => {
     category: FilteringParametersForCategoryProps
   ) => {
     const validateIfItemAlreadyExists = getFilterResult.includes(category);
+
     goToNavigate({
       pathname: '/products',
       search: `${createSearchParams({
@@ -55,7 +57,7 @@ const FilterCategories: React.FC = () => {
       })}`,
     });
 
-    const setAllUrlWithSearchParams = window.location.search;
+    const setAllUrlWithSearchParams = decodeURIComponent(window.location.search);
     setSearchParams(setAllUrlWithSearchParams);
 
     validateIfItemAlreadyExists
@@ -73,17 +75,16 @@ const FilterCategories: React.FC = () => {
     removeFilterWithGlobalStateCategory(category, getSearchParametersFromUrl);
   };
 
-  const handleFormatRequestParams = () => {
-    console.log("")
+  const handleRequestParams = ( )=> {
+    
   }
-
   useEffect(() => {
     (async () => {
       await getFilterCategories();
     })();
   }, []);
 
-  console.log(categories)
+  console.log(getStateWithSelectedCheckbox);
 
   return (
     <section className="c-categories">
@@ -112,7 +113,7 @@ const FilterCategories: React.FC = () => {
                   {attributes.category}
                 </label>
               ))}
-              <ButtonFilter filterButtonProps={handleFormatRequestParams} />
+              {/* <ButtonFilter filterButtonProps={handleFormatRequestParams} /> */}
             </form>
           </Popover>
         }
