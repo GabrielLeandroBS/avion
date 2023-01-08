@@ -44,55 +44,6 @@ const FilterCategories: React.FC = () => {
     setCategories(data);
   };
 
-  const getFilteredProducts = async (
-    params: FilteringParametersForCategoryProps
-  ) => {
-    const { data } = await getProductsFilteredByCategories(params);
-    console.log(data);
-  };
-
-  useEffect(() => {
-    (async () => {
-      await getFilterCategories();
-    })();
-  }, []);
-
-  const handleFormatRequestParams = () => {
-    const getSelectedCheckbox = getStateWithSelectedCheckbox.filter(
-      (element: string, index: number, self: string) =>
-        index === self.indexOf(element)
-    );
-
-    const getFiltered = getFilterResult.map((item) => {
-      getSelectedCheckbox.map((word) => {
-        const validateHasCategory = word.replace(/%3D/g, ' ');
-        console.log(validateHasCategory.includes(item));
-      });
-    });
-
-    // getSelectedCheckbox.replaceAll(/%3D/g, 'teste')
-    // const formattingQueryCharactersForConcatenation: FilteringParametersForCategoryProps =
-    //   getSelectedCheckbox.join('').replaceAll(/\?/g, '&');
-
-    // const formattingQueryCharactersSearch: FilteringParametersForCategoryProps =
-    //   formattingQueryCharactersForConcatenation.replaceAll(/=/g, '');
-
-    // const getCompleteFilteringParameters = decodeURIComponent(
-    //   formattingQueryCharactersSearch
-    // );
-    // After add in the filter global
-
-    // const result = getFilterResult.filter(function (element) {
-    //   // const validateIfItemAlreadyExistsFprCheckbox =
-    //     // getSelectedCheckbox.includes(searchParams);
-
-    //   console.log(getSelectedCheckbox, getSelectedCheckbox.includes(element));
-    // });
-
-    // getFilteredProducts(getCompleteFilteringParameters);
-    console.log(getFilterResult, getFiltered);
-  };
-
   const handleAddingFilter = (
     category: FilteringParametersForCategoryProps
   ) => {
@@ -121,6 +72,18 @@ const FilterCategories: React.FC = () => {
 
     removeFilterWithGlobalStateCategory(category, getSearchParametersFromUrl);
   };
+
+  const handleFormatRequestParams = () => {
+    console.log("")
+  }
+
+  useEffect(() => {
+    (async () => {
+      await getFilterCategories();
+    })();
+  }, []);
+
+  console.log(categories)
 
   return (
     <section className="c-categories">
