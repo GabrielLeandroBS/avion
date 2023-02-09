@@ -95,7 +95,7 @@ const FilterCategories: React.FC = () => {
     })();
   }, []);
 
-  console.log(getStateWithSelectedCheckbox);
+  console.log(categories);
 
   return (
     <section className="c-categories">
