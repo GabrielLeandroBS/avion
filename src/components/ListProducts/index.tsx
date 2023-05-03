@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getProducts } from '../../services/products.service';
 import { ProductsListProps } from '../../types/products';
-import CardProduct from '../Card/Product';
+import CardProduct from '../card';
 
 const ListProducts: React.FC = () => {
   const [loading, setLoading] = useState(true);

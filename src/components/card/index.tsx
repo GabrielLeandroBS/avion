@@ -5,7 +5,7 @@ import { NumericFormat } from 'react-number-format';
 import React from 'react';
 import Skeleton from 'react-loading-skeleton';
 
-import { CardProductProps } from '../../../types/card/product';
+import { CardProductProps } from '../../types/card/product';
 
 const CardProduct: React.FC<CardProductProps> = ({
   title,

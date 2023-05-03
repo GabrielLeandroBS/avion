@@ -1,5 +1,5 @@
 import React from 'react';
-import FilterCategories from './Categories';
+import FilterCategories from './categories';
 
 const Filters: React.FC = () => {
   return (

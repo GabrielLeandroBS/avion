@@ -3,8 +3,8 @@ import Skeleton from 'react-loading-skeleton';
 
 import { getPage } from '../../../../services/page.service';
 import { highlightedProps } from '../../../../types/highlighted';
-import ButtonLink from '../../../Button/Link';
-import CardProduct from '../../../Card/Product';
+import ButtonLink from '../../../button/link';
+import CardProduct from '../../../card';
 
 const ProductsHighlighted: React.FC = () => {
   const [loading, setLoading] = useState(true);

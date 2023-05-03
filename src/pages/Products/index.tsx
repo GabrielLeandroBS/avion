@@ -1,6 +1,6 @@
 import { Layout } from '../../layout';
-import Filters from '../../components/Filters';
-import ListProducts from '../../components/ListProducts';
+import Filters from '../../components/filters';
+import ListProducts from '../../components/listProducts';
 import React from 'react';
 
 const Products: React.FC = () => {

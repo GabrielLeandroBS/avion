@@ -10,7 +10,7 @@ import { Layout } from '../../layout';
 import { ProductInCartProps, RemoveProductInCartProps } from '../../types/cart';
 import { useCart } from '../../hooks/useCart';
 import { useCartProps } from '../../types/context/cart';
-import Checkout from '../../components/Button/Checkout';
+import Checkout from '../../components/button/checkout';
 import Dots from '../../assets/sprite-svg/dots.svg';
 import { Link } from 'react-router-dom';
 

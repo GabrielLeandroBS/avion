@@ -3,8 +3,8 @@ import Skeleton from 'react-loading-skeleton';
 
 import { getPage } from '../../../../services/page.service';
 import { popularProps } from '../../../../types/popular';
-import ButtonLink from '../../../Button/Link';
-import CardProduct from '../../../Card/Product';
+import ButtonLink from '../../../button/link';
+import CardProduct from '../../../card';
 
 const ProductsPopular: React.FC = () => {
   const [loading, setLoading] = useState(true);

@@ -1,10 +1,10 @@
 import React from 'react';
 
-import ProductsPopular from '../../components/Home/Products/Popular';
-import Panel from '../../components/Panel';
-import Details from '../../components/Details';
-import SignUp from '../../components/Input/SignUp';
-import Subscribe from '../../components/Subscribe';
+import ProductsPopular from '../../components/Home/products/popular';
+import Panel from '../../components/panel';
+import Details from '../../components/details';
+import SignUp from '../../components/Input/signUp';
+import Subscribe from '../../components/subscribe';
 import { Layout } from '../../layout';
 
 const Product: React.FC = () => {

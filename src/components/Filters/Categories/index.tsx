@@ -9,7 +9,7 @@ import {
 } from '../../../types/filters/categories';
 import { useCategoryFilter } from '../../../hooks/filters/useCategoryFilter';
 import { useFilterProps } from '../../../types/context/filters';
-import ButtonFilter from '../../Button/Filter';
+import ButtonFilter from '../../button/filter';
 import { getProductsFilteredByCategories } from '../../../services/filter.service';
 
 const FilterCategories: React.FC = () => {
