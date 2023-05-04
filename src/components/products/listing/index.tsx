@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { getProducts } from '../../services/products.service';
-import { ProductsListProps } from '../../types/products';
-import CardProduct from '../card';
+import React, { useEffect, useState } from "react";
+import { getProducts } from "../../../services/products.service";
+import { ProductsListProps } from "../../../types/products";
+import CardProduct from "../../card";
 
-const ListProducts: React.FC = () => {
+const ListingProducts: React.FC = () => {
   const [loading, setLoading] = useState(true);
-  const [listProducts, setListProducts] = useState<ProductsListProps>([
+  const [ListingProducts, setListingProducts] = useState<ProductsListProps>([
     {
       attributes: {
-        price: '',
-        slug: '',
-        stripe: '',
-        title: '',
-        description: '',
+        price: "",
+        slug: "",
+        stripe: "",
+        title: "",
+        description: "",
         image: {
           data: {
             [0]: {
               attributes: {
-                url: '/',
+                url: "/",
               },
             },
           },
@@ -26,10 +26,10 @@ const ListProducts: React.FC = () => {
     },
   ]);
 
-  const getListProducts = async () => {
+  const getListingProducts = async () => {
     try {
       const data = await getProducts();
-      setListProducts(data.data);
+      setListingProducts(data.data);
     } finally {
       setLoading(false);
     }
@@ -37,7 +37,7 @@ const ListProducts: React.FC = () => {
 
   useEffect(() => {
     (async () => {
-      await getListProducts();
+      await getListingProducts();
     })();
   }, []);
 
@@ -51,9 +51,9 @@ const ListProducts: React.FC = () => {
                 isLoading={true}
               />
             ))
-          : ''}
+          : ""}
         {!loading &&
-          listProducts.map(({ attributes }) => (
+          ListingProducts.map(({ attributes }) => (
             <CardProduct
               key={`list-products-${attributes.title}`}
               image={attributes.image.data[0].attributes.url}
@@ -68,4 +68,4 @@ const ListProducts: React.FC = () => {
   );
 };
 
-export default ListProducts;
+export default ListingProducts;
