@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ProductsPopular from '../../components/Home/products/popular';
+import ProductsPopular from '../../components/products/popular';
 import Panel from '../../components/panel';
 import Details from '../../components/details';
 import SignUp from '../../components/Input/signUp';

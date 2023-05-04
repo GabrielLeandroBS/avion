@@ -2,8 +2,8 @@ import React from 'react';
 
 import Button from '../../components/button/link';
 import Hero from '../../components/hero';
-import ProductsHighlighted from '../../components/Home/products/highlighted';
-import ProductsPopular from '../../components/Home/products/popular';
+import ProductsHighlighted from '../../components/products/highlighted';
+import ProductsPopular from '../../components/products/popular';
 import Panel from '../../components/panel';
 import Subscribe from '../../components/subscribe';
 import { Layout } from '../../layout';

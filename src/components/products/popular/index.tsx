@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 
-import { getPage } from '../../../../services/page.service';
-import { popularProps } from '../../../../types/popular';
-import ButtonLink from '../../../button/link';
-import CardProduct from '../../../card';
+import { getPage } from '../../../services/page.service';
+import { popularProps } from '../../../types/popular';
+import ButtonLink from '../../button/link';
+import CardProduct from '../../card';
 
 const ProductsPopular: React.FC = () => {
   const [loading, setLoading] = useState(true);
@@ -61,7 +61,7 @@ const ProductsPopular: React.FC = () => {
       </h2>
       <div className="c-products__wrapper c-products__wrapper--columns">
         {loading
-          ? Array.from({ length: 3 }, (item = length, index) => (
+          ? Array.from({ length: 3 }, (item, index) => (
               <CardProduct key={`popular-${item}-${index}`} isLoading={true} />
             ))
           : ''}
