@@ -1,0 +1,11 @@
+# Configuração para dependabot
+version: 1
+updates:
+  - package-ecossistema:
+      # Exemplo de como atualizar todos os pacotes da organização ou grupo
+      directory: "/"
+      schedule:
+        interval: "daily"
+      package-ecossistema:
+        # Defina o gerenciador de pacotes que você está usando
+        ecosystem: "yarn"
