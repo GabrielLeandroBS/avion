@@ -3,7 +3,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import NumberPicker from 'react-widgets/NumberPicker';
 import React, { useEffect, useState } from 'react';
 
-import Button from '../button/link';
+import ButtonLink from '../button/link';
 import { getDetails } from '../../services/details.service';
 import { useParams } from 'react-router-dom';
 import { DetailsItemProps, DetailsInitalStateProps } from '../../types/details';
@@ -118,7 +118,7 @@ const Details: React.FC = () => {
                 />
               )}
             </div>
-            <Button
+            <ButtonLink
               title={'Go to Cart'}
               href={'/baskets'}
               color={'white'}
