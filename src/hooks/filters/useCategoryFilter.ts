@@ -43,6 +43,6 @@ export const useCategoryFilter = create(
         })),
     }),
 
-    { name: 'Filters Category' }
+    { name: 'Filter Category' }
   )
 );
