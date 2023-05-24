@@ -1,7 +1,7 @@
 import React from 'react';
 
-import logo from '../../assets/sprite-svg/avion.svg';
 import { linksFooter } from '../../utils/linksFooter';
+import logo from '../../assets/sprite-svg/avion.svg';
 
 const Footer: React.FC = () => {
   return (
