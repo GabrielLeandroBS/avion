@@ -10,7 +10,7 @@ import {
 import { useCategoryFilter } from '../../../hooks/filters/useCategoryFilter';
 import { useFilterProps } from '../../../types/context/filters';
 import ButtonFilter from '../../button/filter';
-import { getProductsFilteredByCategories } from '../../../services/filter.service';
+// import { getProductsFilteredByCategories } from '../../../services/filter.service';
 
 const FilterCategories: React.FC = () => {
   const [categories, setCategories] = useState<FilterCategoriesProps>([
@@ -20,7 +20,7 @@ const FilterCategories: React.FC = () => {
       },
     },
   ]);
-  const [searchParams, setSearchParams] = useState('');
+  // const [searchParams, setSearchParams] = useState('');
 
   const getFilterResult = useCategoryFilter(
     (state: useFilterProps) =>
@@ -58,7 +58,7 @@ const FilterCategories: React.FC = () => {
     });
 
     const setAllUrlWithSearchParams = decodeURIComponent(window.location.search);
-    setSearchParams(setAllUrlWithSearchParams);
+    // setSearchParams(setAllUrlWithSearchParams);
 
     validateIfItemAlreadyExists
       ? updateFilterWithGlobalStateCategory(getFilterResult)
