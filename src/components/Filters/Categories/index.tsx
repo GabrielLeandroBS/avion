@@ -38,6 +38,7 @@ const FilterCategories: React.FC = () => {
   const removeFilterWithGlobalStateCategory = useCategoryFilter(
     (state: useFilterProps) => state.removeCategoryFilter
   );
+  
   const goToNavigate = useNavigate();
 
   const getFilterCategories = async () => {
