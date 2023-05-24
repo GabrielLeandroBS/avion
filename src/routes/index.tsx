@@ -1,11 +1,11 @@
 import { Route, Routes as Switch } from 'react-router-dom';
 import React from 'react';
 
-import Home from '../pages/Home';
-import Details from '../pages/Details';
+import Home from '../pages/home';
+import Details from '../pages/details';
 import ScrollToTop from '../utils/ScrollToTop';
-import Baskets from '../pages/Baskets';
-import Products from '../pages/Products';
+import Baskets from '../pages/baskets';
+import Products from '../pages/products';
 
 const Routes: React.FC = () => {
   return (

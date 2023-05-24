@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SignUp from '../Input/SignUp';
+import SignUp from '../Input/signUp';
 
 const Subscribe: React.FC = () => {
   return (

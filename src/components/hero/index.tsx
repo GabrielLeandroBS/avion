@@ -1,7 +1,7 @@
 import React from 'react';
 
-import ButtonLink from '../../Button/Link';
-import background from '../../../assets/background.jpeg';
+import ButtonLink from '../button/link';
+import background from '../../assets/background.jpeg';
 
 const Hero: React.FC = () => {
   return (

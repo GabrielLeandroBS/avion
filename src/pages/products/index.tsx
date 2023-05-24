@@ -1,6 +1,6 @@
 import { Layout } from '../../layout';
-import Filters from '../../components/Filters';
-import ListProducts from '../../components/ListProducts';
+import Filters from '../../components/filters';
+import ListingProducts from '../../components/products/listing';
 import React from 'react';
 
 const Products: React.FC = () => {
@@ -9,7 +9,7 @@ const Products: React.FC = () => {
       <section>
         <h1 className="p-products__title">View all Products</h1>
         <Filters />
-        <ListProducts />
+        <ListingProducts />
       </section>
     </Layout>
   );
