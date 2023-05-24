@@ -3,12 +3,12 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import NumberPicker from 'react-widgets/NumberPicker';
 import React, { useEffect, useState } from 'react';
 
-import ButtonLink from '../button/link';
-import { getDetails } from '../../services/details.service';
-import { useParams } from 'react-router-dom';
 import { DetailsItemProps, DetailsInitalStateProps } from '../../types/details';
+import { getDetails } from '../../services/details.service';
 import { NumericFormat } from 'react-number-format';
+import { useParams } from 'react-router-dom';
 import ButtonAddToCart from '../button/addToCart';
+import ButtonLink from '../button/link';
 import Skeleton from 'react-loading-skeleton';
 
 const Details: React.FC = () => {
