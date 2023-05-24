@@ -1,8 +1,6 @@
 import { createSearchParams, useNavigate } from "react-router-dom";
 import { Popover, Whisper, Button as ButtonPopover } from "rsuite";
 import React, { useEffect, useState } from "react";
-import  { useRef } from "react";
-
 
 import { getCategories } from "../../../services/categories.service";
 import {
@@ -13,7 +11,7 @@ import { useCategoryFilter } from "../../../hooks/filters/useCategoryFilter";
 import { useFilterProps } from "../../../types/context/filters";
 
 import ButtonFilter from "../../button/filter";
-import { getProductsFilteredByCategories } from '../../../services/filter.service';
+// import { getProductsFilteredByCategories } from '../../../services/filter.service';
 
 
 const FilterCategories: React.FC = () => {
@@ -45,8 +43,8 @@ const FilterCategories: React.FC = () => {
       },
     },
   ]);
-  
-  const [searchParams, setSearchParams] = useState('');
+
+  // const [searchParams, setSearchParams] = useState('');
 
   const goToNavigate = useNavigate();
 
@@ -70,7 +68,7 @@ const FilterCategories: React.FC = () => {
     const setAllUrlWithSearchParams = decodeURIComponent(
       window.location.search
     );
-    setSearchParams(setAllUrlWithSearchParams);
+    // setSearchParams(setAllUrlWithSearchParams);
 
     validateIfItemAlreadyExists
       ? updateFilterWithGlobalStateCategory(getFilterResult)
