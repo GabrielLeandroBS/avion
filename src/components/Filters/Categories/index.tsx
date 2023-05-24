@@ -38,7 +38,7 @@ const FilterCategories: React.FC = () => {
   const removeFilterWithGlobalStateCategory = useCategoryFilter(
     (state: useFilterProps) => state.removeCategoryFilter
   );
-  
+
   const goToNavigate = useNavigate();
 
   const getFilterCategories = async () => {
@@ -86,6 +86,7 @@ const FilterCategories: React.FC = () => {
     const getCompleteFilteringParameters = decodeURIComponent(
       formattingQueryCharactersSearch
     );
+    
     // After add in the filter global and insert new request for categories /******* */
     console.log(getCompleteFilteringParameters);
   }
