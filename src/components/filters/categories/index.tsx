@@ -1,149 +1,123 @@
-import { createSearchParams, useNavigate } from "react-router-dom";
-import { Popover, Whisper, Button as ButtonPopover } from "rsuite";
-import React, { useEffect, useState } from "react";
+import { createSearchParams, useNavigate } from 'react-router-dom'
+import { Popover, Whisper, Button as ButtonPopover } from 'rsuite'
+import React, { useEffect, useState } from 'react'
 
-import { getCategories } from "../../../services/categories.service";
-import {
-  FilteringParametersForCategoryProps,
-  FilterCategoriesProps,
-} from "../../../types/filters/categories";
-import { useCategoryFilter } from "../../../hooks/filters/useCategoryFilter";
-import { useFilterProps } from "../../../types/context/filters";
+import { getCategories } from '../../../services/categories.service'
+import { FilteringParametersForCategoryProps, FilterCategoriesProps } from '../../../types/filters/categories'
+import { useCategoryFilter } from '../../../hooks/filters/useCategoryFilter'
+import { useFilterProps } from '../../../types/context/filters'
 
-import ButtonFilter from "../../button/filter";
+import ButtonFilter from '../../button/filter'
 // import { getProductsFilteredByCategories } from '../../../services/filter.service';
 
-
 const FilterCategories: React.FC = () => {
-  const getFilterResult = useCategoryFilter(
-    (state: useFilterProps) =>
-      state.listOfCategoriesDeterminedByTheAdministrativePanel
-  );
-  
-  const getStateWithSelectedCheckbox = useCategoryFilter(
-    (state: useFilterProps) => state.userSelectedCheckboxList
-  );
-  
-  const AddFilterWithGlobalStateCategory = useCategoryFilter(
-    (state: useFilterProps) => state.addCategoryFilter
-  );
-  
-  const updateFilterWithGlobalStateCategory = useCategoryFilter(
-    (state: useFilterProps) => state.updateCategoryFilter
-  );
-  
-  const removeFilterWithGlobalStateCategory = useCategoryFilter(
-    (state: useFilterProps) => state.removeCategoryFilter
-  );
+	const getFilterResult = useCategoryFilter(
+		(state: useFilterProps) => state.listOfCategoriesDeterminedByTheAdministrativePanel,
+	)
 
-  const [categories, setCategories] = useState<FilterCategoriesProps>([
-    {
-      attributes: {
-        category: "",
-      },
-    },
-  ]);
+	const getStateWithSelectedCheckbox = useCategoryFilter((state: useFilterProps) => state.userSelectedCheckboxList)
 
-  // const [searchParams, setSearchParams] = useState('');
+	const AddFilterWithGlobalStateCategory = useCategoryFilter((state: useFilterProps) => state.addCategoryFilter)
 
-  const goToNavigate = useNavigate();
+	const updateFilterWithGlobalStateCategory = useCategoryFilter((state: useFilterProps) => state.updateCategoryFilter)
 
-  const getFilterCategories = async () => {
-    const { data } = await getCategories();
-    setCategories(data);
-  };
+	const removeFilterWithGlobalStateCategory = useCategoryFilter((state: useFilterProps) => state.removeCategoryFilter)
 
-  const handleAddingFilter = (
-    category: FilteringParametersForCategoryProps
-  ) => {
-    const validateIfItemAlreadyExists = getFilterResult.includes(category);
+	const [categories, setCategories] = useState<FilterCategoriesProps>([
+		{
+			attributes: {
+				category: '',
+			},
+		},
+	])
 
-    goToNavigate({
-      pathname: "/products",
-      search: `${createSearchParams({
-        filters: `[categories][category][$in]=${category}`,
-      })}`,
-    });
+	// const [searchParams, setSearchParams] = useState('');
 
-    const setAllUrlWithSearchParams = decodeURIComponent(
-      window.location.search
-    );
-    // setSearchParams(setAllUrlWithSearchParams);
+	const goToNavigate = useNavigate()
 
-    validateIfItemAlreadyExists
-      ? updateFilterWithGlobalStateCategory(getFilterResult)
-      : AddFilterWithGlobalStateCategory(category, setAllUrlWithSearchParams);
-  };
+	const getFilterCategories = async () => {
+		const { data } = await getCategories()
+		setCategories(data)
+	}
 
-  const handleRemoveFilter = (
-    category: FilteringParametersForCategoryProps
-  ) => {
-    const getSearchParametersFromUrl = decodeURIComponent(
-      window.location.search
-    );
+	const handleAddingFilter = (category: FilteringParametersForCategoryProps) => {
+		const validateIfItemAlreadyExists = getFilterResult.includes(category)
 
-    removeFilterWithGlobalStateCategory(category, getSearchParametersFromUrl);
-  };
+		goToNavigate({
+			pathname: '/products',
+			search: `${createSearchParams({
+				filters: `[categories][category][$in]=${category}`,
+			})}`,
+		})
 
-  const handleRequestParams = () => {
-    const formattingQueryCharactersForConcatenation: FilteringParametersForCategoryProps =
-      getStateWithSelectedCheckbox.join("").replaceAll(/\?/g, "&");
+		const setAllUrlWithSearchParams = decodeURIComponent(window.location.search)
+		// setSearchParams(setAllUrlWithSearchParams);
 
-    const formattingQueryCharactersSearch: FilteringParametersForCategoryProps =
-      formattingQueryCharactersForConcatenation.replaceAll(/=/g, "");
+		validateIfItemAlreadyExists
+			? updateFilterWithGlobalStateCategory(getFilterResult)
+			: AddFilterWithGlobalStateCategory(category, setAllUrlWithSearchParams)
+	}
 
-    const getCompleteFilteringParameters = decodeURIComponent(
-      formattingQueryCharactersSearch
-    );
+	const handleRemoveFilter = (category: FilteringParametersForCategoryProps) => {
+		const getSearchParametersFromUrl = decodeURIComponent(window.location.search)
 
-    // After add in the filter global and insert new request for categories /******* */
-    console.log(getCompleteFilteringParameters);
-  };
+		removeFilterWithGlobalStateCategory(category, getSearchParametersFromUrl)
+	}
 
-  useEffect(() => {
-    (async () => {
-      await getFilterCategories();
-    })();
-  }, []);
+	const handleRequestParams = () => {
+		const formattingQueryCharactersForConcatenation: FilteringParametersForCategoryProps = getStateWithSelectedCheckbox
+			.join('')
+			.replaceAll(/\?/g, '&')
 
-  console.log(categories);
+		const formattingQueryCharactersSearch: FilteringParametersForCategoryProps =
+			formattingQueryCharactersForConcatenation.replaceAll(/=/g, '')
 
-  return (
-    <section className="c-categories">
-      <Whisper
-        placement="bottomStart"
-        trigger="click"
-        speaker={
-          <Popover arrow={true}>
-            <form>
-              {categories.map(({ attributes }) => (
-                <label
-                  key={attributes.category}
-                  className="c-categories__label"
-                  htmlFor={attributes.category}
-                >
-                  <input
-                    type="checkbox"
-                    id={attributes.category}
-                    value={attributes.category}
-                    onChange={(e) => {
-                      e.target.checked
-                        ? handleAddingFilter(attributes.category)
-                        : handleRemoveFilter(attributes.category);
-                    }}
-                  />
-                  {attributes.category}
-                </label>
-              ))}
-              <ButtonFilter filterButtonProps={handleRequestParams} />
-            </form>
-          </Popover>
-        }
-      >
-        <ButtonPopover>Categories</ButtonPopover>
-      </Whisper>
-    </section>
-  );
-};
+		const getCompleteFilteringParameters = decodeURIComponent(formattingQueryCharactersSearch)
 
-export default FilterCategories;
+		// After add in the filter global and insert new request for categories /******* */
+		console.log(getCompleteFilteringParameters)
+	}
+
+	useEffect(() => {
+		;(async () => {
+			await getFilterCategories()
+		})()
+	}, [])
+
+	console.log(categories)
+
+	return (
+		<section className='c-categories'>
+			<Whisper
+				placement='bottomStart'
+				trigger='click'
+				speaker={
+					<Popover arrow={true}>
+						<form>
+							{categories.map(({ attributes }) => (
+								<label key={attributes.category} className='c-categories__label' htmlFor={attributes.category}>
+									<input
+										type='checkbox'
+										id={attributes.category}
+										value={attributes.category}
+										onChange={(e) => {
+											e.target.checked
+												? handleAddingFilter(attributes.category)
+												: handleRemoveFilter(attributes.category)
+										}}
+									/>
+									{attributes.category}
+								</label>
+							))}
+							<ButtonFilter filterButtonProps={handleRequestParams} />
+						</form>
+					</Popover>
+				}
+			>
+				<ButtonPopover>Categories</ButtonPopover>
+			</Whisper>
+		</section>
+	)
+}
+
+export default FilterCategories

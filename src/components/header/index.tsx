@@ -1,26 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-import logo from '../../assets/sprite-svg/logo.svg';
-import cart from '../../assets/sprite-svg/cart.svg';
+import logo from '../../assets/sprite-svg/logo.svg'
+import cart from '../../assets/sprite-svg/cart.svg'
 
 const Header: React.FC = () => {
-  return (
-    <header className="c-header">
-      <Link to={`/`}>
-      <figure>
-        <img src={logo} alt="Logo" />
-      </figure>
+	return (
+		<header className='c-header'>
+			<Link to={`/`}>
+				<figure>
+					<img src={logo} alt='Logo' />
+				</figure>
+			</Link>
 
-      </Link>
-    
-      <Link to={`/baskets`}>
-        <figure>
-          <img src={cart} alt="Logo" />
-        </figure>
-      </Link>
-    </header>
-  );
-};
+			<Link to={`/baskets`}>
+				<figure>
+					<img src={cart} alt='Logo' />
+				</figure>
+			</Link>
+		</header>
+	)
+}
 
-export default Header;
+export default Header
