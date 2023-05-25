@@ -2,6 +2,23 @@
   "extends": "stylelint-config-standard-scss",
   "rules": {
     "scss/dollar-variable-pattern": "",
-    "scss/selector-no-redundant-nesting-selector": true
-  }
+    "scss/selector-no-redundant-nesting-selector": true,
+    "prettier/prettier": [
+      true,
+      {
+        "semi": false,
+        "trailingComma": "all",
+        "bracketSpacing": true,
+        "jsxBracketSameLine": false,
+        "printWidth": 120,
+        "tabWidth": 2,
+        "useTabs": true,
+        "endOfLine": "auto",
+        "htmlWhitespaceSensitivity": "css",
+        "jsxSingleQuote": true,
+        "arrowParens": "always"
+      }
+    ]
+  },
+  "plugins": ["stylelint-prettier"]
 }

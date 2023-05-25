@@ -28,7 +28,7 @@
       grid-template-columns: repeat(5, 1fr);
       margin-bottom: functions.rem(32px);
 
-      >div:first-of-type {
+      > div:first-of-type {
         grid-area: 1 / 1 / 2 / 4;
       }
     }

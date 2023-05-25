@@ -1,28 +1,25 @@
-@use '../abstracts/functions' as functions;
-@use '../abstracts/mixins' as mixins;
+@use "../abstracts/functions" as functions;
+@use "../abstracts/mixins" as mixins;
 
 .c-button {
   @include mixins.display-flex(center, center);
 
-  background: functions.css-color('tertiary');
+  background: functions.css-color("tertiary");
   border: unset;
   cursor: pointer;
   width: 100%;
 
-  @include mixins.breakpoint('md') {
+  @include mixins.breakpoint("md") {
     width: max-content;
     min-width: functions.rem(169.13px);
   }
 
   a,
   span {
-    @include mixins.font-size-line-height(
-      functions.rem(16px),
-      functions.rem(24px)
-    );
+    @include mixins.font-size-line-height(functions.rem(16px), functions.rem(24px));
 
-    color: functions.css-color('primary');
-    font-weight: functions.css-weight('thin');
+    color: functions.css-color("primary");
+    font-weight: functions.css-weight("thin");
     padding: functions.rem(16px) functions.rem(32px);
     text-decoration: none;
     width: 100%;
@@ -31,30 +28,27 @@
   &--smaller {
     a,
     span {
-      @include mixins.font-size-line-height(
-        functions.rem(12px),
-        functions.rem(20px)
-      );
+      @include mixins.font-size-line-height(functions.rem(12px), functions.rem(20px));
 
       padding: functions.rem(10px) functions.rem(20px);
     }
   }
 
   &--dark {
-    background: functions.css-color('primary');
+    background: functions.css-color("primary");
 
     a,
     span {
-      color: functions.css-color('white');
+      color: functions.css-color("white");
     }
   }
 
   &--white {
-    background: functions.css-color('white');
+    background: functions.css-color("white");
 
     a,
     span {
-      color: functions.css-color('secondary');
+      color: functions.css-color("secondary");
     }
   }
 
