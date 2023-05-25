@@ -1,34 +1,34 @@
-import 'react-lazy-load-image-component/src/effects/blur.css';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import NumberPicker from 'react-widgets/NumberPicker';
-import React, { useEffect, useState } from 'react';
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import NumberPicker from "react-widgets/NumberPicker";
+import React, { useEffect, useState } from "react";
 
-import { DetailsItemProps, DetailsInitalStateProps } from '../../types/details';
-import { getDetails } from '../../services/details.service';
-import { NumericFormat } from 'react-number-format';
-import { useParams } from 'react-router-dom';
-import ButtonAddToCart from '../button/addToCart';
-import ButtonLink from '../button/link';
-import Skeleton from 'react-loading-skeleton';
+import { DetailsItemProps, DetailsInitalStateProps } from "../../types/details";
+import { getDetails } from "../../services/details.service";
+import { NumericFormat } from "react-number-format";
+import { useParams } from "react-router-dom";
+import ButtonAddToCart from "../button/addToCart";
+import ButtonLink from "../button/link";
+import Skeleton from "react-loading-skeleton";
 
 const Details: React.FC = () => {
   const [details, setDetails] = useState<DetailsInitalStateProps>({
-    description: '',
+    description: "",
     price: 0,
-    publishedAt: '',
-    slug: '',
-    title: '',
+    publishedAt: "",
+    slug: "",
+    title: "",
     quantity: 1,
     image: {
       data: {
         [0]: {
           attributes: {
-            url: '',
+            url: "",
           },
         },
       },
     },
-    stripe: '',
+    stripe: "",
   });
   const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
@@ -57,7 +57,7 @@ const Details: React.FC = () => {
       <div className="c-details__container">
         <figure className="c-details__figure">
           {loading ? (
-            <Skeleton height={'100%'} width={'100%'} />
+            <Skeleton height={"100%"} width={"100%"} />
           ) : (
             <LazyLoadImage
               alt="product image"
@@ -75,12 +75,16 @@ const Details: React.FC = () => {
             {loading ? (
               <Skeleton height={40} width={100} />
             ) : (
-              <NumericFormat
-                value={details.price.toFixed(2)}
-                displayType={'text'}
-                thousandSeparator={true}
-                prefix={'US$ '}
-              />
+              <>
+                <label hidden htmlFor="quantity">Preço:</label>
+                <NumericFormat
+                  id="quantity"
+                  value={details.price.toFixed(2)}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  prefix={"US$ "}
+                />
+              </>
             )}
           </p>
           <div>
@@ -119,9 +123,9 @@ const Details: React.FC = () => {
               )}
             </div>
             <ButtonLink
-              title={'Go to Cart'}
-              href={'/baskets'}
-              color={'white'}
+              title={"Go to Cart"}
+              href={"/baskets"}
+              color={"white"}
               isLoading={loading}
             />
           </div>

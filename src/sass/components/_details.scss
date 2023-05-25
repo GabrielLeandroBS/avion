@@ -56,28 +56,19 @@
   }
 
   &__title {
-    @include mixins.font-size-line-height(
-      functions.rem(24px),
-      functions.rem(34px)
-    );
+    @include mixins.font-size-line-height(functions.rem(24px), functions.rem(34px));
 
     color: functions.css-color("primary");
     font-weight: functions.css-weight("thin");
     margin-bottom: functions.rem(16px);
 
     @include mixins.breakpoint("md") {
-      @include mixins.font-size-line-height(
-        functions.rem(35px),
-        functions.rem(44px)
-      );
+      @include mixins.font-size-line-height(functions.rem(35px), functions.rem(44px));
     }
   }
 
   &__price {
-    @include mixins.font-size-line-height(
-      functions.rem(20px),
-      functions.rem(28px)
-    );
+    @include mixins.font-size-line-height(functions.rem(20px), functions.rem(28px));
 
     border-bottom: functions.rem(1px) solid functions.css-color("quartenary");
     color: functions.css-color("primary");
@@ -86,18 +77,12 @@
     padding-bottom: functions.rem(16px);
 
     @include mixins.breakpoint("md") {
-      @include mixins.font-size-line-height(
-        functions.rem(24px),
-        functions.rem(32px)
-      );
+      @include mixins.font-size-line-height(functions.rem(24px), functions.rem(32px));
     }
   }
 
   &__subtitle {
-    @include mixins.font-size-line-height(
-      functions.rem(16px),
-      functions.rem(24px)
-    );
+    @include mixins.font-size-line-height(functions.rem(16px), functions.rem(24px));
 
     color: functions.css-color("primary");
     font-weight: functions.css-weight("thin");
@@ -105,10 +90,7 @@
   }
 
   &__description {
-    @include mixins.font-size-line-height(
-      functions.rem(14px),
-      functions.rem(22px)
-    );
+    @include mixins.font-size-line-height(functions.rem(14px), functions.rem(22px));
 
     color: functions.css-color("primary");
     font-weight: functions.css-weight("thin");
@@ -131,16 +113,10 @@
     p {
       font-weight: functions.css-weight("thin");
 
-      @include mixins.font-size-line-height(
-        functions.rem(14px),
-        functions.rem(22px)
-      );
+      @include mixins.font-size-line-height(functions.rem(14px), functions.rem(22px));
 
       @include mixins.breakpoint("md") {
-        @include mixins.font-size-line-height(
-          functions.rem(16px),
-          functions.rem(24px)
-        );
+        @include mixins.font-size-line-height(functions.rem(16px), functions.rem(24px));
       }
     }
   }
@@ -149,10 +125,7 @@
     &__subtitle {
       font-weight: functions.css-weight("thin");
 
-      @include mixins.font-size-line-height(
-        functions.rem(14px),
-        functions.rem(22px)
-      );
+      @include mixins.font-size-line-height(functions.rem(14px), functions.rem(22px));
     }
   }
 

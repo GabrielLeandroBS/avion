@@ -134,7 +134,7 @@
 @mixin background-support {
   position: relative;
 
-  >.container {
+  > .container {
     position: relative;
   }
 }

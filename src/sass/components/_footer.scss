@@ -71,8 +71,7 @@
 
     a,
     p {
-      @include mixins.font-size-line-height(functions.rem(14px),
-      functions.rem(22px));
+      @include mixins.font-size-line-height(functions.rem(14px), functions.rem(22px));
 
       color: functions.css-color("white");
       text-decoration: none;
