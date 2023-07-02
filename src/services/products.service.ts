@@ -1,7 +1,7 @@
-import { Api } from './api.service';
+import { Api } from './api.service'
 
 export const getProducts = async () => {
-  const { data } = await Api.get('/products?populate=deep');
+	const { data } = await Api.get('/products?populate=deep')
 
-  return data;
-};
+	return data
+}
