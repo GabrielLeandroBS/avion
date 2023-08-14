@@ -11,7 +11,7 @@
     "lint:stylelint": "stylelint --ignore-path .gitignore **/*.scss --fix"
   },
   "dependencies": {
-    "@stripe/react-stripe-js": "^1.13.0",
+    "@stripe/react-stripe-js": "^2.1.2",
     "@stripe/stripe-js": "^1.52.1",
     "axios": "^1.4.0",
     "framer-motion": "^10.12.12",
