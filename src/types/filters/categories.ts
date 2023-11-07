@@ -1,9 +1,9 @@
 export type FilterCategoriesProps = [
-  {
-    attributes: {
-      category: string;
-    };
-  }
-];
+	{
+		attributes: {
+			category: string
+		}
+	},
+]
 
-export type FilteringParametersForCategoryProps = string;
+export type FilteringParametersForCategoryProps = string

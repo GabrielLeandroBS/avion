@@ -1,3 +1,3 @@
 export type PageProps = {
-  page: string;
-};
+	page: string
+}
